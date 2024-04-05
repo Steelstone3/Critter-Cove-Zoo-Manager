@@ -3,7 +3,7 @@ use bevy::prelude::{App, Plugin};
 pub struct RunningPlugin;
 
 impl Plugin for RunningPlugin {
-    fn build(&self, app: &mut App) {
+    fn build(&self, _app: &mut App) {
         // app.add_systems(Update, spawn_alien)
         //     .add_systems(Update, spawn_alien_laser)
         //     .add_systems(Update, alien_laser_movement)

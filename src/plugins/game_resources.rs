@@ -3,7 +3,7 @@ use bevy::prelude::{App, Plugin};
 pub struct ResourcesPlugin;
 
 impl Plugin for ResourcesPlugin {
-    fn build(&self, app: &mut App) {
+    fn build(&self, _app: &mut App) {
         // app.insert_resource(WindowSize::default())
         //     .insert_resource(Points::default())
         //     .insert_resource(LaserAmmunition(10.0))
