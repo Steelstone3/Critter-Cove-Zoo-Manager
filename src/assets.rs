@@ -1,2 +1,2 @@
-pub mod sounds;
 pub mod images;
+pub mod sounds;

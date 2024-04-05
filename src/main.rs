@@ -3,11 +3,11 @@ use plugins::{
     events::EventsPlugin, resources::ResourcesPlugin, running::RunningPlugin, start::StartPlugin,
 };
 
+mod assets;
 mod components;
 mod plugins;
 mod resources;
 mod systems;
-mod assets;
 
 fn main() {
     App::new()
