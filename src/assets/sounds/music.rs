@@ -1,7 +1,7 @@
 use std::fmt::Display;
 
 #[allow(dead_code)]
-pub enum Music {
+pub enum GameMusic {
     Dessert,
     Grassland,
     Jungle,
@@ -9,22 +9,22 @@ pub enum Music {
     Ocean,
 }
 
-impl Display for Music {
+impl Display for GameMusic {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Music::Dessert => {
+            GameMusic::Dessert => {
                 write!(f, "sounds/music/dessert_biome.ogg")
             }
-            Music::Grassland => {
+            GameMusic::Grassland => {
                 write!(f, "sounds/music/grassland_biome.ogg")
             }
-            Music::Jungle => {
+            GameMusic::Jungle => {
                 write!(f, "sounds/music/jungle_biome.ogg")
             }
-            Music::Mountain => {
+            GameMusic::Mountain => {
                 write!(f, "sounds/music/mountain_biome.ogg")
             }
-            Music::Ocean => {
+            GameMusic::Ocean => {
                 write!(f, "sounds/music/ocean_biome.ogg")
             }
         }
