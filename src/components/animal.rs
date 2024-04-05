@@ -4,7 +4,7 @@ use bevy::{ecs::component::Component, math::Vec2};
 
 #[derive(Component)]
 pub struct Animal {
-    pub source: ZooAnimal,
+    pub sprite_path: ZooAnimal,
     pub frame_timing: f32,
     pub frame_count: usize,
     pub size: Vec2,
@@ -13,7 +13,7 @@ pub struct Animal {
 impl Animal {
     pub fn new_boar() -> Self {
         Self {
-            source: ZooAnimal::Boar,
+            sprite_path: ZooAnimal::Boar,
             frame_timing: 0.1,
             frame_count: 4,
             size: Vec2 {

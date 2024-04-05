@@ -16,7 +16,7 @@ pub fn spawn_boar(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpri
         tile_size: TILE_SIZE / 2.0,
         tile_columns: 4,
         spawn_sprite_event: SpawnSpriteEvent {
-            sprite_path: animal.source.to_string(),
+            sprite_path: animal.sprite_path.to_string(),
             size: animal.size,
             transform: Transform {
                 translation: Vec3::new(0.0, 0.0, 1.0),
