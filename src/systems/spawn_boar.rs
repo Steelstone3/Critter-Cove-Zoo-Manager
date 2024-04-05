@@ -1,7 +1,7 @@
 use bevy::{ecs::event::EventWriter, math::Vec3, transform::components::Transform};
 
 use crate::{
-    components::{animal::Animal, constants::TILE_SIZE},
+    components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
@@ -12,9 +12,9 @@ pub fn spawn_boar(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpri
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
         frame_timing: 0.25,
-        frame_count: 4,
-        tile_size: TILE_SIZE / 2.0,
-        tile_columns: 4,
+        frame_count: animal.frame_count,
+        tile_size: animal.tile_size,
+        tile_columns: animal.frame_count,
         spawn_sprite_event: SpawnSpriteEvent {
             sprite_path: animal.sprite_path.to_string(),
             size: animal.size,
