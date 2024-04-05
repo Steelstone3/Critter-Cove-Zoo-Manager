@@ -1,6 +1,6 @@
+use super::constants::TILE_SIZE;
 use crate::assets::images::animal::GameAnimal;
 use bevy::{ecs::component::Component, math::Vec2};
-use super::constants::TILE_SIZE;
 
 #[derive(Component)]
 pub struct Animal {
@@ -12,7 +12,10 @@ impl Animal {
     pub fn new_boar() -> Self {
         Self {
             source: GameAnimal::Boar,
-            size: Vec2 { x: TILE_SIZE, y: TILE_SIZE },
+            size: Vec2 {
+                x: TILE_SIZE,
+                y: TILE_SIZE,
+            },
         }
     }
 }

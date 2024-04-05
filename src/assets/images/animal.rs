@@ -1,4 +1,3 @@
-
 use rand_derive2::RandGen;
 use std::fmt::Display;
 

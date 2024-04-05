@@ -1,5 +1,9 @@
 use bevy::{
-    asset::AssetServer, ecs::system::{Commands, Res}, math::Vec3, sprite::{Sprite, SpriteBundle}, transform::components::Transform
+    asset::AssetServer,
+    ecs::system::{Commands, Res},
+    math::Vec3,
+    sprite::{Sprite, SpriteBundle},
+    transform::components::Transform,
 };
 
 use crate::components::animal::Animal;
