@@ -13,7 +13,7 @@ use crate::{
     events::spawn_animated_sprite_event::SpawnAnimatedSpriteEvent,
 };
 
-pub fn spawn_animated_sprite_event_handler(
+pub fn spawn_animated_sprite(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,

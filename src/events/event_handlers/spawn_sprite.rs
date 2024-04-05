@@ -8,7 +8,7 @@ use bevy::{
     sprite::{Sprite, SpriteBundle},
 };
 
-pub fn spawn_sprite_event_handler(
+pub fn spawn_sprite(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     mut spawn_sprite_events: EventReader<SpawnSpriteEvent>,

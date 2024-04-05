@@ -1,4 +1,4 @@
-pub mod despawn_entity_event_handler;
-pub mod spawn_animated_sprite_event_handler;
-pub mod spawn_sound_event_handler;
-pub mod spawn_sprite_event_handler;
+pub mod despawn_entity;
+pub mod spawn_animated_sprite;
+pub mod spawn_sound;
+pub mod spawn_sprite;
