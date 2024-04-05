@@ -7,6 +7,7 @@ mod components;
 mod plugins;
 mod resources;
 mod systems;
+mod assets;
 
 fn main() {
     App::new()
