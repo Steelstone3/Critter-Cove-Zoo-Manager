@@ -7,7 +7,7 @@ use crate::{
     },
 };
 
-pub fn spawn_boar(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>) {
+pub fn spawn_animal(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>) {
     let animal = Animal::new_boar();
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
