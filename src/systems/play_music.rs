@@ -1,18 +1,16 @@
 use bevy::{
-    asset::AssetServer,
-    audio::{AudioBundle, PlaybackMode, PlaybackSettings, Volume},
-    ecs::system::Res,
-    prelude::Commands,
+    audio::{PlaybackMode, PlaybackSettings, Volume},
+    ecs::event::EventWriter,
 };
 
-use crate::components::music::Music;
+use crate::{components::music::Music, events::spawn_sound_event::SpawnSoundEvent};
 
-pub fn play_music(mut commands: Commands, asset_server: Res<AssetServer>) {
+pub fn play_music(mut spawn_sound_event: EventWriter<SpawnSoundEvent>) {
     let music = Music::default();
 
-    commands.spawn(AudioBundle {
-        source: asset_server.load(music.source.to_string()),
-        settings: PlaybackSettings {
+    spawn_sound_event.send(SpawnSoundEvent {
+        sound_path: music.sound_path.to_string(),
+        playback_settings: PlaybackSettings {
             mode: PlaybackMode::Remove,
             volume: Volume::new(0.5),
             ..Default::default()

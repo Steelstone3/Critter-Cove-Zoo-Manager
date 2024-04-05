@@ -4,11 +4,13 @@ use rand::random;
 
 #[derive(Component)]
 pub struct Music {
-    pub source: GameMusic,
+    pub sound_path: GameMusic,
 }
 
 impl Default for Music {
     fn default() -> Self {
-        Self { source: random() }
+        Self {
+            sound_path: random(),
+        }
     }
 }
