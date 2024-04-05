@@ -1,7 +1,6 @@
 use bevy::prelude::*;
 use plugins::{
-    game_resources::ResourcesPlugin, game_running::RunningPlugin,
-    game_start::StartPlugin,
+    game_resources::ResourcesPlugin, game_running::RunningPlugin, game_start::StartPlugin,
 };
 
 mod components;
