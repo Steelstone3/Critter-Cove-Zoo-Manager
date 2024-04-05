@@ -4,10 +4,8 @@ use bevy::{
 };
 
 use crate::events::event_handlers::{
-    despawn_entity::despawn_entity,
-    spawn_animated_sprite::spawn_animated_sprite,
-    spawn_sound::spawn_sound,
-    spawn_sprite::spawn_sprite,
+    despawn_entity::despawn_entity, spawn_animated_sprite::spawn_animated_sprite,
+    spawn_sound::spawn_sound, spawn_sprite::spawn_sprite,
 };
 
 pub struct EventHandlersPlugin;
