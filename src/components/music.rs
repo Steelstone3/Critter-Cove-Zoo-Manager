@@ -9,8 +9,6 @@ pub struct Music {
 
 impl Default for Music {
     fn default() -> Self {
-        Self {
-            source: random(),
-        }
+        Self { source: random() }
     }
 }
