@@ -16,7 +16,7 @@ fn main() {
                 .set(ImagePlugin::default_nearest())
                 .set(WindowPlugin {
                     primary_window: Some(Window {
-                        title: "Galactic Marauders".to_string(),
+                        title: "Animal Park Manager".to_string(),
                         resolution: (640.0, 480.0).into(),
                         ..Default::default()
                     }),
