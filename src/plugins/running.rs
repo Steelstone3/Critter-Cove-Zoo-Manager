@@ -3,7 +3,7 @@ use bevy::{
     prelude::{App, Plugin},
 };
 
-use crate::systems::{animate_boar::animate_sprites, play_music::play_music};
+use crate::systems::{animate_sprites::animate_sprites, play_music::play_music};
 
 pub struct RunningPlugin;
 

@@ -32,58 +32,58 @@ impl Display for ZooAnimal {
             }
             ZooAnimal::Chicken => {
                 write!(f, "images/animals/zoo/chicken.png")
-            },
+            }
             ZooAnimal::Cow => {
                 write!(f, "images/animals/zoo/cow.png")
-            },
+            }
             ZooAnimal::Crab => {
                 write!(f, "images/animals/zoo/crab.png")
-            },
+            }
             ZooAnimal::Dog => {
                 write!(f, "images/animals/zoo/dog.png")
-            },
+            }
             ZooAnimal::Fox => {
                 write!(f, "images/animals/zoo/fox.png")
-            },
+            }
             ZooAnimal::Frog => {
                 write!(f, "images/animals/zoo/frog.png")
-            },
+            }
             ZooAnimal::Goat => {
                 write!(f, "images/animals/zoo/goat.png")
-            },
+            }
             ZooAnimal::Goose => {
                 write!(f, "images/animals/zoo/goose.png")
-            },
+            }
             ZooAnimal::Gorilla => {
                 write!(f, "images/animals/zoo/gorilla.png")
-            },
+            }
             ZooAnimal::Monkey => {
                 write!(f, "images/animals/zoo/monkey.png")
-            },
+            }
             ZooAnimal::Moose => {
                 write!(f, "images/animals/zoo/moose.png")
-            },
+            }
             ZooAnimal::Pig => {
                 write!(f, "images/animals/zoo/pig.png")
-            },
+            }
             ZooAnimal::Porcupine => {
                 write!(f, "images/animals/zoo/porcupine.png")
-            },
+            }
             ZooAnimal::Sheep => {
                 write!(f, "images/animals/zoo/sheep.png")
-            },
+            }
             ZooAnimal::Skunk => {
                 write!(f, "images/animals/zoo/skunk.png")
-            },
+            }
             ZooAnimal::Toad => {
                 write!(f, "images/animals/zoo/toad.png")
-            },
+            }
             ZooAnimal::Turtle => {
                 write!(f, "images/animals/zoo/turtle.png")
-            },
+            }
             ZooAnimal::Wolf => {
                 write!(f, "images/animals/zoo/wolf.png")
-            },
+            }
         }
     }
 }
