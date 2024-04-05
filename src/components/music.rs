@@ -1,6 +1,6 @@
+use crate::assets::sounds::game_music::GameMusic;
 use bevy::ecs::component::Component;
-
-use crate::assets::sounds::music::GameMusic;
+use rand::random;
 
 #[derive(Component)]
 pub struct Music {
@@ -10,7 +10,7 @@ pub struct Music {
 impl Default for Music {
     fn default() -> Self {
         Self {
-            source: GameMusic::Grassland,
+            source: GameMusic::random(),
         }
     }
 }

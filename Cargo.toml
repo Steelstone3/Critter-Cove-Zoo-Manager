@@ -19,10 +19,10 @@ include = []
 bevy = "0.13"
 rayon = "1"
 rstest = "0"
-# bevy_iced = "0.4"
-# rand = "0"
-# rand_derive2 ="0"
+rand = "0"
+rand_derive2 ="0"
 # float-lerp = "0"
+# bevy_iced = "0.4"
 
 [workspace]
 resolver = "2"

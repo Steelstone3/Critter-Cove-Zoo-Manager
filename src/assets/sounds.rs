@@ -1,1 +1,1 @@
-pub mod music;
+pub mod game_music;
