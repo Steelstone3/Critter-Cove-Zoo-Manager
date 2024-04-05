@@ -11,9 +11,9 @@ include = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-# [target.'cfg(target_os = "linux")'.dependencies]
-# bevy = { version = "0.13", features = ["wayland", "x11"] }
-# wayland-sys = "0.31"
+[target.'cfg(target_os = "linux")'.dependencies]
+bevy = { version = "0.13", features = ["wayland", "x11"] }
+wayland-sys = "0.31"
 
 [dependencies]
 bevy = "0.13"
