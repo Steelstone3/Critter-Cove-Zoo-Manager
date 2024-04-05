@@ -10,7 +10,7 @@ pub struct Music {
 impl Default for Music {
     fn default() -> Self {
         Self {
-            source: GameMusic::random(),
+            source: random(),
         }
     }
 }
