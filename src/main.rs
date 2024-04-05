@@ -1,5 +1,7 @@
 use bevy::prelude::*;
-use plugins::{resources::ResourcesPlugin, running::RunningPlugin, start::StartPlugin};
+use plugins::{
+    events::EventsPlugin, resources::ResourcesPlugin, running::RunningPlugin, start::StartPlugin,
+};
 
 mod components;
 mod plugins;
@@ -19,6 +21,7 @@ fn main() {
                     }),
                     ..Default::default()
                 }),
+            EventsPlugin,
             ResourcesPlugin,
             StartPlugin,
             RunningPlugin,
