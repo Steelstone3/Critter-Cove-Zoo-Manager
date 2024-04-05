@@ -1,29 +1,35 @@
 [package]
-name = "galactic-marauders"
-version = "0.1.8"
+name = "critter-cove-zoo-manager"
+version = "0.1.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
-homepage = "https://github.com/Steelstone3/Bubbles-Dive-Planner-Console"
-repository = "https://github.com/Steelstone3/Bubbles-Dive-Planner-Console"
+homepage = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
+repository = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
 license = "GPLv3"
 readme = "README.md"
 include = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dev-dependencies]
+# [target.'cfg(target_os = "linux")'.dependencies]
+# bevy = { version = "0.13", features = ["wayland", "x11"] }
+# wayland-sys = "0.31"
 
 [dependencies]
-bevy = "0.11"
+bevy = "0.13"
+rayon = "1"
+rstest = "0"
 # bevy_iced = "0.4"
-# rand = "*"
+# rand = "0"
+# rand_derive2 ="0"
+# float-lerp = "0"
 
 [workspace]
 resolver = "2"
 
-# Enable a small amount of optimization in debug mode
+# No optimisation for better debugging. Set to 1 for some optimisation
 [profile.dev]
-opt-level = 1
+opt-level = 0
 
 # Enable high optimizations for dependencies (incl. Bevy), but not for our code:
 [profile.dev.package."*"]

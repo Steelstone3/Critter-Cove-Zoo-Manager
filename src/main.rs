@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 use plugins::{
-    game_resources::GameResourcesPlugin, game_running::GameRunningPlugin,
-    game_scale::GameScalePlugin, game_start::GameStartPlugin,
+    game_resources::ResourcesPlugin, game_running::RunningPlugin,
+    game_start::StartPlugin,
 };
 
 mod components;
@@ -16,16 +16,15 @@ fn main() {
                 .set(ImagePlugin::default_nearest())
                 .set(WindowPlugin {
                     primary_window: Some(Window {
-                        title: "Animal Park Manager".to_string(),
+                        title: "Critter Cove: Zoo Manager".to_string(),
                         resolution: (640.0, 480.0).into(),
                         ..Default::default()
                     }),
                     ..Default::default()
                 }),
-            GameResourcesPlugin,
-            GameStartPlugin,
-            GameRunningPlugin,
-            GameScalePlugin,
+            ResourcesPlugin,
+            StartPlugin,
+            RunningPlugin,
         ))
         .run();
 }

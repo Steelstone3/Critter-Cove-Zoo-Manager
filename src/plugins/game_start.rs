@@ -1,11 +1,10 @@
-use crate::systems::{camera::add_camera, spawn_player::spawn_player};
+use crate::systems::camera::add_camera;
 use bevy::prelude::{App, Plugin, Startup};
 
-pub struct GameStartPlugin;
+pub struct StartPlugin;
 
-impl Plugin for GameStartPlugin {
+impl Plugin for StartPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, add_camera)
-            .add_systems(Startup, spawn_player);
+        app.add_systems(Startup, add_camera);
     }
 }
