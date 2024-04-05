@@ -11,7 +11,7 @@ pub fn spawn_boar(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpri
     let animal = Animal::new_boar();
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
-        frame_timing: 0.1,
+        frame_timing: 0.25,
         frame_count: 4,
         tile_size: TILE_SIZE / 2.0,
         tile_columns: 4,
