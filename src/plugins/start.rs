@@ -1,4 +1,7 @@
-use crate::systems::{camera::add_camera, play_music::play_music, spawn_animal::spawn_animal, spawn_terrain::spawn_terrain};
+use crate::systems::{
+    camera::add_camera, play_music::play_music, spawn_animal::spawn_animal,
+    spawn_terrain::spawn_terrain,
+};
 use bevy::prelude::{App, Plugin, Startup};
 
 pub struct StartPlugin;
