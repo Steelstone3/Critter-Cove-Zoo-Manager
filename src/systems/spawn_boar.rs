@@ -24,20 +24,23 @@ pub fn spawn_boar(
     );
     let texture_atlas_layout = texture_atlas_layouts.add(layout);
 
-    commands.spawn(SpriteSheetBundle {
-        sprite: Sprite {
-            custom_size: Some(animal.size),
+    commands.spawn((
+        SpriteSheetBundle {
+            sprite: Sprite {
+                custom_size: Some(animal.size),
+                ..Default::default()
+            },
+            texture,
+            atlas: TextureAtlas {
+                layout: texture_atlas_layout,
+                index: 0,
+            },
+            transform: Transform {
+                translation: Vec3::new(0.0, 0.0, 1.0),
+                ..Default::default()
+            },
             ..Default::default()
         },
-        texture,
-        atlas: TextureAtlas {
-            layout: texture_atlas_layout,
-            index: 0,
-        },
-        transform: Transform {
-            translation: Vec3::new(0.0, 0.0, 1.0),
-            ..Default::default()
-        },
-        ..Default::default()
-    });
+        animal.animation_timer,
+    ));
 }
