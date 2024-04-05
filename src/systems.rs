@@ -1,2 +1,2 @@
 pub mod camera;
-pub mod music;
+pub mod play_music;

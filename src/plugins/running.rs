@@ -3,7 +3,7 @@ use bevy::{
     prelude::{App, Plugin},
 };
 
-use crate::systems::music::play_music;
+use crate::systems::play_music::play_music;
 
 pub struct RunningPlugin;
 
