@@ -1,10 +1,10 @@
-# Galactic Marauders
+# Critter Cove: Zoo Manager
 
-Galactic marauders is a Space Invaders like game written in rust using the bevy framework.
+Critter Cove: Zoo Manage is a Zoo Tycoon like game written in rust using the bevy framework.
 
-## Running Galactic Marauders
+## Running The Game
 
-> cd ~/Galactic-Marauders
+> cd ~/Critter-Cove-Zoo-Manager
 >
 > cargo build
 >
@@ -12,7 +12,7 @@ Galactic marauders is a Space Invaders like game written in rust using the bevy 
 
 ## Tests
 
-> cd ~/Galactic-Marauders
+> cd ~/Critter-Cove-Zoo-Manager
 >
 > cargo test
 
