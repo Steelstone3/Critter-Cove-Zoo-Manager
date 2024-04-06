@@ -2,7 +2,9 @@
 
 Critter Cove: Zoo Manage is a Zoo Tycoon like game written in rust using the bevy framework.
 
-## Running The Game
+## Developing The Game
+
+### Running The Game
 
 > cd ~/Critter-Cove-Zoo-Manager
 >
@@ -10,54 +12,68 @@ Critter Cove: Zoo Manage is a Zoo Tycoon like game written in rust using the bev
 >
 > cargo run
 
-## Tests
+Or using bacon
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> bacon
+>
+> r
+
+### Testing The Game
 
 > cd ~/Critter-Cove-Zoo-Manager
 >
 > cargo test
+
+Or using bacon
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> bacon
+>
+> t
+
+### Linting The Game
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> cargo clippy --fix --allow-dirty
+
+Or using bacon
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> bacon
+>
+> c
+
+### Formatting The Game
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> cargo fmt
+
+Or using bacon
+
+> cd ~/Critter-Cove-Zoo-Manager
+>
+> bacon
+>
+> f
 
 ## Dependencies
 
 Follow the steps for installing rustc runtime for your given operating system.
 
 > <https://www.rust-lang.org/tools/install>
->
-> install the packages
->
-> "alsa-sys"
->
-> "libudev-sys"
 
-For apt
+Install bacon
 
-> sudo apt install librust-alsa-sys-dev librust-libudev-sys-dev
+> cargo install bacon
 
-For dnf
-
-> sudo dnf install rust-alsa-sys-devel rust-libudev-sys-devel
-
-Or
+Install the dependency packages
 
 > bash setup_dependencies.sh
-
-To remove the additional dependencies run
-
-> remove the packages
->
-> "alsa-sys"
->
-> "libudev-sys"
-
-For apt
-
-> sudo apt purge librust-alsa-sys-dev librust-libudev-sys-dev
-
-For dnf
-
-> sudo dnf remove rust-alsa-sys-devel rust-libudev-sys-devel
-
-Or
-
-> bash remove_dependencies.sh
 
 Please use good op-sec habits and check the contents of both .sh files before running them as these will modify your system
