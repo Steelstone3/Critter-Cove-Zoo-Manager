@@ -3,7 +3,10 @@ use bevy::{
     ecs::system::{Commands, Res},
     hierarchy::BuildChildren,
     render::{color::Color, texture::Image},
-    ui::{node_bundles::NodeBundle, Display, GridTrack, PositionType, Style, UiImage, Val},
+    ui::{
+        node_bundles::NodeBundle, widget::Button, Display, GridTrack, PositionType, Style, UiImage,
+        Val,
+    },
 };
 
 use crate::{assets::images::user_interface::UserInterface, components::constants::TILE_SIZE};
@@ -34,22 +37,22 @@ pub fn spawn_user_interface(mut commands: Commands, asset_server: Res<AssetServe
         })
         .with_children(|parent| {
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
             let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
-            parent.spawn((icon_node_bundle(), UiImage::new(texture)));
+            parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
         });
 }
 
@@ -60,7 +63,6 @@ fn icon_node_bundle() -> NodeBundle {
             height: Val::Percent(100.0),
             ..Default::default()
         },
-        // a `NodeBundle` is transparent by default, so to see the image we have to its color to `WHITE`
         background_color: Color::WHITE.into(),
         ..Default::default()
     }
