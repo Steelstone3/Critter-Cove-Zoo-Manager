@@ -1,15 +1,22 @@
-use bevy::{ecs::event::EventWriter, math::Vec3, transform::components::Transform};
+use bevy::{
+    ecs::{event::EventWriter, system::Res},
+    math::Vec3,
+    transform::components::Transform,
+};
 
 use crate::{
-    assets::images::animal::ZooAnimal,
     components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
+    resources::selected_item::SelectedItem,
 };
 
-pub fn spawn_animal(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>) {
-    let animal = Animal::new(ZooAnimal::Boar);
+pub fn spawn_animal(
+    selected_item: Res<SelectedItem>,
+    mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
+) {
+    let animal = Animal::new(selected_item.animal);
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
         frame_timing: 0.25,

@@ -1,7 +1,7 @@
 use rand_derive2::RandGen;
 use std::fmt::Display;
 
-#[derive(RandGen)]
+#[derive(RandGen, Clone, Copy)]
 pub enum ZooAnimal {
     Boar,
     Chicken,
@@ -22,6 +22,7 @@ pub enum ZooAnimal {
     Toad,
     Turtle,
     Wolf,
+    None,
 }
 
 impl Display for ZooAnimal {
@@ -83,6 +84,9 @@ impl Display for ZooAnimal {
             }
             ZooAnimal::Wolf => {
                 write!(f, "images/animals/zoo/wolf.png")
+            }
+            ZooAnimal::None => {
+                write!(f, "") // No asset to load
             }
         }
     }
