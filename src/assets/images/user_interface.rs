@@ -12,7 +12,10 @@ impl Display for MainMenuUserInterface {
                 write!(f, "images/user_interface/main_menu/animals_icon.png")
             }
             MainMenuUserInterface::SelectedIconAnimals => {
-                write!(f, "images/user_interface/main_menu/selected_animals_icon.png")
+                write!(
+                    f,
+                    "images/user_interface/main_menu/selected_animals_icon.png"
+                )
             }
         }
     }
