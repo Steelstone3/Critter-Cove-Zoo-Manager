@@ -17,10 +17,14 @@ pub fn spawn_animal(
     selected_item: Res<SelectedItem>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
-    let mut animal = Animal::new(selected_item.animal, TILE_SIZE / 2.0, 0.25, 4);
+    let mut animal = Animal::new(selected_item.animal);
 
-    if selected_item.animal == ZooAnimal::Gorilla || selected_item.animal == ZooAnimal::Moose {
-        animal = Animal::new(selected_item.animal, TILE_SIZE, 0.1, 8)
+    if selected_item.animal == ZooAnimal::Gorilla
+        || selected_item.animal == ZooAnimal::Moose
+        || selected_item.animal == ZooAnimal::RearingNightmare
+        || selected_item.animal == ZooAnimal::StormGiant
+    {
+        animal = Animal::new_animated(selected_item.animal, TILE_SIZE, 0.1, 8)
     }
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
