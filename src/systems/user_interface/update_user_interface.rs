@@ -67,25 +67,55 @@ pub fn update_user_interface(
                     parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
                 }
 
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Fences {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
 
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Terrain {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
 
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Trees {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
 
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Rocks {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
 
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Shelters {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
             });
     }
 
