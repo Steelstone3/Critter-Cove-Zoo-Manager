@@ -9,7 +9,9 @@ use bevy::{
     },
 };
 
-use crate::{assets::images::user_interface::UserInterface, components::constants::TILE_SIZE};
+use crate::{
+    assets::images::user_interface::MainMenuUserInterface, components::constants::TILE_SIZE,
+};
 
 pub fn spawn_user_interface(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands
@@ -36,22 +38,28 @@ pub fn spawn_user_interface(mut commands: Commands, asset_server: Res<AssetServe
             ..Default::default()
         })
         .with_children(|parent| {
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
 
-            let texture: Handle<Image> = asset_server.load(UserInterface::IconAnimals.to_string());
+            let texture: Handle<Image> =
+                asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
             parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
         });
 }

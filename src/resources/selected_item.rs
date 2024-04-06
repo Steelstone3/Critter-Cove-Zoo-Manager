@@ -15,13 +15,13 @@ pub enum MainMenuSelection {
 }
 
 #[derive(Resource)]
-pub struct SelectedItem {
+pub struct SelectedMenuItem {
     pub menu_selection: MainMenuSelection,
     pub animal_selection: ZooAnimal,
     pub terrain_selection: WorldTerrain,
 }
 
-impl Default for SelectedItem {
+impl Default for SelectedMenuItem {
     fn default() -> Self {
         Self {
             menu_selection: MainMenuSelection::None,

@@ -10,11 +10,11 @@ use crate::{
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
-    resources::selected_item::SelectedItem,
+    resources::selected_item::SelectedMenuItem,
 };
 
 pub fn spawn_animal(
-    selected_item: Res<SelectedItem>,
+    selected_item: Res<SelectedMenuItem>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
     let mut animal = Animal::new_16(selected_item.animal_selection);
