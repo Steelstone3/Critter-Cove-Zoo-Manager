@@ -13,7 +13,7 @@ pub struct Terrain {
 impl Terrain {
     pub fn new_grass() -> Self {
         Self {
-            sprite_path: WorldTerrain::Grass,
+            sprite_path: WorldTerrain::Grass1,
             size: SIZE,
         }
     }
