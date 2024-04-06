@@ -17,13 +17,13 @@ use crate::{
     components::{constants::TILE_SIZE, menu::Menu},
     events::user_interface_event::UserInterfaceEvent,
     queries::menu_queries::MenuEntityQuery,
-    resources::selected_item::SelectedMenuItem,
+    resources::selected_item::{MainMenuSelection, SelectedMenuItem},
 };
 
 pub fn update_user_interface(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
-    _selected_menu_item: Res<SelectedMenuItem>,
+    selected_menu_item: Res<SelectedMenuItem>,
     menus: Query<MenuEntityQuery>,
     mut user_interface_event: EventReader<UserInterfaceEvent>,
 ) {
@@ -57,9 +57,15 @@ pub fn update_user_interface(
             })
             .insert(Menu)
             .with_children(|parent| {
-                let texture: Handle<Image> =
-                    asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                if selected_menu_item.menu_selection == MainMenuSelection::Animals {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                } else {
+                    let texture: Handle<Image> =
+                        asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
+                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                }
 
                 let texture: Handle<Image> =
                     asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
