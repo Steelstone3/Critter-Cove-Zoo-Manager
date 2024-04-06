@@ -1,7 +1,17 @@
 use bevy::prelude::{App, Plugin};
 
+use crate::{
+    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    resources::selected_item::SelectedItem,
+};
+
 pub struct ResourcesPlugin;
 
 impl Plugin for ResourcesPlugin {
-    fn build(&self, _app: &mut App) {}
+    fn build(&self, app: &mut App) {
+        app.insert_resource(SelectedItem {
+            animal: ZooAnimal::Chicken,
+            terrain: WorldTerrain::None,
+        });
+    }
 }

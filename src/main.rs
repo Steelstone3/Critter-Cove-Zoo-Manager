@@ -1,10 +1,12 @@
 use bevy::prelude::*;
 use plugins::{
-    events::EventsPlugin, resources::ResourcesPlugin, running::RunningPlugin, start::StartPlugin,
+    event_handlers::EventHandlersPlugin, events::EventsPlugin, resources::ResourcesPlugin,
+    running::RunningPlugin, start::StartPlugin,
 };
 
 mod assets;
 mod components;
+mod events;
 mod plugins;
 mod queries;
 mod resources;
@@ -24,6 +26,7 @@ fn main() {
                     ..Default::default()
                 }),
             EventsPlugin,
+            EventHandlersPlugin,
             ResourcesPlugin,
             StartPlugin,
             RunningPlugin,
