@@ -1,6 +1,6 @@
 use crate::systems::{
     camera::add_camera, play_music::play_music, spawn_animal::spawn_animal,
-    spawn_terrain::spawn_terrain, spawn_user_interface::spawn_user_interface,
+    spawn_terrain::spawn_terrain, user_interface::spawn_user_interface::spawn_user_interface,
 };
 use bevy::prelude::{App, Plugin, Startup};
 

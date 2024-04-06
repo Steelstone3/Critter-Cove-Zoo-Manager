@@ -3,4 +3,4 @@ pub mod camera;
 pub mod play_music;
 pub mod spawn_animal;
 pub mod spawn_terrain;
-pub mod spawn_user_interface;
+pub mod user_interface;
