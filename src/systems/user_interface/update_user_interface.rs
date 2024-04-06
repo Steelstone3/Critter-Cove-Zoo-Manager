@@ -14,9 +14,9 @@ use bevy::{
 
 use crate::{
     assets::images::user_interface::MainMenuUserInterface,
-    components::{constants::TILE_SIZE, menu::Menu},
+    components::{constants::TILE_SIZE, menu::UserInterface},
     events::user_interface_event::UserInterfaceEvent,
-    queries::menu_queries::MenuEntityQuery,
+    queries::user_interface_queries::UserInterfaceEntityQuery,
     resources::selected_item::{MainMenuSelection, SelectedMenuItem},
 };
 
@@ -24,7 +24,7 @@ pub fn update_user_interface(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     selected_menu_item: Res<SelectedMenuItem>,
-    menus: Query<MenuEntityQuery>,
+    menus: Query<UserInterfaceEntityQuery>,
     mut user_interface_event: EventReader<UserInterfaceEvent>,
 ) {
     for _ in user_interface_event.read() {
@@ -55,7 +55,7 @@ pub fn update_user_interface(
                 background_color: Color::rgba(0.0, 0.0, 0.0, 0.0).into(),
                 ..Default::default()
             })
-            .insert(Menu)
+            .insert(UserInterface)
             .with_children(|parent| {
                 if selected_menu_item.menu_selection == MainMenuSelection::Animals {
                     let texture: Handle<Image> =
