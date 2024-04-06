@@ -10,7 +10,7 @@ pub struct ResourcesPlugin;
 impl Plugin for ResourcesPlugin {
     fn build(&self, app: &mut App) {
         app.insert_resource(SelectedItem {
-            animal: ZooAnimal::Chicken,
+            animal: ZooAnimal::Gorilla,
             terrain: WorldTerrain::None,
         });
     }
