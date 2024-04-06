@@ -12,12 +12,17 @@ pub struct Animal {
 }
 
 impl Animal {
-    pub fn new(sprite_path: ZooAnimal) -> Self {
+    pub fn new(
+        sprite_path: ZooAnimal,
+        tile_size: f32,
+        frame_timing: f32,
+        frame_count: usize,
+    ) -> Self {
         Self {
             sprite_path,
-            frame_timing: 0.1,
-            frame_count: 4,
-            tile_size: TILE_SIZE / 2.0,
+            frame_timing,
+            frame_count,
+            tile_size,
             size: Vec2 {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
