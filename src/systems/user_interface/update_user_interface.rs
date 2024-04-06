@@ -2,9 +2,9 @@ use bevy::{
     asset::{AssetServer, Handle},
     ecs::{
         event::EventReader,
-        system::{Commands, Res},
+        system::{Commands, Query, Res},
     },
-    hierarchy::BuildChildren,
+    hierarchy::{BuildChildren, DespawnRecursiveExt},
     render::{color::Color, texture::Image},
     ui::{
         node_bundles::NodeBundle, widget::Button, Display, GridTrack, PositionType, Style, UiImage,
@@ -13,22 +13,24 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::user_interface::MainMenuUserInterface, components::constants::TILE_SIZE,
-    events::user_interface_event::UserInterfaceEvent, resources::selected_item::SelectedMenuItem,
+    assets::images::user_interface::MainMenuUserInterface,
+    components::{constants::TILE_SIZE, menu::Menu},
+    events::user_interface_event::UserInterfaceEvent,
+    queries::menu_queries::MenuEntityQuery,
+    resources::selected_item::SelectedMenuItem,
 };
 
 pub fn update_user_interface(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     _selected_menu_item: Res<SelectedMenuItem>,
+    menus: Query<MenuEntityQuery>,
     mut user_interface_event: EventReader<UserInterfaceEvent>,
 ) {
     for _ in user_interface_event.read() {
-        // if let Ok(weapon_selection_parent) = menu_selection_queries.get_single() {
-        //     commands
-        //         .entity(weapon_selection_parent.entity)
-        //         .despawn_recursive();
-        // }
+        if let Ok(menu) = menus.get_single() {
+            commands.entity(menu.entity).despawn_recursive();
+        }
 
         commands
             .spawn(NodeBundle {
@@ -53,6 +55,7 @@ pub fn update_user_interface(
                 background_color: Color::rgba(0.0, 0.0, 0.0, 0.0).into(),
                 ..Default::default()
             })
+            .insert(Menu)
             .with_children(|parent| {
                 let texture: Handle<Image> =
                     asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());

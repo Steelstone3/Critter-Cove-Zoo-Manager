@@ -10,7 +10,8 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::user_interface::MainMenuUserInterface, components::constants::TILE_SIZE,
+    assets::images::user_interface::MainMenuUserInterface,
+    components::{constants::TILE_SIZE, menu::Menu},
 };
 
 pub fn spawn_user_interface(mut commands: Commands, asset_server: Res<AssetServer>) {
@@ -37,6 +38,7 @@ pub fn spawn_user_interface(mut commands: Commands, asset_server: Res<AssetServe
             background_color: Color::rgba(0.0, 0.0, 0.0, 0.0).into(),
             ..Default::default()
         })
+        .insert(Menu)
         .with_children(|parent| {
             let texture: Handle<Image> =
                 asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
