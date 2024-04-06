@@ -19,7 +19,7 @@ pub fn spawn_animal(
 ) {
     let mut animal = Animal::new(selected_item.animal, TILE_SIZE / 2.0, 0.25, 4);
 
-    if selected_item.animal == ZooAnimal::Gorilla {
+    if selected_item.animal == ZooAnimal::Gorilla || selected_item.animal == ZooAnimal::Moose {
         animal = Animal::new(selected_item.animal, TILE_SIZE, 0.1, 8)
     }
 
