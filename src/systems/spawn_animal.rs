@@ -1,6 +1,7 @@
 use bevy::{ecs::event::EventWriter, math::Vec3, transform::components::Transform};
 
 use crate::{
+    assets::images::animal::ZooAnimal,
     components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
@@ -8,7 +9,7 @@ use crate::{
 };
 
 pub fn spawn_animal(mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>) {
-    let animal = Animal::new_boar();
+    let animal = Animal::new(ZooAnimal::Boar);
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
         frame_timing: 0.25,

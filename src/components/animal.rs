@@ -12,9 +12,9 @@ pub struct Animal {
 }
 
 impl Animal {
-    pub fn new_boar() -> Self {
+    pub fn new(sprite_path: ZooAnimal) -> Self {
         Self {
-            sprite_path: ZooAnimal::Boar,
+            sprite_path,
             frame_timing: 0.1,
             frame_count: 4,
             tile_size: TILE_SIZE / 2.0,
