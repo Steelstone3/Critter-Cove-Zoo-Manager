@@ -5,8 +5,7 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::animal::ZooAnimal,
-    components::{animal::Animal, constants::TILE_SIZE},
+    components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
@@ -17,11 +16,7 @@ pub fn spawn_animal(
     selected_item: Res<SelectedItem>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
-    let mut animal = Animal::new(selected_item.animal, TILE_SIZE / 2.0, 0.25, 4);
-
-    if selected_item.animal == ZooAnimal::Gorilla {
-        animal = Animal::new(selected_item.animal, TILE_SIZE, 0.1, 8)
-    }
+    let animal = Animal::new(selected_item.animal);
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
         frame_timing: 0.25,

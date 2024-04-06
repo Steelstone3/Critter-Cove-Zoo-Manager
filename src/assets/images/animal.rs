@@ -1,7 +1,7 @@
 use rand_derive2::RandGen;
 use std::fmt::Display;
 
-#[derive(RandGen, Clone, Copy, PartialEq)]
+#[derive(RandGen, Clone, Copy)]
 pub enum ZooAnimal {
     Boar,
     Chicken,
