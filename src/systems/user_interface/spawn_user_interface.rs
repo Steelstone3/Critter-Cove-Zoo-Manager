@@ -10,7 +10,7 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::user_interface::MainMenuUserInterface,
+    assets::images::user_interface::main_menu::MainMenuUserInterface,
     components::{constants::TILE_SIZE, menu::UserInterface},
 };
 
