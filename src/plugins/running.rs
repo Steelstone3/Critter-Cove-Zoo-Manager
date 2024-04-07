@@ -1,6 +1,6 @@
 use crate::systems::{
     animate_sprites::animate_sprites,
-    camera::camera_movement::camera_movement,
+    camera::{camera_movement::camera_movement, camera_zoom::camera_zoom},
     play_music::play_music,
     user_interface::{
         menu_selection::menu_selection, update_user_interface::update_user_interface,
@@ -19,6 +19,7 @@ impl Plugin for RunningPlugin {
             .add_systems(Update, menu_selection)
             .add_systems(Update, update_user_interface)
             .add_systems(Update, animate_sprites)
-            .add_systems(Update, camera_movement);
+            .add_systems(Update, camera_movement)
+            .add_systems(Update, camera_zoom);
     }
 }

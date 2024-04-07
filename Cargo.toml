@@ -21,8 +21,7 @@ rayon = "1"
 rstest = "0"
 rand = "0"
 rand_derive2 ="0"
-# float-lerp = "0"
-# bevy_iced = "0.4"
+float-lerp = "0"
 
 [workspace]
 resolver = "2"
