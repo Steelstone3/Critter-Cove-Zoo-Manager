@@ -17,17 +17,21 @@ pub fn camera_zoom_keyboard(
         return;
     };
 
-    if input.just_pressed(KeyCode::Equal) {
+    let is_zoom_in_pressed = input.just_pressed(KeyCode::Equal);
+    let is_zoom_out_pressed = input.just_pressed(KeyCode::Minus);
+    let is_zoom_reset_pressed = input.just_pressed(KeyCode::Backspace);
+
+    if is_zoom_in_pressed {
         camera_settings.current_zoom = (camera_settings.current_zoom * camera_settings.zoom_out
             / camera_settings.zoom_speed)
             .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
     }
-    if input.just_pressed(KeyCode::Minus) {
+    if is_zoom_out_pressed {
         camera_settings.current_zoom =
             (camera_settings.current_zoom * camera_settings.zoom_out * camera_settings.zoom_speed)
                 .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
     }
-    if input.just_pressed(KeyCode::Backspace) {
+    if is_zoom_reset_pressed {
         camera_settings.current_zoom = 1.0;
     }
 
