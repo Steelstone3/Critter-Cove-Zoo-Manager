@@ -15,83 +15,91 @@ pub fn camera_movement(
         return;
     };
 
+    // Camera Movement Speeds
     let camera_speed = 100.0 * time.delta_seconds();
     let diagonal_camera_speed = calculate_diagonal_camera_speed(camera_speed);
     let fast_camera_speed = 500.0 * time.delta_seconds();
     let fast_diagonal_camera_speed = calculate_diagonal_camera_speed(fast_camera_speed);
-    let is_shift_pressed = input.pressed(KeyCode::ShiftRight) || input.pressed(KeyCode::ShiftLeft);
 
-    // Fast Up and Right
-    if is_shift_pressed && input.pressed(KeyCode::KeyW) && input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += fast_diagonal_camera_speed;
-        camera.transform.translation.y += fast_diagonal_camera_speed;
-    }
-    // Fast Down and Right
-    else if is_shift_pressed && input.pressed(KeyCode::KeyS) && input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += fast_diagonal_camera_speed;
-        camera.transform.translation.y -= fast_diagonal_camera_speed;
-    }
-    // Fast Down and Left
-    else if is_shift_pressed && input.pressed(KeyCode::KeyS) && input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= fast_diagonal_camera_speed;
-        camera.transform.translation.y -= fast_diagonal_camera_speed;
-    }
-    // Fast Up and Left
-    else if is_shift_pressed && input.pressed(KeyCode::KeyW) && input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= fast_diagonal_camera_speed;
-        camera.transform.translation.y += fast_diagonal_camera_speed;
-    }
-    // Fast Up
-    else if is_shift_pressed && input.pressed(KeyCode::KeyW) {
-        camera.transform.translation.y += fast_camera_speed;
-    }
-    // Fast Right
-    else if is_shift_pressed && input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += fast_camera_speed;
-    }
-    // Fast Down
-    else if is_shift_pressed && input.pressed(KeyCode::KeyS) {
-        camera.transform.translation.y -= fast_camera_speed;
-    }
-    // Fast Left
-    else if is_shift_pressed && input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= fast_camera_speed;
-    }
+    // Inputs
+    let is_shift_pressed = input.pressed(KeyCode::ShiftRight) || input.pressed(KeyCode::ShiftLeft);
+    let is_camera_up_pressed = input.pressed(KeyCode::KeyW) || input.pressed(KeyCode::ArrowUp);
+    let is_camera_right_pressed =
+        input.pressed(KeyCode::KeyD) || input.pressed(KeyCode::ArrowRight);
+    let is_camera_down_pressed = input.pressed(KeyCode::KeyS) || input.pressed(KeyCode::ArrowDown);
+    let is_camera_left_pressed = input.pressed(KeyCode::KeyA) || input.pressed(KeyCode::ArrowLeft);
+
     // Up and Right
-    else if input.pressed(KeyCode::KeyW) && input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += diagonal_camera_speed;
-        camera.transform.translation.y += diagonal_camera_speed;
+    if is_camera_up_pressed && is_camera_right_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x += fast_diagonal_camera_speed;
+            camera.transform.translation.y += fast_diagonal_camera_speed;
+        } else {
+            camera.transform.translation.x += diagonal_camera_speed;
+            camera.transform.translation.y += diagonal_camera_speed;
+        }
     }
     // Down and Right
-    else if input.pressed(KeyCode::KeyS) && input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += diagonal_camera_speed;
-        camera.transform.translation.y -= diagonal_camera_speed;
+    else if is_camera_down_pressed && is_camera_right_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x += fast_diagonal_camera_speed;
+            camera.transform.translation.y -= fast_diagonal_camera_speed;
+        } else {
+            camera.transform.translation.x += diagonal_camera_speed;
+            camera.transform.translation.y -= diagonal_camera_speed;
+        }
     }
     // Down and Left
-    else if input.pressed(KeyCode::KeyS) && input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= diagonal_camera_speed;
-        camera.transform.translation.y -= diagonal_camera_speed;
+    else if is_camera_down_pressed && is_camera_left_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x -= fast_diagonal_camera_speed;
+            camera.transform.translation.y -= fast_diagonal_camera_speed;
+        } else {
+            camera.transform.translation.x -= diagonal_camera_speed;
+            camera.transform.translation.y -= diagonal_camera_speed;
+        }
     }
     // Up and Left
-    else if input.pressed(KeyCode::KeyW) && input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= diagonal_camera_speed;
-        camera.transform.translation.y += diagonal_camera_speed;
+    else if is_camera_up_pressed && is_camera_left_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x -= fast_diagonal_camera_speed;
+            camera.transform.translation.y += fast_diagonal_camera_speed;
+        } else {
+            camera.transform.translation.x -= diagonal_camera_speed;
+            camera.transform.translation.y += diagonal_camera_speed;
+        }
     }
     // Up
-    else if input.pressed(KeyCode::KeyW) {
-        camera.transform.translation.y += camera_speed;
+    else if is_camera_up_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.y += fast_camera_speed;
+        } else {
+            camera.transform.translation.y += camera_speed;
+        }
     }
     // Right
-    else if input.pressed(KeyCode::KeyD) {
-        camera.transform.translation.x += camera_speed;
+    else if is_camera_right_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x += fast_camera_speed;
+        } else {
+            camera.transform.translation.x += camera_speed;
+        }
     }
     // Down
-    else if input.pressed(KeyCode::KeyS) {
-        camera.transform.translation.y -= camera_speed;
+    else if is_camera_down_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.y -= fast_camera_speed;
+        } else {
+            camera.transform.translation.y -= camera_speed;
+        }
     }
     // Left
-    else if input.pressed(KeyCode::KeyA) {
-        camera.transform.translation.x -= camera_speed;
+    else if is_camera_left_pressed {
+        if is_shift_pressed {
+            camera.transform.translation.x -= fast_camera_speed;
+        } else {
+            camera.transform.translation.x -= camera_speed;
+        }
     }
 }
 
