@@ -1,5 +1,5 @@
-use bevy::prelude::{Camera2dBundle, Commands};
-
-pub fn add_camera(mut commands: Commands) {
-    commands.spawn(Camera2dBundle::default());
-}
+pub mod camera_movement;
+pub mod camera_position_reset;
+pub mod camera_zoom_keyboard;
+pub mod camera_zoom_mouse_and_touchpad;
+pub mod spawn_camera;

@@ -6,29 +6,29 @@ use bevy::{
 
 use crate::{
     assets::images::animal::ZooAnimal,
-    components::{animal::Animal, constants::TILE_SIZE},
+    components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
-    resources::selected_item::SelectedItem,
+    resources::selected_item::SelectedMenuItem,
 };
 
 pub fn spawn_animal(
-    selected_item: Res<SelectedItem>,
+    selected_item: Res<SelectedMenuItem>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
-    let mut animal = Animal::new(selected_item.animal);
+    let mut animal = Animal::new_16(selected_item.animal_selection);
 
-    if selected_item.animal == ZooAnimal::Gorilla
-        || selected_item.animal == ZooAnimal::Moose
-        || selected_item.animal == ZooAnimal::RearingNightmare
-        || selected_item.animal == ZooAnimal::StormGiant
+    if selected_item.animal_selection == ZooAnimal::Gorilla
+        || selected_item.animal_selection == ZooAnimal::Moose
+        || selected_item.animal_selection == ZooAnimal::RearingNightmare
+        || selected_item.animal_selection == ZooAnimal::StormGiant
     {
-        animal = Animal::new_animated(selected_item.animal, TILE_SIZE, 0.1, 8)
+        animal = Animal::new_32(selected_item.animal_selection)
     }
 
     spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
-        frame_timing: 0.25,
+        frame_timing: animal.frame_timing,
         frame_count: animal.frame_count,
         tile_size: animal.tile_size,
         tile_columns: animal.frame_count,

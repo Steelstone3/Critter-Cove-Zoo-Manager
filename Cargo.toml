@@ -1,6 +1,6 @@
 [package]
 name = "critter-cove-zoo-manager"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
@@ -21,8 +21,7 @@ rayon = "1"
 rstest = "0"
 rand = "0"
 rand_derive2 ="0"
-# float-lerp = "0"
-# bevy_iced = "0.4"
+float-lerp = "0"
 
 [workspace]
 resolver = "2"
