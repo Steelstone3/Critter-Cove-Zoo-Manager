@@ -65,9 +65,8 @@ fn diagonal_camera_speed(camera_speed: f32) -> f32 {
 
 #[cfg(test)]
 mod camera_movement_should {
-    use rstest::rstest;
-
     use super::*;
+    use rstest::rstest;
 
     #[rstest]
     #[case(1.0, 0.70710677)]
