@@ -11,7 +11,7 @@ pub struct MusicTimer {
 impl Default for MusicTimer {
     fn default() -> Self {
         Self {
-            timer: Timer::from_seconds(125.0, TimerMode::Repeating),
+            timer: Timer::from_seconds(65.0, TimerMode::Repeating),
         }
     }
 }
