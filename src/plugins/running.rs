@@ -19,13 +19,13 @@ pub struct RunningPlugin;
 
 impl Plugin for RunningPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, play_music)
-            .add_systems(Update, menu_selection)
-            .add_systems(Update, update_user_interface)
-            .add_systems(Update, animate_sprites)
-            .add_systems(Update, camera_movement)
+        app.add_systems(Update, camera_movement)
             .add_systems(Update, camera_position_reset)
             .add_systems(Update, camera_zoom_keyboard)
-            .add_systems(Update, camera_zoom_mouse_and_touchpad);
+            .add_systems(Update, camera_zoom_mouse_and_touchpad)
+            .add_systems(Update, play_music)
+            .add_systems(Update, menu_selection)
+            .add_systems(Update, update_user_interface)
+            .add_systems(Update, animate_sprites);
     }
 }
