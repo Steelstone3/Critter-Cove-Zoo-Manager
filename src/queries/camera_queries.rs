@@ -1,4 +1,8 @@
-use bevy::{ecs::query::QueryData, render::camera::{Camera, OrthographicProjection}, transform::components::Transform};
+use bevy::{
+    ecs::query::QueryData,
+    render::camera::{Camera, OrthographicProjection},
+    transform::components::Transform,
+};
 
 #[derive(QueryData)]
 #[query_data(mutable)]

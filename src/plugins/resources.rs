@@ -1,6 +1,8 @@
 use bevy::prelude::{App, Plugin};
 
-use crate::resources::{camera_settings::CameraSettings, music_timer::MusicTimer, selected_item::SelectedMenuItem};
+use crate::resources::{
+    camera_settings::CameraSettings, music_timer::MusicTimer, selected_item::SelectedMenuItem,
+};
 
 pub struct ResourcesPlugin;
 
