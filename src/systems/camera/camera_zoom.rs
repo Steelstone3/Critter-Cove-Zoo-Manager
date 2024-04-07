@@ -29,5 +29,5 @@ pub fn camera_zoom(
         camera_settings.current_zoom = 1.0;
     }
 
-    camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.01);
+    camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.05);
 }
