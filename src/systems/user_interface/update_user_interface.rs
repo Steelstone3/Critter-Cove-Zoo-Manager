@@ -6,10 +6,7 @@ use bevy::{
     },
     hierarchy::{BuildChildren, DespawnRecursiveExt},
     render::{color::Color, texture::Image},
-    ui::{
-        node_bundles::NodeBundle, widget::Button, Display, GridTrack, PositionType, Style, UiImage,
-        Val,
-    },
+    ui::{node_bundles::NodeBundle, Display, GridTrack, PositionType, Style, UiImage, Val},
 };
 
 use crate::{
@@ -60,61 +57,61 @@ pub fn update_user_interface(
                 if selected_menu_item.menu_selection == MainMenuSelection::Animals {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
 
                 if selected_menu_item.menu_selection == MainMenuSelection::Fences {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
 
                 if selected_menu_item.menu_selection == MainMenuSelection::Terrain {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
 
                 if selected_menu_item.menu_selection == MainMenuSelection::Trees {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
 
                 if selected_menu_item.menu_selection == MainMenuSelection::Rocks {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
 
                 if selected_menu_item.menu_selection == MainMenuSelection::Shelters {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::SelectedIconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 } else {
                     let texture: Handle<Image> =
                         asset_server.load(MainMenuUserInterface::IconAnimals.to_string());
-                    parent.spawn((icon_node_bundle(), Button, UiImage::new(texture)));
+                    parent.spawn((icon_node_bundle(), UiImage::new(texture)));
                 }
             });
     }
