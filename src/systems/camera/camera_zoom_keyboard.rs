@@ -13,7 +13,9 @@ pub fn camera_zoom_keyboard(
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
-    let mut camera = cameras.single_mut();
+    let Ok(mut camera) = cameras.get_single_mut() else {
+        return;
+    };
 
     if input.just_pressed(KeyCode::Equal) {
         camera_settings.current_zoom = (camera_settings.current_zoom * camera_settings.zoom_out

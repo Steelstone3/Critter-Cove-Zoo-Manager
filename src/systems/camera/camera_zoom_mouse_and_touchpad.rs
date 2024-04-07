@@ -7,7 +7,7 @@ use bevy::{
         event::EventReader,
         system::{Query, ResMut},
     },
-    input::mouse::{MouseScrollUnit, MouseWheel},
+    input::mouse::MouseWheel,
 };
 use float_lerp::lerp;
 
@@ -16,39 +16,23 @@ pub fn camera_zoom_mouse_and_touchpad(
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
-    let mut camera = cameras.single_mut();
+    let Ok(mut camera) = cameras.get_single_mut() else {
+        return;
+    };
 
     for event in scroll_event_reader.read() {
-        match event.unit {
-            // For mouse
-            MouseScrollUnit::Line => {
-                if event.y < 0.0 {
-                    camera_settings.current_zoom = (camera_settings.current_zoom
-                        * camera_settings.zoom_in
-                        * camera_settings.zoom_speed)
-                        .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
-                } else if event.y > 0.0 {
-                    camera_settings.current_zoom = (camera_settings.current_zoom
-                        * camera_settings.zoom_out
-                        / camera_settings.zoom_speed)
-                        .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
-                }
-            }
-            // For touchpads
-            MouseScrollUnit::Pixel => {
-                if event.y < 0.0 {
-                    camera_settings.current_zoom = (camera_settings.current_zoom
-                        * camera_settings.zoom_in
-                        * camera_settings.zoom_speed)
-                        .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
-                } else if event.y > 0.0 {
-                    camera_settings.current_zoom = (camera_settings.current_zoom
-                        * camera_settings.zoom_out
-                        / camera_settings.zoom_speed)
-                        .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
-                }
-            }
+        if event.y < 0.0 {
+            camera_settings.current_zoom = (camera_settings.current_zoom
+                * camera_settings.zoom_in
+                * camera_settings.zoom_speed)
+                .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
+        } else if event.y > 0.0 {
+            camera_settings.current_zoom = (camera_settings.current_zoom
+                * camera_settings.zoom_out
+                / camera_settings.zoom_speed)
+                .clamp(camera_settings.minimum_zoom, camera_settings.maximum_zoom);
         }
     }
+
     camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.05);
 }
