@@ -8,7 +8,7 @@ use bevy::{
 };
 use float_lerp::lerp;
 
-pub fn camera_zoom(
+pub fn camera_zoom_keyboard(
     input: Res<ButtonInput<KeyCode>>,
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
