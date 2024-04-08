@@ -8,8 +8,7 @@ use crate::{
 };
 use bevy::{
     ecs::{
-        event::{EventReader, EventWriter},
-        system::ResMut,
+        event::{EventReader, EventWriter}, query::With, system::{Query, ResMut}
     },
     input::{
         mouse::{MouseButton, MouseButtonInput},
@@ -17,7 +16,7 @@ use bevy::{
     },
     transform::components::Transform,
     utils::tracing,
-    window::CursorMoved,
+    window::{CursorMoved, PrimaryWindow, Window},
 };
 
 pub fn spawn_animal(
@@ -25,6 +24,7 @@ pub fn spawn_animal(
     mut mouse_button_input_events: EventReader<MouseButtonInput>,
     mut cursor_moved_events: EventReader<CursorMoved>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
+    q_windows: Query<&Window, With<PrimaryWindow>>,
 ) {
     if selected_item.animal_selection == ZooAnimal::None {
         return;
@@ -51,12 +51,20 @@ pub fn spawn_animal(
         let mut transform = Transform::default();
         transform.translation.z = 1.0;
 
-        for cursor_moved_event in cursor_moved_events.read() {
+        if let Some(position) = q_windows.single().cursor_position() {
+            transform.translation.x = position.x;
+            transform.translation.y = position.y;
+        } else {
+            println!("Cursor is not in the game window.");
+        }
+
+        
+       /* for cursor_moved_event in cursor_moved_events.read() {
             tracing::info!("cursor at {:?}", cursor_moved_event);
 
             transform.translation.x = cursor_moved_event.position.x;
             transform.translation.y = cursor_moved_event.position.y;
-        }
+        }*/
 
         tracing::info!("animal at {:?}", transform.translation);
 
