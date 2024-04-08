@@ -72,6 +72,7 @@ pub fn spawn_animal(
                 sprite_path: animal.sprite_path.to_string(),
                 size: animal.size,
                 transform,
+                entity: todo!(),
             },
         });
     }

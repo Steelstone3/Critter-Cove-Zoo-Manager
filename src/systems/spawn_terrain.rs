@@ -20,6 +20,7 @@ pub fn spawn_terrain(mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>) {
                     translation: Vec3::new(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, 0.0),
                     ..Default::default()
                 },
+                entity: todo!(),
             });
         }
     }
