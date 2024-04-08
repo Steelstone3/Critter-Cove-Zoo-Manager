@@ -25,7 +25,8 @@ pub fn menu_selection(
 
     if input.pressed(KeyCode::Numpad1) || input.pressed(KeyCode::Digit1) {
         selected_item.menu_selection = MainMenuSelection::Animals;
-        selected_item.animal_selection = ZooAnimal::None;
+        // TODO change this to None and get it from the sub menu
+        selected_item.animal_selection = ZooAnimal::Chicken;
         selected_item.terrain_selection = WorldTerrain::None;
         user_interface_event.send(UserInterfaceEvent {});
     }
