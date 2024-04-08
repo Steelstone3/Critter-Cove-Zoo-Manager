@@ -4,12 +4,12 @@ use crate::{
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
+    queries::window_queries::WindowQuery,
     resources::selected_item::SelectedMenuItem,
 };
 use bevy::{
     ecs::{
         event::{EventReader, EventWriter},
-        query::With,
         system::{Query, ResMut},
     },
     input::{
@@ -18,14 +18,13 @@ use bevy::{
     },
     transform::components::Transform,
     utils::tracing,
-    window::{PrimaryWindow, Window},
 };
 
 pub fn spawn_animal(
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input_events: EventReader<MouseButtonInput>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
-    windows_query: Query<&Window, With<PrimaryWindow>>,
+    windows_query: Query<WindowQuery>,
 ) {
     if selected_item.animal_selection == ZooAnimal::None {
         return;
@@ -55,9 +54,9 @@ pub fn spawn_animal(
         let mut transform = Transform::default();
         transform.translation.z = 1.0;
 
-        if let Some(position) = window_query.cursor_position() {
-            transform.translation.x = position.x - window_query.resolution.width() / 2.0;
-            transform.translation.y = -(position.y - window_query.resolution.height() / 2.0);
+        if let Some(position) = window_query.window.cursor_position() {
+            transform.translation.x = position.x - window_query.window.resolution.width() / 2.0;
+            transform.translation.y = -(position.y - window_query.window.resolution.height() / 2.0);
         } else {
             return;
         }
