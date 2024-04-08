@@ -1,18 +1,19 @@
 use super::controllers::random_generator::{generate_seed, random_value_f32};
 use crate::{
-    assets::images::animal, components::constants::MAP_SIZE, queries::animal_queries::MutableAnimalTransformQuery
+    components::constants::MAP_SIZE, queries::animal_queries::MutableAnimalTransformQuery,
 };
 use bevy::{
     ecs::system::{Query, Res},
     math::{Quat, Vec3},
-    time::Time, utils::tracing,
+    time::Time,
+    utils::tracing,
 };
 
 pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, time: Res<Time>) {
-    for animal_query in &animal_queries  {
+    for _animal_query in &animal_queries {
         tracing::info!("Hello1");
     }
-    
+
     animal_queries.par_iter_mut().for_each(|mut animal_query| {
         tracing::info!("Hello2");
         let speed = animal_query.animal.speed * time.delta_seconds();
