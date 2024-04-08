@@ -2,7 +2,6 @@ use bevy::ecs::system::Query;
 
 use crate::queries::animal_queries::MutableAnimalTransformQuery;
 
-#[allow(dead_code)]
 pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>) {
     animal_queries.par_iter_mut().for_each(|_animal_query| {
 

@@ -1,4 +1,5 @@
 use crate::systems::{
+    animal_movement::animal_movement,
     animate_sprites::animate_sprites,
     camera::{
         camera_movement::camera_movement, camera_position_reset::camera_position_reset,
@@ -28,6 +29,7 @@ impl Plugin for RunningPlugin {
             .add_systems(Update, menu_selection)
             .add_systems(Update, update_user_interface)
             .add_systems(Update, animate_sprites)
-            .add_systems(Update, spawn_animal);
+            .add_systems(Update, spawn_animal)
+            .add_systems(Update, animal_movement);
     }
 }
