@@ -21,7 +21,6 @@ use bevy::{
 
 pub fn spawn_animal(
     mut selected_item: ResMut<SelectedMenuItem>,
-    // input: Res<ButtonInput<KeyCode>>,
     mut mouse_button_events: EventReader<MouseButtonInput>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
