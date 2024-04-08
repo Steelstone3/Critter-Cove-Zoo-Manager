@@ -30,8 +30,8 @@ pub fn spawn_animal(
     if selected_item.animal_selection == ZooAnimal::None {
         return;
     }
-    let Ok(window_query) =  windows_query.get_single() else {
-        return
+    let Ok(window_query) = windows_query.get_single() else {
+        return;
     };
 
     for mouse_button_event in mouse_button_input_events.read() {
