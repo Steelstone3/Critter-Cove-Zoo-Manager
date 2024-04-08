@@ -1,6 +1,9 @@
 use super::constants::TILE_SIZE;
 use crate::assets::images::animal::ZooAnimal;
-use bevy::{ecs::component::Component, math::Vec2};
+use bevy::{
+    ecs::component::Component,
+    math::{Quat, Vec2},
+};
 
 #[derive(Component)]
 pub struct Animal {
@@ -9,6 +12,8 @@ pub struct Animal {
     pub frame_count: usize,
     pub tile_size: f32,
     pub size: Vec2,
+    pub speed: f32,
+    pub direction: Quat,
 }
 
 impl Animal {
@@ -22,6 +27,8 @@ impl Animal {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
+            speed: 5.0,
+            direction: Default::default(),
         }
     }
     pub fn new_32(sprite_path: ZooAnimal) -> Self {
@@ -34,6 +41,8 @@ impl Animal {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
+            speed: 5.0,
+            direction: Default::default(),
         }
     }
 }
