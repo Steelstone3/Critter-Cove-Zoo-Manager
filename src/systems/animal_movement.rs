@@ -10,10 +10,7 @@ use bevy::{
 };
 
 pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, time: Res<Time>) {
-    for _animal_query in &animal_queries {
-        tracing::info!("Hello1");
-    }
-
+    // TODO need to .insert() type when the spawn sprite event handler handles...
     animal_queries.par_iter_mut().for_each(|mut animal_query| {
         tracing::info!("Hello2");
         let speed = animal_query.animal.speed * time.delta_seconds();
@@ -39,24 +36,5 @@ pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, t
         } else {
             animal_query.transform.translation += translation_delta;
         }
-
-        // let ship_speed = ai_ship.velocity * time.delta_seconds();
-        // let movement_direction = transform.rotation * Vec3::Y;
-        // let translation_delta = movement_direction * ship_speed;
-
-        // let next_translation = transform.translation + translation_delta;
-
-        // if next_translation.y > space_zone_border.top_border
-        //     || next_translation.x < space_zone_border.left_border
-        //     || next_translation.y < space_zone_border.bottom_border
-        //     || next_translation.x > space_zone_border.right_border
-        // {
-        //     transform.rotate(Quat::from_axis_angle(
-        //         Vec3::new(0.0, 0.0, 1.0),
-        //         random_value_f32(generate_seed(), 150.0..210.0),
-        //     ))
-        // } else {
-        //     transform.translation += translation_delta;
-        // }
     });
 }
