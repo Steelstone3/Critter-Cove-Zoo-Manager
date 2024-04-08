@@ -1,4 +1,8 @@
-use bevy::{ecs::{entity::Entity, event::Event}, math::Vec2, transform::components::Transform};
+use bevy::{
+    ecs::{entity::Entity, event::Event},
+    math::Vec2,
+    transform::components::Transform,
+};
 
 #[derive(Event)]
 pub struct SpawnSpriteEvent {

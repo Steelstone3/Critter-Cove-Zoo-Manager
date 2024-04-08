@@ -32,7 +32,9 @@ pub fn spawn_animated_sprite(
         );
         let texture_atlas_layout = texture_atlas_layouts.add(layout);
 
-        if let Some(mut entity) = commands.get_entity(spawn_animated_sprite_event.spawn_sprite_event.entity) {
+        if let Some(mut entity) =
+            commands.get_entity(spawn_animated_sprite_event.spawn_sprite_event.entity)
+        {
             entity.insert((
                 SpriteSheetBundle {
                     sprite: Sprite {
