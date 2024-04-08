@@ -8,7 +8,9 @@ use crate::{
 };
 use bevy::{
     ecs::{
-        event::{EventReader, EventWriter}, query::With, system::{Query, ResMut}
+        event::{EventReader, EventWriter},
+        query::With,
+        system::{Query, ResMut},
     },
     input::{
         mouse::{MouseButton, MouseButtonInput},
@@ -16,19 +18,21 @@ use bevy::{
     },
     transform::components::Transform,
     utils::tracing,
-    window::{CursorMoved, PrimaryWindow, Window},
+    window::{PrimaryWindow, Window},
 };
 
 pub fn spawn_animal(
-    mut selected_item: ResMut<SelectedMenuItem>,
+    selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input_events: EventReader<MouseButtonInput>,
-    mut cursor_moved_events: EventReader<CursorMoved>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
-    q_windows: Query<&Window, With<PrimaryWindow>>,
+    windows_query: Query<&Window, With<PrimaryWindow>>,
 ) {
     if selected_item.animal_selection == ZooAnimal::None {
         return;
     }
+    let Ok(window_query) =  windows_query.get_single() else {
+        return
+    };
 
     for mouse_button_event in mouse_button_input_events.read() {
         if mouse_button_event.button != MouseButton::Left {
@@ -51,20 +55,12 @@ pub fn spawn_animal(
         let mut transform = Transform::default();
         transform.translation.z = 1.0;
 
-        if let Some(position) = q_windows.single().cursor_position() {
+        if let Some(position) = window_query.cursor_position() {
             transform.translation.x = position.x;
             transform.translation.y = position.y;
         } else {
-            println!("Cursor is not in the game window.");
+            return;
         }
-
-        
-       /* for cursor_moved_event in cursor_moved_events.read() {
-            tracing::info!("cursor at {:?}", cursor_moved_event);
-
-            transform.translation.x = cursor_moved_event.position.x;
-            transform.translation.y = cursor_moved_event.position.y;
-        }*/
 
         tracing::info!("animal at {:?}", transform.translation);
 
@@ -79,7 +75,5 @@ pub fn spawn_animal(
                 transform,
             },
         });
-
-        selected_item.animal_selection = ZooAnimal::None;
     }
 }
