@@ -21,10 +21,22 @@ use bevy::{
 
 pub fn spawn_animal(
     mut selected_item: ResMut<SelectedMenuItem>,
-    mut mouse_button_events: EventReader<MouseButtonInput>,
+    mut mouse_button_input_events: EventReader<MouseButtonInput>,
+    // _cursor_moved_events: EventReader<CursorMoved>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
 ) {
-    for mouse_button_event in mouse_button_events.read() {
+    if selected_item.animal_selection == ZooAnimal::None {
+        return;
+    }
+
+    // let mut cursor_position = Vec3::new(0.0, 0.0, 1.0);
+
+    // for cursor_moved_event in cursor_moved_events.read() {
+    //     cursor_position.x = cursor_moved_event.position.x;
+    //     cursor_position.y = cursor_moved_event.position.y;
+    // }
+
+    for mouse_button_event in mouse_button_input_events.read() {
         if mouse_button_event.button != MouseButton::Left {
             return;
         }
