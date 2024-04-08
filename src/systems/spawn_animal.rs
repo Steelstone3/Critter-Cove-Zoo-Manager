@@ -57,7 +57,7 @@ pub fn spawn_animal(
 
         if let Some(position) = window_query.cursor_position() {
             transform.translation.x = position.x - window_query.resolution.width() / 2.0;
-            transform.translation.y = position.y - window_query.resolution.height() / 2.0;
+            transform.translation.y = -(position.y - window_query.resolution.height() / 2.0);
         } else {
             return;
         }
