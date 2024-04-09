@@ -6,15 +6,12 @@ use bevy::{
     ecs::system::{Query, Res},
     math::{Quat, Vec3},
     time::Time,
-    utils::tracing,
 };
 
 pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, time: Res<Time>) {
-    // TODO need to .insert() type when the spawn sprite event handler handles...
     animal_queries.par_iter_mut().for_each(|mut animal_query| {
-        tracing::info!("Hello2");
         let speed = animal_query.animal.speed * time.delta_seconds();
-        let direction = animal_query.animal.direction * Vec3::Y;
+        let direction = animal_query.transform.rotation * Vec3::Y;
         let translation_delta = direction * speed;
 
         let next_translation_delta = animal_query.transform.translation + translation_delta;
@@ -38,3 +35,22 @@ pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, t
         }
     });
 }
+
+// let ship_speed = starship.starship.velocity * time.delta_seconds();
+// let movement_direction = starship.transform.rotation * Vec3::Y;
+// let translation_delta = movement_direction * ship_speed;
+
+// let next_translation = starship.transform.translation + translation_delta;
+
+// if next_translation.y > space_zone_border.top_border
+//     || next_translation.x < space_zone_border.left_border
+//     || next_translation.y < space_zone_border.bottom_border
+//     || next_translation.x > space_zone_border.right_border
+// {
+//     starship.transform.rotate(Quat::from_axis_angle(
+//         Vec3::new(0.0, 0.0, 1.0),
+//         random_value_f32(generate_seed(), 150.0..210.0),
+//     ))
+// } else {
+//     starship.transform.translation += translation_delta;
+// }

@@ -27,7 +27,7 @@ impl Animal {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
-            speed: 5.0,
+            speed: 20.0,
             direction: Default::default(),
         }
     }
@@ -41,7 +41,7 @@ impl Animal {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
-            speed: 5.0,
+            speed: 40.0,
             direction: Default::default(),
         }
     }

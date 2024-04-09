@@ -1,4 +1,8 @@
-use bevy::{ecs::event::EventWriter, math::Vec3, transform::components::Transform};
+use bevy::{
+    ecs::{event::EventWriter, system::Commands},
+    math::Vec3,
+    transform::components::Transform,
+};
 
 use crate::{
     components::{
@@ -8,7 +12,10 @@ use crate::{
     events::spawn_sprite_event::SpawnSpriteEvent,
 };
 
-pub fn spawn_terrain(mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>) {
+pub fn spawn_terrain(
+    mut commands: Commands,
+    mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
+) {
     let terrain = Terrain::new_grass();
 
     for x in MAP_TILES {
@@ -20,6 +27,7 @@ pub fn spawn_terrain(mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>) {
                     translation: Vec3::new(x as f32 * TILE_SIZE, y as f32 * TILE_SIZE, 0.0),
                     ..Default::default()
                 },
+                entity: commands.spawn(terrain).id(),
             });
         }
     }

@@ -10,7 +10,7 @@ use crate::{
 use bevy::{
     ecs::{
         event::{EventReader, EventWriter},
-        system::{Query, ResMut},
+        system::{Commands, Query, ResMut},
     },
     input::{
         mouse::{MouseButton, MouseButtonInput},
@@ -21,6 +21,7 @@ use bevy::{
 };
 
 pub fn spawn_animal(
+    mut commands: Commands,
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input_events: EventReader<MouseButtonInput>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
@@ -72,6 +73,7 @@ pub fn spawn_animal(
                 sprite_path: animal.sprite_path.to_string(),
                 size: animal.size,
                 transform,
+                entity: commands.spawn(animal).id(),
             },
         });
     }
