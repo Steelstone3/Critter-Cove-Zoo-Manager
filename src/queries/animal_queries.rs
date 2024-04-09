@@ -6,5 +6,5 @@ use crate::components::animal::Animal;
 #[query_data(mutable)]
 pub struct MutableAnimalTransformQuery {
     pub transform: &'static mut Transform,
-    pub animal: &'static Animal,
+    pub animal: &'static mut Animal,
 }
