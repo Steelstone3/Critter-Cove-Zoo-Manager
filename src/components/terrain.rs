@@ -2,7 +2,7 @@ use super::constants::TILE_SIZE;
 use crate::assets::images::world::terrain::WorldTerrain;
 use bevy::{ecs::component::Component, math::Vec2};
 
-pub const TERRAIN_SIZE: Vec2 = Vec2::new(TILE_SIZE, TILE_SIZE);
+const TERRAIN_SIZE: Vec2 = Vec2::new(TILE_SIZE, TILE_SIZE);
 
 #[derive(Component, Clone, Copy)]
 pub struct Terrain {
