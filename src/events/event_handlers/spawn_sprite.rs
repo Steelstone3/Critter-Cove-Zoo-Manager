@@ -14,16 +14,18 @@ pub fn spawn_sprite(
     mut spawn_sprite_events: EventReader<SpawnSpriteEvent>,
 ) {
     for spawn_sprite_event in spawn_sprite_events.read() {
-        let texture = asset_server.load(&spawn_sprite_event.sprite_path);
+        if let Some(mut entity) = commands.get_entity(spawn_sprite_event.entity) {
+            let texture = asset_server.load(&spawn_sprite_event.sprite_path);
 
-        commands.spawn(SpriteBundle {
-            sprite: Sprite {
-                custom_size: Some(spawn_sprite_event.size),
+            entity.insert(SpriteBundle {
+                sprite: Sprite {
+                    custom_size: Some(spawn_sprite_event.size),
+                    ..Default::default()
+                },
+                texture,
+                transform: spawn_sprite_event.transform,
                 ..Default::default()
-            },
-            texture,
-            transform: spawn_sprite_event.transform,
-            ..Default::default()
-        });
+            });
+        }
     }
 }

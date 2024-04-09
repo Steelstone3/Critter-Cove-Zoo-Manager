@@ -32,29 +32,33 @@ pub fn spawn_animated_sprite(
         );
         let texture_atlas_layout = texture_atlas_layouts.add(layout);
 
-        commands.spawn((
-            SpriteSheetBundle {
-                sprite: Sprite {
-                    custom_size: Some(spawn_animated_sprite_event.spawn_sprite_event.size),
+        if let Some(mut entity) =
+            commands.get_entity(spawn_animated_sprite_event.spawn_sprite_event.entity)
+        {
+            entity.insert((
+                SpriteSheetBundle {
+                    sprite: Sprite {
+                        custom_size: Some(spawn_animated_sprite_event.spawn_sprite_event.size),
+                        ..Default::default()
+                    },
+                    texture: asset_server.load(
+                        spawn_animated_sprite_event
+                            .spawn_sprite_event
+                            .sprite_path
+                            .to_string(),
+                    ),
+                    atlas: TextureAtlas {
+                        layout: texture_atlas_layout,
+                        index: 0,
+                    },
+                    transform: spawn_animated_sprite_event.spawn_sprite_event.transform,
                     ..Default::default()
                 },
-                texture: asset_server.load(
-                    spawn_animated_sprite_event
-                        .spawn_sprite_event
-                        .sprite_path
-                        .to_string(),
+                AnimationTimer::new(
+                    spawn_animated_sprite_event.frame_timing,
+                    spawn_animated_sprite_event.frame_count,
                 ),
-                atlas: TextureAtlas {
-                    layout: texture_atlas_layout,
-                    index: 0,
-                },
-                transform: spawn_animated_sprite_event.spawn_sprite_event.transform,
-                ..Default::default()
-            },
-            AnimationTimer::new(
-                spawn_animated_sprite_event.frame_timing,
-                spawn_animated_sprite_event.frame_count,
-            ),
-        ));
+            ));
+        }
     }
 }

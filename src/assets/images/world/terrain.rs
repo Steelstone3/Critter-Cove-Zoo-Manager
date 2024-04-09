@@ -1,6 +1,7 @@
 use std::fmt::Display;
 
 #[allow(dead_code)]
+#[derive(Clone, Copy)]
 pub enum WorldTerrain {
     DarkGrass1,
     DarkGrass2,

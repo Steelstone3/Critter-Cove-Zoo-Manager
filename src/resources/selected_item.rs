@@ -25,8 +25,7 @@ impl Default for SelectedMenuItem {
     fn default() -> Self {
         Self {
             menu_selection: MainMenuSelection::None,
-            // TODO change this to none and get it from the UI
-            animal_selection: ZooAnimal::Chicken,
+            animal_selection: ZooAnimal::None,
             terrain_selection: WorldTerrain::None,
         }
     }
