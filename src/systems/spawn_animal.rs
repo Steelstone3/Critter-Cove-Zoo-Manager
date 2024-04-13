@@ -10,7 +10,7 @@ use crate::{
 use bevy::{
     ecs::{
         event::EventWriter,
-        system::{Commands, Query, Res, ResMut},
+        system::{Commands, Query, ResMut},
     },
     input::{mouse::MouseButton, ButtonInput},
     transform::components::Transform,
@@ -20,19 +20,22 @@ use bevy::{
 pub fn spawn_animal(
     mut commands: Commands,
     selected_item: ResMut<SelectedMenuItem>,
-    mouse_button_input: Res<ButtonInput<MouseButton>>,
+    mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
     windows_query: Query<WindowQuery>,
 ) {
+    
     if selected_item.animal_selection == ZooAnimal::None {
         return;
     }
-
+    
     let Ok(window_query) = windows_query.get_single() else {
         return;
     };
+    
+    mouse_button_input.clear();
 
-    if !mouse_button_input.just_pressed(MouseButton::Left) {
+    if !mouse_button_input.clear_just_pressed(MouseButton::Left) {
         return;
     }
 
