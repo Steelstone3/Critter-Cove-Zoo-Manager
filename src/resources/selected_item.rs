@@ -6,11 +6,11 @@ use crate::assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain};
 pub enum MainMenuSelection {
     None,
     Animals,
-    Fences,
-    Terrain,
-    Trees,
-    Rocks,
-    Shelters,
+    // Fences,
+    // Terrain,
+    // Trees,
+    // Rocks,
+    // Shelters,
 }
 
 #[derive(Resource)]
