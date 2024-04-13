@@ -3,8 +3,7 @@ use bevy::{
         query::Changed,
         system::{Query, ResMut},
     },
-    render::color::Color,
-    ui::{BackgroundColor, Interaction},
+    ui::Interaction,
 };
 
 use crate::{

@@ -8,7 +8,10 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
-    user_interface::{interactions::select_animal_button::select_animal_button, layout::spawn_selection_menu::spawn_selection_menu},
+    user_interface::{
+        interactions::select_animal_button::select_animal_button,
+        layout::spawn_selection_menu::spawn_selection_menu,
+    },
 };
 use bevy::{
     app::Update,

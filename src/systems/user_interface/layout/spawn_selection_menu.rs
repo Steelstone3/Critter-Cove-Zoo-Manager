@@ -1,18 +1,18 @@
 use bevy::{
-    a11y::accesskit::TextSelection,
     asset::AssetServer,
     ecs::system::{Commands, Res},
     hierarchy::BuildChildren,
     render::color::Color,
-    text::{Text, TextSection, TextStyle},
     ui::{
-        node_bundles::{ButtonBundle, ImageBundle, NodeBundle, TextBundle}, Display, GridTrack, PositionType, Style, UiImage, Val
+        node_bundles::{ButtonBundle, ImageBundle, NodeBundle},
+        Display, GridTrack, PositionType, Style, UiImage, Val,
     },
 };
 
-use crate::{assets::images::user_interface::main_menu::MainMenuUserInterface, components::{
-    constants::TILE_SIZE, menu::SelectionMenu, user_interface::SelectAnimalButton,
-}};
+use crate::{
+    assets::images::user_interface::main_menu::MainMenuUserInterface,
+    components::{constants::TILE_SIZE, menu::SelectionMenu, user_interface::SelectAnimalButton},
+};
 
 pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands
@@ -54,10 +54,12 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
                     SelectAnimalButton {},
                 ))
                 .with_children(|parent| {
-                    parent.spawn(ImageBundle {      
-                        image: UiImage::new(asset_server.load(MainMenuUserInterface::IconAnimals.to_string())),
+                    parent.spawn(ImageBundle {
+                        image: UiImage::new(
+                            asset_server.load(MainMenuUserInterface::IconAnimals.to_string()),
+                        ),
                         background_color: Color::WHITE.into(),
-                      ..Default::default()
+                        ..Default::default()
                     });
                 });
 
