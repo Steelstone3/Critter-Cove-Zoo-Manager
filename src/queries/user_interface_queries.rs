@@ -7,3 +7,5 @@
 //     pub entity: Entity,
 //     pub user_interface: &'static SelectionMenu,
 // }
+
+// Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>
