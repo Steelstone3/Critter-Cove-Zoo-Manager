@@ -8,15 +8,15 @@ use bevy::{
         system::{Query, Res, ResMut},
     },
     input::{
-        mouse::{MouseButton, MouseButtonInput, MouseWheel},
-        ButtonInput, ButtonState,
+        mouse::{MouseButton, MouseWheel},
+        ButtonInput,
     },
 };
 use float_lerp::lerp;
 
 pub fn camera_zoom_mouse_and_touchpad(
     mut mouse_wheel_events: EventReader<MouseWheel>,
-    mut mouse_button_input: Res<ButtonInput<MouseButton>>,
+    mouse_button_input: Res<ButtonInput<MouseButton>>,
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {

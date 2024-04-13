@@ -1,13 +1,9 @@
 use bevy::{
     ecs::{
-        event::EventReader,
         query::Changed,
         system::{Query, Res, ResMut},
     },
-    input::{
-        mouse::{MouseButton, MouseButtonInput},
-        ButtonInput, ButtonState,
-    },
+    input::{mouse::MouseButton, ButtonInput},
     ui::Interaction,
     utils::tracing,
 };
@@ -20,7 +16,7 @@ use crate::{
 
 pub fn select_animal_button(
     select_animal_button_queries: Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>,
-    mut mouse_button_input: Res<ButtonInput<MouseButton>>,
+    mouse_button_input: Res<ButtonInput<MouseButton>>,
     mut selected_item: ResMut<SelectedMenuItem>,
 ) {
     let Ok(select_animal_button_query) = select_animal_button_queries.get_single() else {
