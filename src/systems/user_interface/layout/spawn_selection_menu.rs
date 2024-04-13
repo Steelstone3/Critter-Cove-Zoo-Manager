@@ -1,15 +1,19 @@
 use bevy::{
+    a11y::accesskit::TextSelection,
     asset::AssetServer,
     ecs::system::{Commands, Res},
     hierarchy::BuildChildren,
     render::color::Color,
+    text::{Text, TextSection, TextStyle},
     ui::{
-        node_bundles::{ButtonBundle, NodeBundle},
+        node_bundles::{ButtonBundle, NodeBundle, TextBundle},
         Display, GridTrack, PositionType, Style, Val,
     },
 };
 
-use crate::components::{constants::TILE_SIZE, menu::SelectionMenu};
+use crate::components::{
+    constants::TILE_SIZE, menu::SelectionMenu, user_interface::SelectAnimalButton,
+};
 
 pub fn spawn_selection_menu(mut commands: Commands, _asset_server: Res<AssetServer>) {
     commands
@@ -38,9 +42,35 @@ pub fn spawn_selection_menu(mut commands: Commands, _asset_server: Res<AssetServ
         .insert(SelectionMenu)
         .with_children(|parent| {
             // Animals
-            parent.spawn(ButtonBundle {
-                ..Default::default()
-            });
+            parent
+                .spawn((
+                    ButtonBundle {
+                        style: Style {
+                            width: Val::Percent(100.0),
+                            height: Val::Percent(100.0),
+                            ..Default::default()
+                        },
+                        background_color: Color::WHITE.into(),
+                        ..Default::default()
+                    },
+                    SelectAnimalButton {},
+                ))
+                .with_children(|parent| {
+                    parent.spawn(TextBundle {
+                        text: Text {
+                            sections: vec![TextSection {
+                                value: "Animals".to_string(),
+                                style: TextStyle {
+                                    font_size: 32.0,
+                                    color: Color::BLACK.into(),
+                                    ..Default::default()
+                                },
+                            }],
+                            ..Default::default()
+                        },
+                        ..Default::default()
+                    });
+                });
 
             // Fences
 
