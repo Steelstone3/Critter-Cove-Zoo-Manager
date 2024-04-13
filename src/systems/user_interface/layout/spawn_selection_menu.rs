@@ -49,7 +49,6 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
                             height: Val::Percent(100.0),
                             ..Default::default()
                         },
-                        background_color: Color::WHITE.into(),
                         ..Default::default()
                     },
                     SelectAnimalButton {},
@@ -57,6 +56,7 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
                 .with_children(|parent| {
                     parent.spawn(ImageBundle {      
                         image: UiImage::new(asset_server.load(MainMenuUserInterface::IconAnimals.to_string())),
+                        background_color: Color::WHITE.into(),
                       ..Default::default()
                     });
                 });

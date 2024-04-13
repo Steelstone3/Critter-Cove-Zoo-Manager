@@ -1,24 +1,34 @@
 use bevy::{
-    ecs::{query::Changed, system::Query},
-    ui::Interaction,
+    ecs::{
+        query::Changed,
+        system::{Query, ResMut},
+    },
+    render::color::Color,
+    ui::{BackgroundColor, Interaction},
 };
 
-use crate::components::user_interface::SelectAnimalButton;
+use crate::{
+    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    components::user_interface::SelectAnimalButton,
+    resources::selected_item::{MainMenuSelection, SelectedMenuItem},
+};
 
 pub fn select_animal_button(
-    mut select_animal_button_queries: Query<
-        (&SelectAnimalButton, &Interaction),
-        Changed<Interaction>,
-    >,
-    
+    select_animal_button_queries: Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>,
+    mut selected_item: ResMut<SelectedMenuItem>,
 ) {
     let Ok(select_animal_button_query) = select_animal_button_queries.get_single() else {
         return;
     };
 
     match *select_animal_button_query.1 {
-        Interaction::Pressed => todo!(),
-        Interaction::Hovered => todo!(),
-        Interaction::None => todo!(),
+        Interaction::Pressed => {}
+        Interaction::Hovered => {
+            selected_item.menu_selection = MainMenuSelection::Animals;
+            // TODO change this to None and get it from the sub menu
+            selected_item.animal_selection = ZooAnimal::Chicken;
+            selected_item.terrain_selection = WorldTerrain::None;
+        }
+        Interaction::None => {}
     }
 }

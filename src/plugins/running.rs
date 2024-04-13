@@ -8,7 +8,7 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
-    user_interface::layout::spawn_selection_menu::spawn_selection_menu,
+    user_interface::{interactions::select_animal_button::select_animal_button, layout::spawn_selection_menu::spawn_selection_menu},
 };
 use bevy::{
     app::Update,
@@ -25,6 +25,7 @@ impl Plugin for RunningPlugin {
             .add_systems(Update, camera_zoom_mouse_and_touchpad)
             .add_systems(Update, play_music)
             .add_systems(Update, spawn_selection_menu)
+            .add_systems(Update, select_animal_button)
             .add_systems(Update, animate_sprites)
             .add_systems(Update, spawn_animal)
             .add_systems(Update, animal_movement);
