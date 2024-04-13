@@ -5,18 +5,18 @@ use crate::{
 use bevy::{
     ecs::{
         event::EventReader,
-        system::{Query, ResMut},
+        system::{Query, Res, ResMut},
     },
     input::{
         mouse::{MouseButton, MouseButtonInput, MouseWheel},
-        ButtonState,
+        ButtonInput, ButtonState,
     },
 };
 use float_lerp::lerp;
 
 pub fn camera_zoom_mouse_and_touchpad(
     mut mouse_wheel_events: EventReader<MouseWheel>,
-    mut mouse_button_events: EventReader<MouseButtonInput>,
+    mut mouse_button_input: Res<ButtonInput<MouseButton>>,
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
@@ -38,14 +38,7 @@ pub fn camera_zoom_mouse_and_touchpad(
         }
     }
 
-    for mouse_button_event in mouse_button_events.read() {
-        if mouse_button_event.button != MouseButton::Middle {
-            return;
-        }
-        if mouse_button_event.state != ButtonState::Pressed {
-            return;
-        }
-
+    if mouse_button_input.just_pressed(MouseButton::Middle) {
         camera_settings.current_zoom = 1.0;
     }
 

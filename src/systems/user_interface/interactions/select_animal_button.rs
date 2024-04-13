@@ -2,10 +2,14 @@ use bevy::{
     ecs::{
         event::EventReader,
         query::Changed,
-        system::{Query, ResMut},
+        system::{Query, Res, ResMut},
     },
-    input::{mouse::{MouseButton, MouseButtonInput}, ButtonState},
-    ui::Interaction, utils::tracing,
+    input::{
+        mouse::{MouseButton, MouseButtonInput},
+        ButtonInput, ButtonState,
+    },
+    ui::Interaction,
+    utils::tracing,
 };
 
 use crate::{
@@ -16,7 +20,7 @@ use crate::{
 
 pub fn select_animal_button(
     select_animal_button_queries: Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>,
-    mut mouse_button_input_events: EventReader<MouseButtonInput>,
+    mut mouse_button_input: Res<ButtonInput<MouseButton>>,
     mut selected_item: ResMut<SelectedMenuItem>,
 ) {
     let Ok(select_animal_button_query) = select_animal_button_queries.get_single() else {
@@ -27,18 +31,15 @@ pub fn select_animal_button(
         Interaction::Pressed => {
             tracing::info!("Pressed");
 
-            for mouse_button_event in mouse_button_input_events.read() {
-                if mouse_button_event.button != MouseButton::Left {
-                    return;
-                }
-                if mouse_button_event.state != ButtonState::Pressed {
-                    return;
-                }
-
-                selected_item.menu_selection = MainMenuSelection::Animals;
-                selected_item.animal_selection = ZooAnimal::Chicken;
-                selected_item.terrain_selection = WorldTerrain::None;
+            if !mouse_button_input.just_pressed(MouseButton::Left) {
+                return;
             }
+
+            selected_item.menu_selection = MainMenuSelection::Animals;
+            selected_item.animal_selection = ZooAnimal::Chicken;
+            selected_item.terrain_selection = WorldTerrain::None;
+
+            // mouse_button_input.clear_just_pressed(MouseButton::Left);
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
