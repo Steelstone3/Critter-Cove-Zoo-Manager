@@ -44,8 +44,6 @@ pub fn select_animal_button(
             tracing::info!("Hovered");
 
             selected_item.menu_selection = MainMenuSelection::Animals;
-            selected_item.animal_selection = ZooAnimal::Chicken;
-            selected_item.terrain_selection = WorldTerrain::None;
         }
         Interaction::None => {
             selected_item.menu_selection = MainMenuSelection::None;
