@@ -1,5 +1,12 @@
 use bevy::{
-    asset::AssetServer, ecs::system::{Commands, Res}, hierarchy::BuildChildren, render::color::Color, ui::{node_bundles::NodeBundle, Display, GridTrack, PositionType, Style, Val}
+    asset::AssetServer,
+    ecs::system::{Commands, Res},
+    hierarchy::BuildChildren,
+    render::color::Color,
+    ui::{
+        node_bundles::{ButtonBundle, NodeBundle},
+        Display, GridTrack, PositionType, Style, Val,
+    },
 };
 
 use crate::components::{constants::TILE_SIZE, menu::SelectionMenu};
@@ -31,7 +38,9 @@ pub fn spawn_selection_menu(mut commands: Commands, _asset_server: Res<AssetServ
         .insert(SelectionMenu)
         .with_children(|parent| {
             // Animals
-            
+            parent.spawn(ButtonBundle {
+                ..Default::default()
+            });
 
             // Fences
 
