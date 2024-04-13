@@ -2,7 +2,6 @@ use bevy::ecs::system::Resource;
 
 use crate::assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain};
 
-#[allow(dead_code)]
 #[derive(PartialEq)]
 pub enum MainMenuSelection {
     None,

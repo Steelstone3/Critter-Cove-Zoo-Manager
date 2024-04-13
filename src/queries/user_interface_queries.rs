@@ -1,9 +1,9 @@
-use bevy::ecs::{entity::Entity, query::QueryData};
+// use bevy::ecs::{entity::Entity, query::QueryData};
 
-use crate::components::menu::SelectionMenu;
+// use crate::components::menu::SelectionMenu;
 
-#[derive(QueryData)]
-pub struct UserInterfaceEntityQuery {
-    pub entity: Entity,
-    pub user_interface: &'static SelectionMenu,
-}
+// #[derive(QueryData)]
+// pub struct UserInterfaceEntityQuery {
+//     pub entity: Entity,
+//     pub user_interface: &'static SelectionMenu,
+// }
