@@ -24,15 +24,14 @@ pub fn spawn_animal(
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
     windows_query: Query<WindowQuery>,
 ) {
-    
     if selected_item.animal_selection == ZooAnimal::None {
         return;
     }
-    
+
     let Ok(window_query) = windows_query.get_single() else {
         return;
     };
-    
+
     mouse_button_input.clear();
 
     if !mouse_button_input.clear_just_pressed(MouseButton::Left) {

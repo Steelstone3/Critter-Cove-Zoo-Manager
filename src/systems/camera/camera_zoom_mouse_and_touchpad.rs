@@ -3,13 +3,8 @@ use crate::{
     resources::camera_settings::CameraSettings,
 };
 use bevy::{
-    ecs::{
-        system::{Query, ResMut},
-    },
-    input::{
-        mouse::{MouseButton},
-        ButtonInput,
-    },
+    ecs::system::{Query, ResMut},
+    input::{mouse::MouseButton, ButtonInput},
 };
 use float_lerp::lerp;
 

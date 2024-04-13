@@ -48,5 +48,4 @@ pub fn select_animal_button(
     }
 
     input.clear();
-
 }
