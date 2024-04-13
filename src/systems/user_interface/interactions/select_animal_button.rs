@@ -21,13 +21,21 @@ pub fn select_animal_button(
     };
 
     match *select_animal_button_query.1 {
-        Interaction::Pressed => {}
-        Interaction::Hovered => {
+        Interaction::Pressed => {
             selected_item.menu_selection = MainMenuSelection::Animals;
             // TODO change this to None and get it from the sub menu
             selected_item.animal_selection = ZooAnimal::Chicken;
             selected_item.terrain_selection = WorldTerrain::None;
         }
-        Interaction::None => {}
+        Interaction::Hovered => {
+            selected_item.menu_selection = MainMenuSelection::Animals;
+            selected_item.animal_selection = ZooAnimal::None;
+            selected_item.terrain_selection = WorldTerrain::None;
+        }
+        Interaction::None => {
+            selected_item.menu_selection = MainMenuSelection::None;
+            selected_item.animal_selection = ZooAnimal::None;
+            selected_item.terrain_selection = WorldTerrain::None;
+        }
     }
 }
