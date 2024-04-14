@@ -13,10 +13,8 @@ pub fn camera_position_reset(
         return;
     };
 
-    input.clear();
-
     let is_reset_camera_position_pressed =
-        input.clear_just_pressed(KeyCode::Home) || input.clear_just_pressed(KeyCode::KeyR);
+        input.clear_just_pressed(KeyCode::Home) || input.clear_just_pressed(KeyCode::KeyC);
 
     if is_reset_camera_position_pressed {
         let mut transform = camera.transform;
@@ -25,5 +23,5 @@ pub fn camera_position_reset(
         camera.transform = transform;
     }
 
-    input.clear();
+    // input.clear();
 }
