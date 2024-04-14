@@ -34,16 +34,12 @@ pub fn select_animal_button(
                 select_animal_button_query.selected_animal_button.animal;
             selected_item.terrain_selection = WorldTerrain::None;
 
-            *select_animal_button_query.border_color = Color::YELLOW.into();
-
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
 
             selected_item.menu_selection = MainMenuSelection::Animals;
-
-            *select_animal_button_query.border_color = Color::YELLOW.into();
 
             user_interface_event.send(UserInterfaceEvent {});
         }
