@@ -52,7 +52,6 @@ pub fn select_animal_menu_button(
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::None => {
-            selected_item.menu_selection = MainMenuSelection::None;
             *select_animal_menu_button_query.border_color = Color::DARK_GRAY.into();
         }
     }
