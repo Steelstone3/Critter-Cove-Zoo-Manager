@@ -2,7 +2,7 @@ use std::fmt::Display;
 
 pub enum MainMenuUserInterface {
     IconAnimals,
-    SelectedIconAnimals,
+    // SelectedIconAnimals,
 }
 
 impl Display for MainMenuUserInterface {
@@ -10,13 +10,12 @@ impl Display for MainMenuUserInterface {
         match self {
             MainMenuUserInterface::IconAnimals => {
                 write!(f, "images/user_interface/main_menu/animals_icon.png")
-            }
-            MainMenuUserInterface::SelectedIconAnimals => {
-                write!(
-                    f,
-                    "images/user_interface/main_menu/selected_animals_icon.png"
-                )
-            }
+            } // MainMenuUserInterface::SelectedIconAnimals => {
+              //     write!(
+              //         f,
+              //         "images/user_interface/main_menu/selected_animals_icon.png"
+              //     )
+              // }
         }
     }
 }

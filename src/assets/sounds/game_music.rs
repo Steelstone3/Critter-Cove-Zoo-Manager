@@ -3,9 +3,7 @@ use std::fmt::Display;
 
 #[derive(RandGen)]
 pub enum GameMusic {
-    // TODO Make 1:04 songs out of Dessert1 and Dessert2
-    // Dessert1,
-    // Dessert2,
+    Dessert,
     Grassland,
     Jungle,
     Mountain,
@@ -15,12 +13,9 @@ pub enum GameMusic {
 impl Display for GameMusic {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            // GameMusic::Dessert1 => {
-            //     write!(f, "sounds/music/dessert_biome_1.ogg")
-            // }
-            // GameMusic::Dessert2 => {
-            //     write!(f, "sounds/music/dessert_biome_2.ogg")
-            // }
+            GameMusic::Dessert => {
+                write!(f, "sounds/music/dessert_biome.ogg")
+            }
             GameMusic::Grassland => {
                 write!(f, "sounds/music/grassland_biome.ogg")
             }

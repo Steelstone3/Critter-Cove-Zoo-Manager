@@ -7,16 +7,13 @@ use bevy::{
         event::EventReader,
         system::{Query, ResMut},
     },
-    input::{
-        mouse::{MouseButton, MouseButtonInput, MouseWheel},
-        ButtonState,
-    },
+    input::{keyboard::KeyCode, mouse::MouseWheel, ButtonInput},
 };
 use float_lerp::lerp;
 
 pub fn camera_zoom_mouse_and_touchpad(
     mut mouse_wheel_events: EventReader<MouseWheel>,
-    mut mouse_button_events: EventReader<MouseButtonInput>,
+    mut input: ResMut<ButtonInput<KeyCode>>,
     mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
@@ -38,14 +35,7 @@ pub fn camera_zoom_mouse_and_touchpad(
         }
     }
 
-    for mouse_button_event in mouse_button_events.read() {
-        if mouse_button_event.button != MouseButton::Middle {
-            return;
-        }
-        if mouse_button_event.state != ButtonState::Pressed {
-            return;
-        }
-
+    if input.clear_just_pressed(KeyCode::KeyR) {
         camera_settings.current_zoom = 1.0;
     }
 

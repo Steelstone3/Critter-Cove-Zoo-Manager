@@ -4,3 +4,4 @@ pub mod constants;
 pub mod menu;
 pub mod music;
 pub mod terrain;
+pub mod user_interface;

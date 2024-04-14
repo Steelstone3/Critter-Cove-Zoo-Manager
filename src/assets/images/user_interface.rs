@@ -1,2 +1,2 @@
-pub mod animal_menu;
+pub mod animal_sub_menu;
 pub mod main_menu;

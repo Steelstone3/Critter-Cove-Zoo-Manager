@@ -1,18 +1,9 @@
 use bevy::ecs::system::Resource;
 
-use crate::assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain};
-
-#[allow(dead_code)]
-#[derive(PartialEq)]
-pub enum MainMenuSelection {
-    None,
-    Animals,
-    Fences,
-    Terrain,
-    Trees,
-    Rocks,
-    Shelters,
-}
+use crate::{
+    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+};
 
 #[derive(Resource)]
 pub struct SelectedMenuItem {
