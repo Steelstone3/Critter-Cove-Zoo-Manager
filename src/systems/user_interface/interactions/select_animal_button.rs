@@ -40,8 +40,6 @@ pub fn select_animal_button(
             selected_item.menu_selection = MainMenuSelection::Animals;
             user_interface_event.send(UserInterfaceEvent {});
         }
-        Interaction::None => {
-            selected_item.menu_selection = MainMenuSelection::None;
-        }
+        Interaction::None => {}
     }
 }

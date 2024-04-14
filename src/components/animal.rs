@@ -48,7 +48,7 @@ impl Animal {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
-            speed: 40.0,
+            speed: 30.0,
             destination: Vec3::new(
                 random_value_f32(generate_seed(), -MAP_SIZE..MAP_SIZE),
                 random_value_f32(generate_seed(), -MAP_SIZE..MAP_SIZE),

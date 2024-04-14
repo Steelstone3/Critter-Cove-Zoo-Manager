@@ -29,9 +29,9 @@ impl Plugin for RunningPlugin {
             Update,
             (
                 spawn_animal_menu,
+                deselect_all,
                 select_animal_menu_button,
                 select_animal_button,
-                deselect_all,
                 spawn_animal,
                 play_music,
                 animate_sprites,
