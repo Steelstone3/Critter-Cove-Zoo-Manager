@@ -32,8 +32,6 @@ pub fn spawn_animal(
         return;
     };
 
-    mouse_button_input.clear();
-
     if !mouse_button_input.clear_just_pressed(MouseButton::Left) {
         return;
     }

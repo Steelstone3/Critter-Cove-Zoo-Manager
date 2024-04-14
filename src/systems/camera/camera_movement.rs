@@ -15,7 +15,7 @@ pub fn camera_movement(
         return;
     };
 
-    input.clear();
+    // input.clear();
 
     // Camera Movement Speeds
     let camera_speed = 100.0 * time.delta_seconds();

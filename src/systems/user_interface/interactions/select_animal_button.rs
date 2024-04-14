@@ -3,7 +3,6 @@ use bevy::{
         query::Changed,
         system::{Query, ResMut},
     },
-    input::{mouse::MouseButton, ButtonInput},
     ui::Interaction,
     utils::tracing,
 };
@@ -16,22 +15,15 @@ use crate::{
 
 pub fn select_animal_button(
     select_animal_button_queries: Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>,
-    mut input: ResMut<ButtonInput<MouseButton>>,
     mut selected_item: ResMut<SelectedMenuItem>,
 ) {
     let Ok(select_animal_button_query) = select_animal_button_queries.get_single() else {
         return;
     };
 
-    input.clear();
-
     match *select_animal_button_query.1 {
         Interaction::Pressed => {
             tracing::info!("Pressed");
-
-            if !input.clear_just_pressed(MouseButton::Left) {
-                return;
-            }
 
             selected_item.menu_selection = MainMenuSelection::Animals;
             selected_item.animal_selection = ZooAnimal::Chicken;
@@ -46,6 +38,4 @@ pub fn select_animal_button(
             selected_item.menu_selection = MainMenuSelection::None;
         }
     }
-
-    input.clear();
 }
