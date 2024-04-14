@@ -4,6 +4,9 @@ use bevy::ecs::component::Component;
 pub struct SelectionMenu;
 
 #[derive(Component)]
+pub struct SubMenu;
+
+#[derive(Component)]
 pub struct SelectAnimalButton;
 
 // #[derive(Component)]
