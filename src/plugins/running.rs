@@ -23,20 +23,18 @@ pub struct RunningPlugin;
 
 impl Plugin for RunningPlugin {
     fn build(&self, app: &mut App) {
-        app
-        .add_systems(Update, select_animal_button);
-        
-        
-        // .add_systems(Update, camera_movement.after(select_animal_button))
-        //     .add_systems(Update, camera_position_reset.after(select_animal_button))
-        //     .add_systems(Update, camera_zoom_keyboard.after(select_animal_button))
-        //     .add_systems(
-        //         Update,
-        //         camera_zoom_mouse_and_touchpad.after(select_animal_button),
-        //     )
+        app.add_systems(Update, select_animal_button).add_systems(
+            Update,
+            (
+                camera_movement,
+                camera_position_reset,
+                camera_zoom_keyboard,
+                camera_zoom_mouse_and_touchpad,
+            ).after(select_animal_button),
+        );
+
         //     .add_systems(Update, play_music)
         //     .add_systems(Update, spawn_selection_menu)
-        //     .add_systems(Update, select_animal_button)
         //     .add_systems(Update, animate_sprites)
         //     .add_systems(Update, spawn_animal.after(select_animal_button))
         //     .add_systems(Update, animal_movement);
