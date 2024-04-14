@@ -17,8 +17,6 @@ pub fn camera_zoom_keyboard(
         return;
     };
 
-    // input.clear();
-
     let is_zoom_in_pressed = input.clear_just_pressed(KeyCode::Equal);
     let is_zoom_out_pressed = input.clear_just_pressed(KeyCode::Minus);
     let is_zoom_reset_pressed = input.clear_just_pressed(KeyCode::Backspace);
@@ -38,6 +36,4 @@ pub fn camera_zoom_keyboard(
     }
 
     camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.05);
-
-    // input.clear();
 }

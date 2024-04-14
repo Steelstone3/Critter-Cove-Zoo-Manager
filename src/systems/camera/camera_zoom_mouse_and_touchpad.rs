@@ -21,8 +21,6 @@ pub fn camera_zoom_mouse_and_touchpad(
         return;
     };
 
-    // input.clear();
-
     for mouse_wheel_event in mouse_wheel_events.read() {
         if mouse_wheel_event.y < 0.0 {
             camera_settings.current_zoom = (camera_settings.current_zoom
@@ -42,6 +40,4 @@ pub fn camera_zoom_mouse_and_touchpad(
     }
 
     camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.05);
-
-    // input.clear();
 }

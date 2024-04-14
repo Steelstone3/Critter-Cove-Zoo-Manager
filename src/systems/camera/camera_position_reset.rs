@@ -22,6 +22,4 @@ pub fn camera_position_reset(
 
         camera.transform = transform;
     }
-
-    // input.clear();
 }
