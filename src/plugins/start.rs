@@ -9,10 +9,7 @@ pub struct StartPlugin;
 impl Plugin for StartPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(Startup, spawn_camera)
-            .add_systems(Startup, spawn_selection_menu);
-
-        // .add_systems(Startup, spawn_camera)
-        //     .add_systems(Startup, spawn_selection_menu)
-        //     .add_systems(Startup, spawn_world_terrain);
+            .add_systems(Startup, spawn_selection_menu)
+            .add_systems(Startup, spawn_world_terrain);
     }
 }
