@@ -3,9 +3,10 @@ use bevy::{
     input::{keyboard::KeyCode, ButtonInput},
 };
 
+use super::main_menu_selection::MainMenuSelection;
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
-    resources::selected_item::{MainMenuSelection, SelectedMenuItem},
+    resources::selected_item::SelectedMenuItem,
 };
 
 pub fn deselect_all(

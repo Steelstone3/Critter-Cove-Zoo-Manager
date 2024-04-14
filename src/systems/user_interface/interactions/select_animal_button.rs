@@ -10,7 +10,8 @@ use bevy::{
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
     components::user_interface::SelectAnimalButton,
-    resources::selected_item::{MainMenuSelection, SelectedMenuItem},
+    resources::selected_item::SelectedMenuItem,
+    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn select_animal_button(
