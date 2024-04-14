@@ -1,7 +1,6 @@
 use bevy::{
     ecs::{
         event::EventWriter,
-        query::Changed,
         system::{Query, ResMut},
     },
     ui::Interaction,
@@ -10,18 +9,14 @@ use bevy::{
 
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
-    components::user_interface::SelectAnimalMenuButton,
     events::user_interface_event::UserInterfaceEvent,
+    queries::user_interface_queries::{ButtonFilters, SelectAnimalMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn select_animal_menu_button(
-    // TODO Create a query
-    select_animal_menu_button_queries: Query<
-        (&SelectAnimalMenuButton, &Interaction),
-        Changed<Interaction>,
-    >,
+    select_animal_menu_button_queries: Query<SelectAnimalMenuButtonQuery, ButtonFilters>,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
@@ -29,7 +24,7 @@ pub fn select_animal_menu_button(
         return;
     };
 
-    match *select_animal_menu_button_query.1 {
+    match *select_animal_menu_button_query.interaction {
         Interaction::Pressed => {
             tracing::info!("Pressed");
 

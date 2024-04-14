@@ -9,7 +9,10 @@ use crate::systems::{
     play_music::play_music,
     spawn_animal::spawn_animal,
     user_interface::{
-        interactions::{deselect_all::deselect_all, select_animal_button::select_animal_button, select_animal_menu_button::select_animal_menu_button},
+        interactions::{
+            deselect_all::deselect_all, select_animal_button::select_animal_button,
+            select_animal_menu_button::select_animal_menu_button,
+        },
         layout::spawn_animal_menu::spawn_animal_menu,
     },
 };

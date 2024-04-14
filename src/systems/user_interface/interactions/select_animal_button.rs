@@ -1,7 +1,6 @@
 use bevy::{
     ecs::{
         event::EventWriter,
-        query::Changed,
         system::{Query, ResMut},
     },
     ui::Interaction,
@@ -10,15 +9,14 @@ use bevy::{
 
 use crate::{
     assets::images::world::terrain::WorldTerrain,
-    components::user_interface::SelectAnimalButton,
     events::user_interface_event::UserInterfaceEvent,
+    queries::user_interface_queries::{ButtonFilters, SelectAnimalButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn select_animal_button(
-    // TODO Create a query
-    select_animal_button_queries: Query<(&SelectAnimalButton, &Interaction), Changed<Interaction>>,
+    select_animal_button_queries: Query<SelectAnimalButtonQuery, ButtonFilters>,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
@@ -26,12 +24,13 @@ pub fn select_animal_button(
         return;
     };
 
-    match *select_animal_button_query.1 {
+    match *select_animal_button_query.interaction {
         Interaction::Pressed => {
             tracing::info!("Pressed");
 
             selected_item.menu_selection = MainMenuSelection::Animals;
-            selected_item.animal_selection = select_animal_button_query.0.animal;
+            selected_item.animal_selection =
+                select_animal_button_query.selected_animal_button.animal;
             selected_item.terrain_selection = WorldTerrain::None;
             user_interface_event.send(UserInterfaceEvent {});
         }
