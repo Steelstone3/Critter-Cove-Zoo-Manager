@@ -67,7 +67,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
                 .with_children(|parent| {
                     parent.spawn(ImageBundle {
                         image: UiImage::new(
-                            asset_server.load(MainMenuUserInterface::IconAnimals.to_string()),
+                            asset_server.load(MainMenuUserInterface::Animals.to_string()),
                         ),
                         background_color: Color::WHITE.into(),
                         ..Default::default()
