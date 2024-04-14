@@ -1,5 +1,5 @@
 use bevy::{
-    ecs::system::{Query, Res},
+    ecs::system::{Query, Res, ResMut},
     input::{keyboard::KeyCode, ButtonInput},
     time::Time,
 };
@@ -7,13 +7,15 @@ use bevy::{
 use crate::queries::camera_queries::MutableCameraTransformQuery;
 
 pub fn camera_movement(
-    input: Res<ButtonInput<KeyCode>>,
+    mut input: ResMut<ButtonInput<KeyCode>>,
     time: Res<Time>,
     mut cameras: Query<MutableCameraTransformQuery>,
 ) {
     let Ok(mut camera) = cameras.get_single_mut() else {
         return;
     };
+
+    // input.clear();
 
     // Camera Movement Speeds
     let camera_speed = 100.0 * time.delta_seconds();
@@ -101,6 +103,8 @@ pub fn camera_movement(
             camera.transform.translation.x -= camera_speed;
         }
     }
+
+    input.clear();
 }
 
 fn calculate_diagonal_camera_speed(camera_speed: f32) -> f32 {

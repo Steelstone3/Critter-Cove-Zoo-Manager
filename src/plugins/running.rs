@@ -8,9 +8,7 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
-    user_interface::{
-        menu_selection::menu_selection, update_user_interface::update_user_interface,
-    },
+    user_interface::interactions::select_animal_button::select_animal_button,
 };
 use bevy::{
     app::Update,
@@ -21,15 +19,19 @@ pub struct RunningPlugin;
 
 impl Plugin for RunningPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, camera_movement)
-            .add_systems(Update, camera_position_reset)
-            .add_systems(Update, camera_zoom_keyboard)
-            .add_systems(Update, camera_zoom_mouse_and_touchpad)
-            .add_systems(Update, play_music)
-            .add_systems(Update, menu_selection)
-            .add_systems(Update, update_user_interface)
-            .add_systems(Update, animate_sprites)
-            .add_systems(Update, spawn_animal)
-            .add_systems(Update, animal_movement);
+        app.add_systems(
+            Update,
+            (
+                select_animal_button,
+                spawn_animal,
+                play_music,
+                animate_sprites,
+                animal_movement,
+                camera_zoom_keyboard,
+                camera_zoom_mouse_and_touchpad,
+                camera_movement,
+                camera_position_reset,
+            ),
+        );
     }
 }

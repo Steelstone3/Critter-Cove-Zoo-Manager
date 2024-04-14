@@ -12,7 +12,7 @@ use crate::{
     events::spawn_sprite_event::SpawnSpriteEvent,
 };
 
-pub fn spawn_terrain(
+pub fn spawn_world_terrain(
     mut commands: Commands,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
 ) {
