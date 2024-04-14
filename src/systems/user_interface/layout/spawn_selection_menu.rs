@@ -11,7 +11,9 @@ use bevy::{
 
 use crate::{
     assets::images::user_interface::main_menu::MainMenuUserInterface,
-    components::{constants::TILE_SIZE, menu::SelectionMenu, user_interface::SelectAnimalButton},
+    components::{
+        constants::TILE_SIZE, menu::SelectionMenu, user_interface::SelectAnimalMenuButton,
+    },
 };
 
 pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServer>) {
@@ -27,9 +29,10 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
                     GridTrack::flex(1.0),
                     GridTrack::flex(1.0),
                     GridTrack::flex(1.0),
+                    GridTrack::flex(1.0),
                 ],
                 width: Val::Px(TILE_SIZE * 2.0),
-                height: Val::Px(TILE_SIZE * 6.0 * 2.0),
+                height: Val::Px(TILE_SIZE * 7.0 * 2.0),
                 position_type: PositionType::Absolute,
                 left: Val::Percent(0.0),
                 top: Val::Percent(0.0),
@@ -51,7 +54,7 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
                         },
                         ..Default::default()
                     },
-                    SelectAnimalButton {},
+                    SelectAnimalMenuButton {},
                 ))
                 .with_children(|parent| {
                     parent.spawn(ImageBundle {
@@ -72,5 +75,7 @@ pub fn spawn_selection_menu(mut commands: Commands, asset_server: Res<AssetServe
             // Rocks
 
             // Shelter
+
+            // Paths
         });
 }
