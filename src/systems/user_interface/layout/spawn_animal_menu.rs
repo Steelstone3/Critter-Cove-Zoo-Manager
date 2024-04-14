@@ -8,7 +8,7 @@ use bevy::{
     render::color::Color,
     ui::{
         node_bundles::{ButtonBundle, ImageBundle, NodeBundle},
-        Display, GridTrack, PositionType, Style, UiImage, Val,
+        Display, GridTrack, PositionType, Style, UiImage, UiRect, Val,
     },
 };
 
@@ -78,8 +78,16 @@ pub fn spawn_animal_menu(
                         style: Style {
                             width: Val::Percent(100.0),
                             height: Val::Percent(100.0),
+                            border: UiRect::new(
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                            ),
+
                             ..Default::default()
                         },
+                        border_color: Color::DARK_GRAY.into(),
                         ..Default::default()
                     },
                     SelectAnimalButton {

@@ -3,6 +3,7 @@ use bevy::{
         event::EventWriter,
         system::{Query, ResMut},
     },
+    render::color::Color,
     ui::Interaction,
     utils::tracing,
 };
@@ -10,17 +11,22 @@ use bevy::{
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{ButtonFilters, SelectAnimalMenuButtonQuery},
+    queries::user_interface_queries::{SelectAnimalMenuButtonFilters, SelectAnimalMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn select_animal_menu_button(
-    select_animal_menu_button_queries: Query<SelectAnimalMenuButtonQuery, ButtonFilters>,
+    mut select_animal_menu_button_queries: Query<
+        SelectAnimalMenuButtonQuery,
+        SelectAnimalMenuButtonFilters,
+    >,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
-    let Ok(select_animal_menu_button_query) = select_animal_menu_button_queries.get_single() else {
+    let Ok(mut select_animal_menu_button_query) =
+        select_animal_menu_button_queries.get_single_mut()
+    else {
         return;
     };
 
@@ -31,16 +37,23 @@ pub fn select_animal_menu_button(
             selected_item.menu_selection = MainMenuSelection::Animals;
             selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
+
+            *select_animal_menu_button_query.border_color = Color::YELLOW.into();
+
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
 
             selected_item.menu_selection = MainMenuSelection::Animals;
+
+            *select_animal_menu_button_query.border_color = Color::YELLOW.into();
+
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::None => {
             selected_item.menu_selection = MainMenuSelection::None;
+            *select_animal_menu_button_query.border_color = Color::DARK_GRAY.into();
         }
     }
 }
