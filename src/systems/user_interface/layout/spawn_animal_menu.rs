@@ -59,8 +59,8 @@ pub fn spawn_animal_menu(
                     GridTrack::flex(1.0),
                     GridTrack::flex(1.0),
                 ],
-                width: Val::Px(TILE_SIZE * 3.0),
-                height: Val::Px(TILE_SIZE * 7.0),
+                width: Val::Px(TILE_SIZE * 2.0 * 3.0),
+                height: Val::Px(TILE_SIZE * 2.0 * 7.0),
                 position_type: PositionType::Absolute,
                 left: Val::Px(64.0),
                 top: Val::Percent(0.0),
@@ -71,37 +71,40 @@ pub fn spawn_animal_menu(
         })
         .insert(SubMenu)
         .with_children(|parent| {
+            let style = Style {
+                width: Val::Percent(100.0),
+                height: Val::Percent(100.0),
+                border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
+
+                ..Default::default()
+            };
             // Moose
             parent
-                .spawn((
-                    ButtonBundle {
-                        style: Style {
-                            width: Val::Percent(100.0),
-                            height: Val::Percent(100.0),
-                            border: UiRect::new(
-                                Val::Px(2.0),
-                                Val::Px(2.0),
-                                Val::Px(2.0),
-                                Val::Px(2.0),
-                            ),
-
-                            ..Default::default()
-                        },
-                        border_color: Color::DARK_GRAY.into(),
-                        ..Default::default()
-                    },
-                    SelectAnimalButton {
-                        animal: ZooAnimal::Moose,
-                    },
-                ))
+                .spawn(create_button_bundle(style, ZooAnimal::Moose))
                 .with_children(|parent| {
-                    parent.spawn(ImageBundle {
-                        image: UiImage::new(
-                            asset_server.load(AnimalSubMenu::MooseIcon.to_string()),
-                        ),
-                        background_color: Color::WHITE.into(),
-                        ..Default::default()
-                    });
+                    parent.spawn(create_button_icon(asset_server, AnimalSubMenu::MooseIcon));
                 });
         });
+}
+
+fn create_button_bundle(style: Style, animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
+    (
+        ButtonBundle {
+            style,
+            border_color: Color::DARK_GRAY.into(),
+            ..Default::default()
+        },
+        SelectAnimalButton { animal },
+    )
+}
+
+fn create_button_icon(
+    asset_server: Res<AssetServer>,
+    animal_sub_menu: AnimalSubMenu,
+) -> ImageBundle {
+    ImageBundle {
+        image: UiImage::new(asset_server.load(animal_sub_menu.to_string())),
+        background_color: Color::WHITE.into(),
+        ..Default::default()
+    }
 }
