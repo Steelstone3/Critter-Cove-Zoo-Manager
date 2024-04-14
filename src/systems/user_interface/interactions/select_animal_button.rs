@@ -2,7 +2,10 @@ use bevy::{
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},
-    }, render::color::Color, ui::Interaction, utils::tracing
+    },
+    render::color::Color,
+    ui::Interaction,
+    utils::tracing,
 };
 
 use crate::{
