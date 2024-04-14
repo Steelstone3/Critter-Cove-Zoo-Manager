@@ -10,27 +10,26 @@ use bevy::{
 
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
-    components::user_interface::{SelectAnimalButton},
+    components::user_interface::SelectAnimalMenuButton,
     events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
-#[allow(dead_code)]
-pub fn select_animal_button(
+pub fn select_animal_menu_button(
     // TODO Create a query
-    select_animal_button_queries: Query<
-        (&SelectAnimalButton, &Interaction),
+    select_animal_menu_button_queries: Query<
+        (&SelectAnimalMenuButton, &Interaction),
         Changed<Interaction>,
     >,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
-    let Ok(select_animal_button_query) = select_animal_button_queries.get_single() else {
+    let Ok(select_animal_menu_button_query) = select_animal_menu_button_queries.get_single() else {
         return;
     };
 
-    match *select_animal_button_query.1 {
+    match *select_animal_menu_button_query.1 {
         Interaction::Pressed => {
             tracing::info!("Pressed");
 

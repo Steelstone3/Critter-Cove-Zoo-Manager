@@ -9,7 +9,7 @@ use crate::systems::{
     play_music::play_music,
     spawn_animal::spawn_animal,
     user_interface::{
-        interactions::{deselect_all::deselect_all, select_animal_button::select_animal_button},
+        interactions::{deselect_all::deselect_all, select_animal_menu_button::select_animal_menu_button},
         layout::spawn_animal_menu::spawn_animal_menu,
     },
 };
@@ -25,7 +25,7 @@ impl Plugin for RunningPlugin {
         app.add_systems(
             Update,
             (
-                select_animal_button,
+                select_animal_menu_button,
                 spawn_animal_menu,
                 deselect_all,
                 spawn_animal,
