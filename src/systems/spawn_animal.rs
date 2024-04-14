@@ -32,7 +32,7 @@ pub fn spawn_animal(
         return;
     };
 
-    if !mouse_button_input.clear_just_pressed(MouseButton::Left) {
+    if !mouse_button_input.clear_just_pressed(MouseButton::Right) {
         return;
     }
 

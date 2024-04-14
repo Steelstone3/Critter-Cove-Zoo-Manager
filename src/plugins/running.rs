@@ -8,8 +8,12 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
-    user_interface::interactions::{
-        deselect_all::deselect_all, select_animal_button::select_animal_button,
+    user_interface::{
+        interactions::{
+            deselect_all::deselect_all, select_animal_button::select_animal_button,
+            select_animal_menu_button::select_animal_menu_button,
+        },
+        layout::spawn_animal_menu::spawn_animal_menu,
     },
 };
 use bevy::{
@@ -24,6 +28,8 @@ impl Plugin for RunningPlugin {
         app.add_systems(
             Update,
             (
+                spawn_animal_menu,
+                select_animal_menu_button,
                 select_animal_button,
                 deselect_all,
                 spawn_animal,
