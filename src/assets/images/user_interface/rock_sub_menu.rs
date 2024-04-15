@@ -1,6 +1,5 @@
 use std::fmt::Display;
 
-#[allow(dead_code)]
 pub enum RockSubMenu {
     IceRock1,
     IceRock2,
