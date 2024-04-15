@@ -67,72 +67,6 @@ pub fn spawn_rock_menu(
                     ..Default::default()
                 })
                 .insert(SubMenu)
-                // Ice Rock_1
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock1))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock1,
-                            ));
-                        });
-                })
-                // Ice Rock_2
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock2))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock2,
-                            ));
-                        });
-                })
-                // Ice Rock_3
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock3))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock3,
-                            ));
-                        });
-                })
-                // Ice Rock_4
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock4))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock4,
-                            ));
-                        });
-                })
-                // Ice Rock_5
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock5))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock5,
-                            ));
-                        });
-                })
-                // Ice Rock_6
-                .with_children(|parent| {
-                    parent
-                        .spawn(create_rock_button_bundle(WorldRock::IceRock6))
-                        .with_children(|parent| {
-                            parent.spawn(create_rock_button_icon(
-                                &asset_server,
-                                RockSubMenu::IceRock6,
-                            ));
-                        });
-                })
                 // Rock_1
                 .with_children(|parent| {
                     parent
@@ -284,6 +218,72 @@ pub fn spawn_rock_menu(
                         .with_children(|parent| {
                             parent
                                 .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock17));
+                        });
+                })
+                // Ice Rock_1
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock1))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock1,
+                            ));
+                        });
+                })
+                // Ice Rock_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock2))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock2,
+                            ));
+                        });
+                })
+                // Ice Rock_3
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock3))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock3,
+                            ));
+                        });
+                })
+                // Ice Rock_4
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock4))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock4,
+                            ));
+                        });
+                })
+                // Ice Rock_5
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock5))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock5,
+                            ));
+                        });
+                })
+                // Ice Rock_6
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock6))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock6,
+                            ));
                         });
                 })
                 // Water Rock_1
