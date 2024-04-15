@@ -35,7 +35,7 @@ pub fn spawn_rock(
     let rock = Rock::new(selected_item.rock_selection);
 
     let mut transform = Transform::default();
-    transform.translation.z = 2.0;
+    transform.translation.z = 1.0;
 
     // TODO Zoom and moving the camera effect the sync of this
     if let Some(position) = window_query.window.cursor_position() {
