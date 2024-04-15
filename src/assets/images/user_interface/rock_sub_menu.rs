@@ -35,12 +35,24 @@ pub enum RockSubMenu {
 impl Display for RockSubMenu {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            RockSubMenu::IceRock1 => write!(f, "images/user_interface/rock_menu/ice_rock_1_icon.png"),
-            RockSubMenu::IceRock2 => write!(f, "images/user_interface/rock_menu/ice_rock_2_icon.png"),
-            RockSubMenu::IceRock3 => write!(f, "images/user_interface/rock_menu/ice_rock_3_icon.png"),
-            RockSubMenu::IceRock4 => write!(f, "images/user_interface/rock_menu/ice_rock_4_icon.png"),
-            RockSubMenu::IceRock5 => write!(f, "images/user_interface/rock_menu/ice_rock_5_icon.png"),
-            RockSubMenu::IceRock6 => write!(f, "images/user_interface/rock_menu/ice_rock_6_icon.png"),
+            RockSubMenu::IceRock1 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_1_icon.png")
+            }
+            RockSubMenu::IceRock2 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_2_icon.png")
+            }
+            RockSubMenu::IceRock3 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_3_icon.png")
+            }
+            RockSubMenu::IceRock4 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_4_icon.png")
+            }
+            RockSubMenu::IceRock5 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_5_icon.png")
+            }
+            RockSubMenu::IceRock6 => {
+                write!(f, "images/user_interface/rock_menu/ice_rock_6_icon.png")
+            }
             RockSubMenu::Rock1 => write!(f, "images/user_interface/rock_menu/rock_1_icon.png"),
             RockSubMenu::Rock2 => write!(f, "images/user_interface/rock_menu/rock_2_icon.png"),
             RockSubMenu::Rock3 => write!(f, "images/user_interface/rock_menu/rock_3_icon.png"),
@@ -58,12 +70,24 @@ impl Display for RockSubMenu {
             RockSubMenu::Rock15 => write!(f, "images/user_interface/rock_menu/rock_15_icon.png"),
             RockSubMenu::Rock16 => write!(f, "images/user_interface/rock_menu/rock_16_icon.png"),
             RockSubMenu::Rock17 => write!(f, "images/user_interface/rock_menu/rock_17_icon.png"),
-            RockSubMenu::WaterRock1 => write!(f, "images/user_interface/rock_menu/water_rock_1.png"),
-            RockSubMenu::WaterRock2 => write!(f, "images/user_interface/rock_menu/water_rock_2.png"),
-            RockSubMenu::WaterRock3 => write!(f, "images/user_interface/rock_menu/water_rock_3.png"),
-            RockSubMenu::WaterRock4 => write!(f, "images/user_interface/rock_menu/water_rock_4.png"),
-            RockSubMenu::WaterRock5 => write!(f, "images/user_interface/rock_menu/water_rock_5.png"),
-            RockSubMenu::WaterRock6 => write!(f, "images/user_interface/rock_menu/water_rock_6.png"),
+            RockSubMenu::WaterRock1 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_1.png")
+            }
+            RockSubMenu::WaterRock2 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_2.png")
+            }
+            RockSubMenu::WaterRock3 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_3.png")
+            }
+            RockSubMenu::WaterRock4 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_4.png")
+            }
+            RockSubMenu::WaterRock5 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_5.png")
+            }
+            RockSubMenu::WaterRock6 => {
+                write!(f, "images/user_interface/rock_menu/water_rock_6.png")
+            }
         }
     }
 }

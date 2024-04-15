@@ -1,6 +1,21 @@
-use bevy::{asset::AssetServer, ecs::system::Res, render::color::Color, ui::{node_bundles::{ButtonBundle, ImageBundle}, Style, UiImage, UiRect, Val}};
+use bevy::{
+    asset::AssetServer,
+    ecs::system::Res,
+    render::color::Color,
+    ui::{
+        node_bundles::{ButtonBundle, ImageBundle},
+        Style, UiImage, UiRect, Val,
+    },
+};
 
-use crate::{assets::images::{animal::ZooAnimal, user_interface::{animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu}, world::rocks::WorldRock}, components::user_interface::{SelectAnimalButton, SelectRockButton}};
+use crate::{
+    assets::images::{
+        animal::ZooAnimal,
+        user_interface::{animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu},
+        world::rocks::WorldRock,
+    },
+    components::user_interface::{SelectAnimalButton, SelectRockButton},
+};
 
 pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
     (

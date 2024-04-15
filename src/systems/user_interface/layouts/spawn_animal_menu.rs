@@ -6,10 +6,7 @@ use bevy::{
     },
     hierarchy::{BuildChildren, DespawnRecursiveExt},
     render::color::Color,
-    ui::{
-        node_bundles::{NodeBundle},
-        Display, GridTrack, PositionType, Style, Val,
-    },
+    ui::{node_bundles::NodeBundle, Display, GridTrack, PositionType, Style, Val},
 };
 
 use crate::{

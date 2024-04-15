@@ -5,10 +5,12 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::world::terrains::WorldTerrain, components::{
+    assets::images::world::terrains::WorldTerrain,
+    components::{
         constants::{MAP_TILES, TILE_SIZE},
         terrain::Terrain,
-    }, events::spawn_sprite_event::SpawnSpriteEvent
+    },
+    events::spawn_sprite_event::SpawnSpriteEvent,
 };
 
 pub fn spawn_world_terrain(

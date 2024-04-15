@@ -6,7 +6,9 @@ use bevy::{
     ui::{BorderColor, Interaction},
 };
 
-use crate::components::user_interface::{SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton, SubMenu};
+use crate::components::user_interface::{
+    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton, SubMenu,
+};
 
 #[derive(QueryData)]
 pub struct SubMenuEntityQuery {
