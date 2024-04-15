@@ -48,7 +48,7 @@ pub fn spawn_rock(
 
     // TODO Zoom and moving the camera effect the sync of this
     if let Some(position) = window_query.window.cursor_position() {
-        transform.translation.x = (position.x - window_query.window.resolution.width() / 2.0)
+        transform.translation.x = ((position.x - window_query.window.resolution.width() / 2.0) + camera_query.transform.translation.x)
             * camera_query.projection.scale;
         transform.translation.y = -(position.y - window_query.window.resolution.height() / 2.0)
             * camera_query.projection.scale;
