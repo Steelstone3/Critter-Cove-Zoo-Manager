@@ -8,6 +8,7 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
+    spawn_rock::spawn_rock,
     user_interface::{
         interactions::{
             deselect_all::deselect_all, select_animal_button::select_animal_button,
@@ -42,6 +43,7 @@ impl Plugin for RunningPlugin {
                 select_rock_menu_button,
                 select_rock_button,
                 spawn_animal,
+                spawn_rock,
                 play_music,
                 animate_sprites,
                 animal_movement,

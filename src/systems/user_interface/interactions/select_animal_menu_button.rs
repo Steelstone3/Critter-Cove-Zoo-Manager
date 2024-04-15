@@ -9,7 +9,10 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
+    assets::images::{
+        animal::ZooAnimal,
+        world::{rocks::WorldRock, terrains::WorldTerrain},
+    },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectAnimalMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -34,6 +37,7 @@ pub fn select_animal_menu_button(
             selected_item.menu_selection = MainMenuSelection::Animals;
             selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
+            selected_item.rock_selection = WorldRock::None;
 
             *select_animal_menu_button_query.border_color = Color::YELLOW.into();
 
