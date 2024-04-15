@@ -1,5 +1,5 @@
 use crate::{
-    queries::camera_queries::CameraMutableOrthographicProjectionQuery,
+    queries::camera_queries::MutableCameraOrthographicProjectionQuery,
     resources::camera_settings::CameraSettings,
 };
 use bevy::{
@@ -10,7 +10,7 @@ use float_lerp::lerp;
 
 pub fn camera_zoom_keyboard(
     mut input: ResMut<ButtonInput<KeyCode>>,
-    mut cameras: Query<CameraMutableOrthographicProjectionQuery>,
+    mut cameras: Query<MutableCameraOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
     let Ok(mut camera) = cameras.get_single_mut() else {

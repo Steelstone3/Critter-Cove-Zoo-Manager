@@ -1,6 +1,10 @@
 use crate::{
-    assets::images::world::rocks::WorldRock, components::rock::Rock,
-    events::spawn_sprite_event::SpawnSpriteEvent, queries::window_queries::WindowQuery,
+    assets::images::world::rocks::WorldRock,
+    components::rock::Rock,
+    events::spawn_sprite_event::SpawnSpriteEvent,
+    queries::{
+        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
+    },
     resources::selected_item::SelectedMenuItem,
 };
 use bevy::{
@@ -18,13 +22,18 @@ pub fn spawn_rock(
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
-    windows_query: Query<WindowQuery>,
+    windows_queries: Query<WindowQuery>,
+    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
     if selected_item.rock_selection == WorldRock::None {
         return;
     }
 
-    let Ok(window_query) = windows_query.get_single() else {
+    let Ok(window_query) = windows_queries.get_single() else {
+        return;
+    };
+
+    let Ok(camera_query) = camera_queries.get_single() else {
         return;
     };
 
@@ -39,8 +48,10 @@ pub fn spawn_rock(
 
     // TODO Zoom and moving the camera effect the sync of this
     if let Some(position) = window_query.window.cursor_position() {
-        transform.translation.x = position.x - window_query.window.resolution.width() / 2.0;
-        transform.translation.y = -(position.y - window_query.window.resolution.height() / 2.0);
+        transform.translation.x = (position.x - window_query.window.resolution.width() / 2.0)
+            * camera_query.projection.scale;
+        transform.translation.y = -(position.y - window_query.window.resolution.height() / 2.0)
+            * camera_query.projection.scale;
     } else {
         return;
     }
