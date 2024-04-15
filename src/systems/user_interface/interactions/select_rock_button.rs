@@ -38,10 +38,6 @@ pub fn select_rock_button(
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
-
-            // selected_item.menu_selection = MainMenuSelection::Rocks;
-
-            user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::None => {
             *select_rock_button_query.border_color = Color::DARK_GRAY.into();

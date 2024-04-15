@@ -38,10 +38,6 @@ pub fn select_animal_button(
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
-
-            // selected_item.menu_selection = MainMenuSelection::Animals;
-
-            user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::None => {
             *select_animal_button_query.border_color = Color::DARK_GRAY.into();
