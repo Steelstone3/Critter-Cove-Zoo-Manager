@@ -5,7 +5,7 @@ use bevy::{
 
 use super::main_menu_selection::MainMenuSelection;
 use crate::{
-    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
     events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,
 };

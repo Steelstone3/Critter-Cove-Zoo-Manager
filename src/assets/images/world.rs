@@ -1,1 +1,2 @@
-pub mod terrain;
+pub mod terrains;
+pub mod rocks;

@@ -1,5 +1,5 @@
 use super::constants::TILE_SIZE;
-use crate::assets::images::world::terrain::WorldTerrain;
+use crate::assets::images::world::terrains::WorldTerrain;
 use bevy::{ecs::component::Component, math::Vec2};
 
 const TERRAIN_SIZE: Vec2 = Vec2::new(TILE_SIZE, TILE_SIZE);
@@ -11,9 +11,9 @@ pub struct Terrain {
 }
 
 impl Terrain {
-    pub fn new_grass() -> Self {
+    pub fn new(sprite_path: WorldTerrain) -> Self {
         Self {
-            sprite_path: WorldTerrain::Grass1,
+            sprite_path,
             size: TERRAIN_SIZE,
         }
     }

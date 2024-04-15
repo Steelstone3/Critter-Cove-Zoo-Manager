@@ -9,7 +9,7 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{SelectAnimalMenuButtonFilters, SelectAnimalMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,

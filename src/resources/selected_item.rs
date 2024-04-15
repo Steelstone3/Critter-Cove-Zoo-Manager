@@ -1,7 +1,7 @@
 use bevy::ecs::system::Resource;
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::terrain::WorldTerrain},
+    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 

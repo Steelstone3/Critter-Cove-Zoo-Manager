@@ -1,0 +1,72 @@
+use std::fmt::Display;
+
+#[derive(Clone, Copy)]
+pub enum WorldRocks {
+    IceRock1,
+    IceRock2,
+    IceRock3,
+    IceRock4,
+    IceRock5,
+    IceRock6,
+    Rock1,
+    Rock2,
+    Rock3,
+    Rock4,
+    Rock5,
+    Rock6,
+    Rock7,
+    Rock8,
+    Rock9,
+    Rock10,
+    Rock11,
+    Rock12,
+    Rock13,
+    Rock14,
+    Rock15,
+    Rock16,
+    Rock17,
+    WaterRock1,
+    WaterRock2,
+    WaterRock3,
+    WaterRock4,
+    WaterRock5,
+    WaterRock6,
+    None,
+}
+
+impl Display for WorldRocks {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            WorldRocks::IceRock1 => write!(f, "images/world/rocks/ice_rock_1.png"),
+            WorldRocks::IceRock2 => write!(f, "images/world/rocks/ice_rock_2.png"),
+            WorldRocks::IceRock3 => write!(f, "images/world/rocks/ice_rock_3.png"),
+            WorldRocks::IceRock4 => write!(f, "images/world/rocks/ice_rock_4.png"),
+            WorldRocks::IceRock5 => write!(f, "images/world/rocks/ice_rock_5.png"),
+            WorldRocks::IceRock6 => write!(f, "images/world/rocks/ice_rock_6.png"),
+            WorldRocks::Rock1 => write!(f, "images/world/rocks/rock_1.png"),
+            WorldRocks::Rock2 => write!(f, "images/world/rocks/rock_2.png"),
+            WorldRocks::Rock3 => write!(f, "images/world/rocks/rock_3.png"),
+            WorldRocks::Rock4 => write!(f, "images/world/rocks/rock_4.png"),
+            WorldRocks::Rock5 => write!(f, "images/world/rocks/rock_5.png"),
+            WorldRocks::Rock6 => write!(f, "images/world/rocks/rock_6.png"),
+            WorldRocks::Rock7 => write!(f, "images/world/rocks/rock_7.png"),
+            WorldRocks::Rock8 => write!(f, "images/world/rocks/rock_8.png"),
+            WorldRocks::Rock9 => write!(f, "images/world/rocks/rock_9.png"),
+            WorldRocks::Rock10 => write!(f, "images/world/rocks/rock_10.png"),
+            WorldRocks::Rock11 => write!(f, "images/world/rocks/rock_11.png"),
+            WorldRocks::Rock12 => write!(f, "images/world/rocks/rock_12.png"),
+            WorldRocks::Rock13 => write!(f, "images/world/rocks/rock_13.png"),
+            WorldRocks::Rock14 => write!(f, "images/world/rocks/rock_14.png"),
+            WorldRocks::Rock15 => write!(f, "images/world/rocks/rock_15.png"),
+            WorldRocks::Rock16 => write!(f, "images/world/rocks/rock_16.png"),
+            WorldRocks::Rock17 => write!(f, "images/world/rocks/rock_17.png"),
+            WorldRocks::WaterRock1 => write!(f, "images/world/rocks/water_rock_1.png"),
+            WorldRocks::WaterRock2 => write!(f, "images/world/rocks/water_rock_2.png"),
+            WorldRocks::WaterRock3 => write!(f, "images/world/rocks/water_rock_3.png"),
+            WorldRocks::WaterRock4 => write!(f, "images/world/rocks/water_rock_4.png"),
+            WorldRocks::WaterRock5 => write!(f, "images/world/rocks/water_rock_5.png"),
+            WorldRocks::WaterRock6 => write!(f, "images/world/rocks/water_rock_6.png"),
+            WorldRocks::None => write!(f, ""), // No asset selected
+        }
+    }
+}
