@@ -9,29 +9,31 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::world::terrains::WorldTerrain,
+    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{ButtonFilters, SelectAnimalButtonQuery},
+    queries::user_interface_queries::{
+        ButtonFilters, SelectRockButtonQuery,
+    },
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
-pub fn select_animal_button(
-    mut select_animal_button_queries: Query<SelectAnimalButtonQuery, ButtonFilters>,
+pub fn select_rock_button(
+    mut select_rock_button_queries: Query<SelectRockButtonQuery, ButtonFilters>,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
-    let Ok(mut select_animal_button_query) = select_animal_button_queries.get_single_mut() else {
+    let Ok(mut select_rock_button_query) = select_rock_button_queries.get_single_mut() else {
         return;
     };
 
-    match *select_animal_button_query.interaction {
+    match *select_rock_button_query.interaction {
         Interaction::Pressed => {
             tracing::info!("Pressed");
 
-            selected_item.menu_selection = MainMenuSelection::Animals;
-            selected_item.animal_selection =
-                select_animal_button_query.selected_animal_button.animal;
+            selected_item.menu_selection = MainMenuSelection::Rocks;
+            selected_item.rock_selection = select_rock_button_query.selected_rock_button.rock;
+            selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
 
             user_interface_event.send(UserInterfaceEvent {});
@@ -39,12 +41,12 @@ pub fn select_animal_button(
         Interaction::Hovered => {
             tracing::info!("Hovered");
 
-            // selected_item.menu_selection = MainMenuSelection::Animals;
+            // selected_item.menu_selection = MainMenuSelection::Rocks;
 
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::None => {
-            *select_animal_button_query.border_color = Color::DARK_GRAY.into();
+            *select_rock_button_query.border_color = Color::DARK_GRAY.into();
         }
     }
 }

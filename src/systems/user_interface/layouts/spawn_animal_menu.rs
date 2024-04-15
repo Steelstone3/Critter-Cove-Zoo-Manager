@@ -275,10 +275,5 @@ pub fn spawn_animal_menu(
                         });
                 });
         }
-    } else if selected_item.menu_selection == MainMenuSelection::None {
-        // Remove UI
-        if let Ok(sub_menu_query) = sub_menu_queries.get_single() {
-            commands.entity(sub_menu_query.entity).despawn_recursive();
-        }
     }
 }

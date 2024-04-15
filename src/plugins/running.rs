@@ -10,10 +10,9 @@ use crate::systems::{
     spawn_animal::spawn_animal,
     user_interface::{
         interactions::{
-            deselect_all::deselect_all, select_animal_button::select_animal_button,
-            select_animal_menu_button::select_animal_menu_button,
+            deselect_all::deselect_all, select_animal_button::select_animal_button, select_animal_menu_button::select_animal_menu_button, select_rock_button::select_rock_button, select_rock_menu_button::select_rock_menu_button
         },
-        layouts::{spawn_animal_menu::spawn_animal_menu, spawn_rock_menu::spawn_rock_menu},
+        layouts::{spawn_animal_menu::spawn_animal_menu, despawn_sub_menus::despawn_sub_menus, spawn_rock_menu::spawn_rock_menu},
     },
 };
 use bevy::{
@@ -31,8 +30,11 @@ impl Plugin for RunningPlugin {
                 spawn_animal_menu,
                 spawn_rock_menu,
                 deselect_all,
+                despawn_sub_menus,
                 select_animal_menu_button,
                 select_animal_button,
+                select_rock_menu_button,
+                select_rock_button,
                 spawn_animal,
                 play_music,
                 animate_sprites,
