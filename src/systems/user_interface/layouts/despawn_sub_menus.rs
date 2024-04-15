@@ -8,7 +8,7 @@ use bevy::{
 
 use crate::{
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{self, SubMenuEntityQuery},
+    queries::user_interface_queries::{SubMenuEntityQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
