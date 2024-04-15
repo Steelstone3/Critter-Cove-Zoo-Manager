@@ -7,21 +7,21 @@ use bevy::{
     hierarchy::{BuildChildren, DespawnRecursiveExt},
     render::color::Color,
     ui::{
-        node_bundles::{ButtonBundle, ImageBundle, NodeBundle},
-        Display, GridTrack, PositionType, Style, UiImage, UiRect, Val,
+        node_bundles::{NodeBundle},
+        Display, GridTrack, PositionType, Style, Val,
     },
 };
 
 use crate::{
     assets::images::{animal::ZooAnimal, user_interface::animal_sub_menu::AnimalSubMenu},
-    components::{
-        constants::TILE_SIZE,
-        user_interface::{SelectAnimalButton, SubMenu},
-    },
+    components::{constants::TILE_SIZE, user_interface::SubMenu},
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::SubMenuEntityQuery,
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::{
+        interactions::main_menu_selection::MainMenuSelection,
+        styles::{create_animal_button_bundle, create_animal_button_icon},
+    },
 };
 
 pub fn spawn_animal_menu(
@@ -71,154 +71,210 @@ pub fn spawn_animal_menu(
                 // Boar
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Boar))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Boar))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Boar));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Boar,
+                            ));
                         });
                 })
                 // Chicken
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Chicken))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Chicken))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Chicken));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Chicken,
+                            ));
                         });
                 })
                 // Cow
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Cow))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Cow))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Cow));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Cow,
+                            ));
                         });
                 })
                 // Crab
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Crab))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Crab))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Crab));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Crab,
+                            ));
                         });
                 })
                 // Dog
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Dog))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Dog))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Dog));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Dog,
+                            ));
                         });
                 })
                 // Fox
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Fox))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Fox))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Fox));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Fox,
+                            ));
                         });
                 })
                 // Frog
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Frog))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Frog))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Frog));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Frog,
+                            ));
                         });
                 })
                 // Goat
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Goat))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Goat))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Goat));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Goat,
+                            ));
                         });
                 })
                 // Goose
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Goose))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Goose))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Goose));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Goose,
+                            ));
                         });
                 })
                 // Gorilla
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Gorilla))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Gorilla))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Gorilla));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Gorilla,
+                            ));
                         });
                 })
                 // Monkey
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Monkey))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Monkey))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Monkey));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Monkey,
+                            ));
                         });
                 })
                 // Moose
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Moose))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Moose))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Moose));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Moose,
+                            ));
                         });
                 })
                 // Pig
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Pig))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Pig))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Pig));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Pig,
+                            ));
                         });
                 })
                 // Porcupine
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Porcupine))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Porcupine))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_button_icon(&asset_server, AnimalSubMenu::Porcupine));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Porcupine,
+                            ));
                         });
                 })
                 // Sheep
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Sheep))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Sheep))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Sheep));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Sheep,
+                            ));
                         });
                 })
                 // Skunk
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Skunk))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Skunk))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Skunk));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Skunk,
+                            ));
                         });
                 })
                 // Toad
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Toad))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Toad))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Toad));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Toad,
+                            ));
                         });
                 })
                 // Turtle
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Turtle))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Turtle))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Turtle));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Turtle,
+                            ));
                         });
                 })
                 // Wolf
                 .with_children(|parent| {
                     parent
-                        .spawn(create_button_bundle(ZooAnimal::Wolf))
+                        .spawn(create_animal_button_bundle(ZooAnimal::Wolf))
                         .with_children(|parent| {
-                            parent.spawn(create_button_icon(&asset_server, AnimalSubMenu::Wolf));
+                            parent.spawn(create_animal_button_icon(
+                                &asset_server,
+                                AnimalSubMenu::Wolf,
+                            ));
                         });
                 });
         }
@@ -227,32 +283,5 @@ pub fn spawn_animal_menu(
         if let Ok(sub_menu_query) = sub_menu_queries.get_single() {
             commands.entity(sub_menu_query.entity).despawn_recursive();
         }
-    }
-}
-
-fn create_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
-    (
-        ButtonBundle {
-            style: Style {
-                width: Val::Percent(100.0),
-                height: Val::Percent(100.0),
-                border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
-                ..Default::default()
-            },
-            border_color: Color::DARK_GRAY.into(),
-            ..Default::default()
-        },
-        SelectAnimalButton { animal },
-    )
-}
-
-fn create_button_icon(
-    asset_server: &Res<AssetServer>,
-    animal_sub_menu: AnimalSubMenu,
-) -> ImageBundle {
-    ImageBundle {
-        image: UiImage::new(asset_server.load(animal_sub_menu.to_string())),
-        background_color: Color::WHITE.into(),
-        ..Default::default()
     }
 }

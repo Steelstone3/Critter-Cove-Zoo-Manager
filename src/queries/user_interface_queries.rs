@@ -1,12 +1,12 @@
 use bevy::{
     ecs::{
         entity::Entity,
-        query::{Changed, QueryData, QueryFilter, With, Without},
+        query::{Changed, QueryData, QueryFilter},
     },
     ui::{BorderColor, Interaction},
 };
 
-use crate::components::user_interface::{SelectAnimalButton, SelectAnimalMenuButton, SubMenu};
+use crate::components::user_interface::{SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton, SubMenu};
 
 #[derive(QueryData)]
 pub struct SubMenuEntityQuery {
@@ -30,16 +30,23 @@ pub struct SelectAnimalButtonQuery {
     pub selected_animal_button: &'static SelectAnimalButton,
 }
 
-#[derive(QueryFilter)]
-pub struct SelectAnimalButtonFilters {
-    with_select_animal_button: With<SelectAnimalButton>,
-    without_select_animal_menu_button: Without<SelectAnimalMenuButton>,
-    changed_interaction: Changed<Interaction>,
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectRockMenuButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_rock_menu_button: &'static SelectRockMenuButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectRockButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_rock_button: &'static SelectRockButton,
 }
 
 #[derive(QueryFilter)]
-pub struct SelectAnimalMenuButtonFilters {
-    with_select_animal_button: With<SelectAnimalMenuButton>,
-    without_select_animal_menu_button: Without<SelectAnimalButton>,
+pub struct ButtonFilters {
     changed_interaction: Changed<Interaction>,
 }

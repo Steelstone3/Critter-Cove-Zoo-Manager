@@ -13,7 +13,7 @@ use crate::systems::{
             deselect_all::deselect_all, select_animal_button::select_animal_button,
             select_animal_menu_button::select_animal_menu_button,
         },
-        layout::spawn_animal_menu::spawn_animal_menu,
+        layouts::spawn_animal_menu::spawn_animal_menu,
     },
 };
 use bevy::{

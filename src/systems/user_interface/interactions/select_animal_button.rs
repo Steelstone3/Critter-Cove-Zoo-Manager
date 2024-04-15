@@ -11,13 +11,13 @@ use bevy::{
 use crate::{
     assets::images::world::terrains::WorldTerrain,
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{SelectAnimalButtonFilters, SelectAnimalButtonQuery},
+    queries::user_interface_queries::{ButtonFilters, SelectAnimalButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn select_animal_button(
-    mut select_animal_button_queries: Query<SelectAnimalButtonQuery, SelectAnimalButtonFilters>,
+    mut select_animal_button_queries: Query<SelectAnimalButtonQuery, ButtonFilters>,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
