@@ -1,7 +1,6 @@
-use rand_derive2::RandGen;
 use std::fmt::Display;
 
-#[derive(RandGen, Clone, Copy, PartialEq)]
+#[derive(Clone, Copy, PartialEq)]
 pub enum ZooAnimal {
     // 16 bit
     // Zoo

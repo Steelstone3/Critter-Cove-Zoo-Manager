@@ -44,6 +44,7 @@ pub fn spawn_animal_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
+                            GridTrack::flex(1.0),
                         ],
                         grid_template_rows: vec![
                             GridTrack::flex(1.0),
@@ -51,11 +52,9 @@ pub fn spawn_animal_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
-                            GridTrack::flex(1.0),
-                            GridTrack::flex(1.0),
                         ],
-                        width: Val::Px(TILE_SIZE * 2.0 * 3.0),
-                        height: Val::Px(TILE_SIZE * 2.0 * 7.0),
+                        width: Val::Px(TILE_SIZE * 1.5 * 4.0),
+                        height: Val::Px(TILE_SIZE * 1.5 * 5.0),
                         position_type: PositionType::Absolute,
                         left: Val::Px(64.0),
                         top: Val::Percent(0.0),
@@ -274,11 +273,6 @@ pub fn spawn_animal_menu(
                             ));
                         });
                 });
-        }
-    } else if selected_item.menu_selection == MainMenuSelection::None {
-        // Remove UI
-        if let Ok(sub_menu_query) = sub_menu_queries.get_single() {
-            commands.entity(sub_menu_query.entity).despawn_recursive();
         }
     }
 }

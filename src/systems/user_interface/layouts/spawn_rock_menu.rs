@@ -44,6 +44,7 @@ pub fn spawn_rock_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
+                            GridTrack::flex(1.0),
                         ],
                         grid_template_rows: vec![
                             GridTrack::flex(1.0),
@@ -53,9 +54,10 @@ pub fn spawn_rock_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
+                            GridTrack::flex(1.0),
                         ],
-                        width: Val::Px(TILE_SIZE * 2.0 * 3.0),
-                        height: Val::Px(TILE_SIZE * 2.0 * 7.0),
+                        width: Val::Px(TILE_SIZE * 1.5 * 4.0),
+                        height: Val::Px(TILE_SIZE * 1.5 * 8.0),
                         position_type: PositionType::Absolute,
                         left: Val::Px(64.0),
                         top: Val::Percent(0.0),
@@ -65,6 +67,72 @@ pub fn spawn_rock_menu(
                     ..Default::default()
                 })
                 .insert(SubMenu)
+                // Ice Rock_1
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock1))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock1,
+                            ));
+                        });
+                })
+                // Ice Rock_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock2))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock2,
+                            ));
+                        });
+                })
+                // Ice Rock_3
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock3))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock3,
+                            ));
+                        });
+                })
+                // Ice Rock_4
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock4))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock4,
+                            ));
+                        });
+                })
+                // Ice Rock_5
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock5))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock5,
+                            ));
+                        });
+                })
+                // Ice Rock_6
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::IceRock6))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock6,
+                            ));
+                        });
+                })
                 // Rock_1
                 .with_children(|parent| {
                     parent
@@ -73,12 +141,217 @@ pub fn spawn_rock_menu(
                             parent
                                 .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock1));
                         });
+                })
+                // Rock_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock2))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock2));
+                        });
+                })
+                // Rock_3
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock3))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock3));
+                        });
+                })
+                // Rock_4
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock4))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock4));
+                        });
+                })
+                // Rock_5
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock5))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock5));
+                        });
+                })
+                // Rock_6
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock6))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock6));
+                        });
+                })
+                // Rock_7
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock7))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock7));
+                        });
+                })
+                // Rock_8
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock8))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock8));
+                        });
+                })
+                // Rock_9
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock9))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock9));
+                        });
+                })
+                // Rock_10
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock10))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock10));
+                        });
+                })
+                // Rock_11
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock11))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock11));
+                        });
+                })
+                // Rock_12
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock12))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock12));
+                        });
+                })
+                // Rock_13
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock13))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock13));
+                        });
+                })
+                // Rock_14
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock14))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock14));
+                        });
+                })
+                // Rock_15
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock15))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock15));
+                        });
+                })
+                // Rock_16
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock16))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock16));
+                        });
+                })
+                // Rock_17
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::Rock17))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::Rock17));
+                        });
+                })
+                // Water Rock_1
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock1))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock1,
+                            ));
+                        });
+                })
+                // Water Rock_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock2))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock2,
+                            ));
+                        });
+                })
+                // Water Rock_3
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock3))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock3,
+                            ));
+                        });
+                })
+                // Water Rock_4
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock4))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock4,
+                            ));
+                        });
+                })
+                // Water Rock_5
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock5))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock5,
+                            ));
+                        });
+                })
+                // Water Rock_6
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_rock_button_bundle(WorldRock::WaterRock6))
+                        .with_children(|parent| {
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock6,
+                            ));
+                        });
                 });
-        }
-    } else if selected_item.menu_selection == MainMenuSelection::None {
-        // Remove UI
-        if let Ok(sub_menu_query) = sub_menu_queries.get_single() {
-            commands.entity(sub_menu_query.entity).despawn_recursive();
         }
     }
 }

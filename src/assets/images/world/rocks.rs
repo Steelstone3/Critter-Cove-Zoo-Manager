@@ -1,7 +1,6 @@
 use std::fmt::Display;
 
-#[allow(dead_code)]
-#[derive(Clone, Copy)]
+#[derive(PartialEq, Clone, Copy)]
 pub enum WorldRock {
     IceRock1,
     IceRock2,
