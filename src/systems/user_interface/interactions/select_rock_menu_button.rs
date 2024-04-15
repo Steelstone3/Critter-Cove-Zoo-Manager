@@ -9,7 +9,10 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::{rocks::WorldRock, terrains::WorldTerrain}},
+    assets::images::{
+        animal::ZooAnimal,
+        world::{rocks::WorldRock, terrains::WorldTerrain},
+    },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectRockMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -21,8 +24,7 @@ pub fn select_rock_menu_button(
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
-    let Ok(mut select_rock_menu_button_query) =
-        select_rock_menu_button_queries.get_single_mut()
+    let Ok(mut select_rock_menu_button_query) = select_rock_menu_button_queries.get_single_mut()
     else {
         return;
     };

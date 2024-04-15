@@ -12,7 +12,9 @@ use bevy::{
 use crate::{
     assets::images::user_interface::main_menu::MainMenuUserInterface,
     components::{
-        constants::TILE_SIZE, menu::SelectionMenu, user_interface::{SelectAnimalMenuButton, SelectRockMenuButton},
+        constants::TILE_SIZE,
+        menu::SelectionMenu,
+        user_interface::{SelectAnimalMenuButton, SelectRockMenuButton},
     },
 };
 

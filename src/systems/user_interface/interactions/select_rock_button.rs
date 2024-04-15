@@ -11,9 +11,7 @@ use bevy::{
 use crate::{
     assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{
-        ButtonFilters, SelectRockButtonQuery,
-    },
+    queries::user_interface_queries::{ButtonFilters, SelectRockButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
