@@ -13,7 +13,7 @@ use crate::systems::{
             deselect_all::deselect_all, select_animal_button::select_animal_button,
             select_animal_menu_button::select_animal_menu_button,
         },
-        layouts::spawn_animal_menu::spawn_animal_menu,
+        layouts::{spawn_animal_menu::spawn_animal_menu, spawn_rock_menu::spawn_rock_menu},
     },
 };
 use bevy::{
@@ -29,6 +29,7 @@ impl Plugin for RunningPlugin {
             Update,
             (
                 spawn_animal_menu,
+                spawn_rock_menu,
                 deselect_all,
                 select_animal_menu_button,
                 select_animal_button,
