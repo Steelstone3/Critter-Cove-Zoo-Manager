@@ -72,8 +72,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock1))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock1));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock1,
+                            ));
                         });
                 })
                 // Ice Rock_2
@@ -81,8 +83,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock2))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock2));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock2,
+                            ));
                         });
                 })
                 // Ice Rock_3
@@ -90,8 +94,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock3))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock3));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock3,
+                            ));
                         });
                 })
                 // Ice Rock_4
@@ -99,8 +105,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock4))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock4));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock4,
+                            ));
                         });
                 })
                 // Ice Rock_5
@@ -108,8 +116,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock5))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock5));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock5,
+                            ));
                         });
                 })
                 // Ice Rock_6
@@ -117,8 +127,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::IceRock6))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::IceRock6));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::IceRock6,
+                            ));
                         });
                 })
                 // Rock_1
@@ -279,8 +291,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock1))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock1));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock1,
+                            ));
                         });
                 })
                 // Water Rock_2
@@ -288,8 +302,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock2))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock2));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock2,
+                            ));
                         });
                 })
                 // Water Rock_3
@@ -297,8 +313,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock3))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock3));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock3,
+                            ));
                         });
                 })
                 // Water Rock_4
@@ -306,8 +324,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock4))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock4));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock4,
+                            ));
                         });
                 })
                 // Water Rock_5
@@ -315,8 +335,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock5))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock5));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock5,
+                            ));
                         });
                 })
                 // Water Rock_6
@@ -324,8 +346,10 @@ pub fn spawn_rock_menu(
                     parent
                         .spawn(create_rock_button_bundle(WorldRock::WaterRock6))
                         .with_children(|parent| {
-                            parent
-                                .spawn(create_rock_button_icon(&asset_server, RockSubMenu::WaterRock6));
+                            parent.spawn(create_rock_button_icon(
+                                &asset_server,
+                                RockSubMenu::WaterRock6,
+                            ));
                         });
                 });
         }
