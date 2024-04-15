@@ -72,22 +72,22 @@ impl Display for RockSubMenu {
             RockSubMenu::Rock16 => write!(f, "images/user_interface/rock_menu/rock_16_icon.png"),
             RockSubMenu::Rock17 => write!(f, "images/user_interface/rock_menu/rock_17_icon.png"),
             RockSubMenu::WaterRock1 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_1.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_1_icon.png")
             }
             RockSubMenu::WaterRock2 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_2.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_2_icon.png")
             }
             RockSubMenu::WaterRock3 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_3.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_3_icon.png")
             }
             RockSubMenu::WaterRock4 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_4.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_4_icon.png")
             }
             RockSubMenu::WaterRock5 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_5.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_5_icon.png")
             }
             RockSubMenu::WaterRock6 => {
-                write!(f, "images/user_interface/rock_menu/water_rock_6.png")
+                write!(f, "images/user_interface/rock_menu/water_rock_6_icon.png")
             }
         }
     }
