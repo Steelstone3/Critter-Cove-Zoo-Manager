@@ -44,7 +44,7 @@ pub fn spawn_rock(
     let rock = Rock::new(selected_item.rock_selection);
 
     let mut transform = Transform::default();
-    transform.translation.z = 1.0;
+    transform.translation.z = rock.z_index;
 
     // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {

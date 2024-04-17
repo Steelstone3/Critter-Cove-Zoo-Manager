@@ -1,6 +1,6 @@
 use crate::{
-    assets::images::world::{tree::WorldTree},
-    components::{tree::Tree},
+    assets::images::world::tree::WorldTree,
+    components::tree::Tree,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
         camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
@@ -44,7 +44,7 @@ pub fn spawn_tree(
     let tree = Tree::new(selected_item.tree_selection);
 
     let mut transform = Transform::default();
-    transform.translation.z = 1.0;
+    transform.translation.z = tree.z_index;
 
     // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {

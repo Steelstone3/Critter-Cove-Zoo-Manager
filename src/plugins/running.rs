@@ -8,7 +8,8 @@ use crate::systems::{
     },
     play_music::play_music,
     spawn_animal::spawn_animal,
-    spawn_rock::spawn_rock, spawn_tree::spawn_tree,
+    spawn_rock::spawn_rock,
+    spawn_tree::spawn_tree,
 };
 use bevy::{
     app::Update,

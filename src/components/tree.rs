@@ -7,6 +7,7 @@ use super::constants::TILE_SIZE;
 pub struct Tree {
     pub sprite_path: WorldTree,
     pub size: Vec2,
+    pub z_index: f32,
 }
 
 impl Tree {
@@ -17,6 +18,7 @@ impl Tree {
                 x: TILE_SIZE * 4.0,
                 y: TILE_SIZE * 4.0,
             },
+            z_index: 3.0,
         }
     }
 }
