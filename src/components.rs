@@ -3,5 +3,7 @@ pub mod animation_timer;
 pub mod constants;
 pub mod menu;
 pub mod music;
+pub mod rock;
 pub mod terrain;
+pub mod tree;
 pub mod user_interface;

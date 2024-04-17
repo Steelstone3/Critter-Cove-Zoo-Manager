@@ -4,8 +4,8 @@ pub enum MainMenuSelection {
     Animals,
     // Fences,
     // Terrain,
-    // Trees,
-    // Rocks,
+    Trees,
+    Rocks,
     // Shelters,
     // Paths,
 }
