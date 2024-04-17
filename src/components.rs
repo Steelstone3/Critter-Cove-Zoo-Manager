@@ -6,3 +6,4 @@ pub mod music;
 pub mod rock;
 pub mod terrain;
 pub mod user_interface;
+pub mod tree;

@@ -10,7 +10,7 @@ impl Plugin for StartPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(
             Startup,
-            (spawn_camera, spawn_selection_main_menu, spawn_world_terrain),
+            (spawn_camera, spawn_world_terrain),
         );
     }
 }

@@ -1,7 +1,7 @@
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain},
+        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
@@ -13,6 +13,7 @@ pub struct SelectedMenuItem {
     pub animal_selection: ZooAnimal,
     pub terrain_selection: WorldTerrain,
     pub rock_selection: WorldRock,
+    pub tree_selection: WorldTree,
 }
 
 impl Default for SelectedMenuItem {
@@ -22,6 +23,7 @@ impl Default for SelectedMenuItem {
             animal_selection: ZooAnimal::None,
             terrain_selection: WorldTerrain::None,
             rock_selection: WorldRock::None,
+            tree_selection: WorldTree::None
         }
     }
 }
