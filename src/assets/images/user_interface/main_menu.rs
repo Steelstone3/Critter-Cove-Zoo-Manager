@@ -2,6 +2,7 @@ use std::fmt::Display;
 
 pub enum MainMenuUserInterface {
     Animals,
+    Trees,
     Rocks,
 }
 
@@ -10,6 +11,9 @@ impl Display for MainMenuUserInterface {
         match self {
             MainMenuUserInterface::Animals => {
                 write!(f, "images/user_interface/main_menu/animals_icon.png")
+            }
+            MainMenuUserInterface::Trees => {
+                write!(f, "images/user_interface/main_menu/trees_icon.png")
             }
             MainMenuUserInterface::Rocks => {
                 write!(f, "images/user_interface/main_menu/rocks_icon.png")

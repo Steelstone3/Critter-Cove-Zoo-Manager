@@ -14,7 +14,7 @@ use crate::{
     components::{
         constants::TILE_SIZE,
         menu::SelectionMenu,
-        user_interface::{SelectAnimalMenuButton, SelectRockMenuButton},
+        user_interface::{SelectAnimalMenuButton, SelectRockMenuButton, SelectTreeMenuButton},
     },
 };
 
@@ -78,6 +78,35 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
             // Fences
             // Terrain
             // Trees
+            parent
+                .spawn((
+                    ButtonBundle {
+                        style: Style {
+                            width: Val::Percent(100.0),
+                            height: Val::Percent(100.0),
+                            border: UiRect::new(
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                            ),
+
+                            ..Default::default()
+                        },
+                        border_color: Color::DARK_GRAY.into(),
+                        ..Default::default()
+                    },
+                    SelectTreeMenuButton {},
+                ))
+                .with_children(|parent| {
+                    parent.spawn(ImageBundle {
+                        image: UiImage::new(
+                            asset_server.load(MainMenuUserInterface::Trees.to_string()),
+                        ),
+                        background_color: Color::WHITE.into(),
+                        ..Default::default()
+                    });
+                });
             // Rocks
             parent
                 .spawn((
