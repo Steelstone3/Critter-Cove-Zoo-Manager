@@ -7,7 +7,8 @@ use bevy::{
 };
 
 use crate::components::user_interface::{
-    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton, SubMenu,
+    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton,
+    SelectTreeButton, SelectTreeMenuButton, SubMenu,
 };
 
 #[derive(QueryData)]
@@ -46,6 +47,22 @@ pub struct SelectRockButtonQuery {
     pub interaction: &'static Interaction,
     pub border_color: &'static mut BorderColor,
     pub selected_rock_button: &'static SelectRockButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectTreeMenuButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_tree_menu_button: &'static SelectTreeMenuButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectTreeButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_tree_button: &'static SelectTreeButton,
 }
 
 #[derive(QueryFilter)]

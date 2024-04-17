@@ -1,4 +1,7 @@
-use crate::assets::images::{animal::ZooAnimal, world::rocks::WorldRock};
+use crate::assets::images::{
+    animal::ZooAnimal,
+    world::{rocks::WorldRock, tree::WorldTree},
+};
 use bevy::ecs::component::Component;
 
 #[derive(Component)]
@@ -21,6 +24,14 @@ pub struct SelectRockMenuButton;
 #[derive(Component)]
 pub struct SelectRockButton {
     pub rock: WorldRock,
+}
+
+#[derive(Component)]
+pub struct SelectTreeMenuButton;
+
+#[derive(Component)]
+pub struct SelectTreeButton {
+    pub tree: WorldTree,
 }
 
 // TODO implement

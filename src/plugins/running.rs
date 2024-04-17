@@ -9,18 +9,7 @@ use crate::systems::{
     play_music::play_music,
     spawn_animal::spawn_animal,
     spawn_rock::spawn_rock,
-    user_interface::{
-        interactions::{
-            deselect_all::deselect_all, select_animal_button::select_animal_button,
-            select_animal_menu_button::select_animal_menu_button,
-            select_rock_button::select_rock_button,
-            select_rock_menu_button::select_rock_menu_button,
-        },
-        layouts::{
-            despawn_sub_menus::despawn_sub_menus, spawn_animal_menu::spawn_animal_menu,
-            spawn_rock_menu::spawn_rock_menu,
-        },
-    },
+    spawn_tree::spawn_tree,
 };
 use bevy::{
     app::Update,
@@ -34,15 +23,8 @@ impl Plugin for RunningPlugin {
         app.add_systems(
             Update,
             (
-                spawn_animal_menu,
-                spawn_rock_menu,
-                deselect_all,
-                despawn_sub_menus,
-                select_animal_menu_button,
-                select_animal_button,
-                select_rock_menu_button,
-                select_rock_button,
                 spawn_animal,
+                spawn_tree,
                 spawn_rock,
                 play_music,
                 animate_sprites,

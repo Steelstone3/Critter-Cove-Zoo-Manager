@@ -9,7 +9,10 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::terrains::WorldTerrain},
+    assets::images::{
+        animal::ZooAnimal,
+        world::{terrains::WorldTerrain, tree::WorldTree},
+    },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectRockButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -33,6 +36,7 @@ pub fn select_rock_button(
             selected_item.rock_selection = select_rock_button_query.selected_rock_button.rock;
             selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
+            selected_item.tree_selection = WorldTree::None;
 
             user_interface_event.send(UserInterfaceEvent {});
         }

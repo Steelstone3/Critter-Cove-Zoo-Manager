@@ -7,7 +7,7 @@ use super::main_menu_selection::MainMenuSelection;
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain},
+        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
     events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,
@@ -23,6 +23,7 @@ pub fn deselect_all(
         selected_item.animal_selection = ZooAnimal::None;
         selected_item.terrain_selection = WorldTerrain::None;
         selected_item.rock_selection = WorldRock::None;
+        selected_item.tree_selection = WorldTree::None;
 
         user_interface_event.send(UserInterfaceEvent {});
     }

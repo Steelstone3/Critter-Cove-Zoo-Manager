@@ -1,6 +1,6 @@
 use crate::{
-    assets::images::world::rocks::WorldRock,
-    components::rock::Rock,
+    assets::images::world::tree::WorldTree,
+    components::tree::Tree,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
         camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
@@ -17,7 +17,7 @@ use bevy::{
     utils::tracing,
 };
 
-pub fn spawn_rock(
+pub fn spawn_tree(
     mut commands: Commands,
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
@@ -25,7 +25,7 @@ pub fn spawn_rock(
     windows_queries: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.rock_selection == WorldRock::None {
+    if selected_item.tree_selection == WorldTree::None {
         return;
     }
 
@@ -41,10 +41,10 @@ pub fn spawn_rock(
         return;
     }
 
-    let rock = Rock::new(selected_item.rock_selection);
+    let tree = Tree::new(selected_item.tree_selection);
 
     let mut transform = Transform::default();
-    transform.translation.z = rock.z_index;
+    transform.translation.z = tree.z_index;
 
     // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {
@@ -58,12 +58,12 @@ pub fn spawn_rock(
         return;
     }
 
-    tracing::info!("rock at {:?}", transform.translation);
+    tracing::info!("tree at {:?}", transform.translation);
 
     spawn_sprite_event.send(SpawnSpriteEvent {
-        sprite_path: rock.sprite_path.to_string(),
-        size: rock.size,
+        sprite_path: tree.sprite_path.to_string(),
+        size: tree.size,
         transform,
-        entity: commands.spawn(rock).id(),
+        entity: commands.spawn(tree).id(),
     });
 }

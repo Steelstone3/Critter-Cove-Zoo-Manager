@@ -8,6 +8,7 @@ const TERRAIN_SIZE: Vec2 = Vec2::new(TILE_SIZE, TILE_SIZE);
 pub struct Terrain {
     pub sprite_path: WorldTerrain,
     pub size: Vec2,
+    pub z_index: f32,
 }
 
 impl Terrain {
@@ -15,6 +16,7 @@ impl Terrain {
         Self {
             sprite_path,
             size: TERRAIN_SIZE,
+            z_index: 0.0,
         }
     }
 }

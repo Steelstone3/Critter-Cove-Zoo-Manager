@@ -14,43 +14,42 @@ use crate::{
         world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{ButtonFilters, SelectAnimalMenuButtonQuery},
+    queries::user_interface_queries::{ButtonFilters, SelectTreeMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
-pub fn select_animal_menu_button(
-    mut select_animal_menu_button_queries: Query<SelectAnimalMenuButtonQuery, ButtonFilters>,
+pub fn select_tree_menu_button(
+    mut select_tree_menu_button_queries: Query<SelectTreeMenuButtonQuery, ButtonFilters>,
     mut selected_item: ResMut<SelectedMenuItem>,
     mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
-    let Ok(mut select_animal_menu_button_query) =
-        select_animal_menu_button_queries.get_single_mut()
+    let Ok(mut select_tree_menu_button_query) = select_tree_menu_button_queries.get_single_mut()
     else {
         return;
     };
 
-    match *select_animal_menu_button_query.interaction {
+    match *select_tree_menu_button_query.interaction {
         Interaction::Pressed => {
             tracing::info!("Pressed");
 
-            selected_item.menu_selection = MainMenuSelection::Animals;
+            selected_item.menu_selection = MainMenuSelection::Trees;
             selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
             selected_item.rock_selection = WorldRock::None;
             selected_item.tree_selection = WorldTree::None;
 
-            *select_animal_menu_button_query.border_color = Color::YELLOW.into();
+            *select_tree_menu_button_query.border_color = Color::YELLOW.into();
 
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
             tracing::info!("Hovered");
 
-            *select_animal_menu_button_query.border_color = Color::YELLOW.into();
+            *select_tree_menu_button_query.border_color = Color::YELLOW.into();
         }
         Interaction::None => {
-            *select_animal_menu_button_query.border_color = Color::DARK_GRAY.into();
+            *select_tree_menu_button_query.border_color = Color::DARK_GRAY.into();
         }
     }
 }

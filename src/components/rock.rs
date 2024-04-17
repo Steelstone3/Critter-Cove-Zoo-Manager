@@ -7,17 +7,18 @@ use super::constants::TILE_SIZE;
 pub struct Rock {
     pub sprite_path: WorldRock,
     pub size: Vec2,
+    pub z_index: f32,
 }
 
 impl Rock {
     pub fn new(sprite_path: WorldRock) -> Self {
         Self {
             sprite_path,
-
             size: Vec2 {
-                x: TILE_SIZE,
-                y: TILE_SIZE,
+                x: TILE_SIZE / 1.5,
+                y: TILE_SIZE / 1.5,
             },
+            z_index: 1.0,
         }
     }
 }
