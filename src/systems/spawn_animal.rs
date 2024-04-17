@@ -4,7 +4,9 @@ use crate::{
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
-    queries::window_queries::WindowQuery,
+    queries::{
+        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
+    },
     resources::selected_item::SelectedMenuItem,
 };
 use bevy::{
@@ -23,12 +25,17 @@ pub fn spawn_animal(
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
     windows_query: Query<WindowQuery>,
+    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
     if selected_item.animal_selection == ZooAnimal::None {
         return;
     }
 
     let Ok(window_query) = windows_query.get_single() else {
+        return;
+    };
+
+    let Ok(camera_query) = camera_queries.get_single() else {
         return;
     };
 
@@ -47,12 +54,16 @@ pub fn spawn_animal(
     }
 
     let mut transform = Transform::default();
-    transform.translation.z = 1.0;
+    transform.translation.z = animal.z_index;
 
-    // TODO Zoom and moving the camera effect the sync of this
+    // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {
-        transform.translation.x = position.x - window_query.window.resolution.width() / 2.0;
-        transform.translation.y = -(position.y - window_query.window.resolution.height() / 2.0);
+        transform.translation.x = ((position.x - window_query.window.resolution.width() / 2.0)
+            * camera_query.projection.scale)
+            + camera_query.transform.translation.x;
+        transform.translation.y = -((position.y - window_query.window.resolution.height() / 2.0)
+            * camera_query.projection.scale)
+            + camera_query.transform.translation.y;
     } else {
         return;
     }

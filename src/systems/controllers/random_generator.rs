@@ -17,14 +17,17 @@ pub fn generate_seed() -> u64 {
 #[cfg(test)]
 mod random_generator_should {
     use super::*;
+    use rstest::rstest;
 
-    #[test]
-    fn generate_a_random_value_f32() {
-        // Given
-        let seed = 1234;
-        let range = -20.0..20.0;
-        let expected = -17.736874;
-
+    #[rstest]
+    #[case(1234, -20.0..20.0, -17.736874)]
+    #[case(4321, -20.0..20.0, 8.739052)]
+    #[case(4321, 0.0..100.0, 71.847626)]
+    fn generate_a_random_value_f32(
+        #[case] seed: u64,
+        #[case] range: Range<f32>,
+        #[case] expected: f32,
+    ) {
         // When
         let actual = random_value_f32(seed, range);
 
