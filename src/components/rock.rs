@@ -14,8 +14,8 @@ impl Rock {
         Self {
             sprite_path,
             size: Vec2 {
-                x: TILE_SIZE,
-                y: TILE_SIZE,
+                x: TILE_SIZE / 2.0,
+                y: TILE_SIZE / 2.0,
             },
         }
     }
