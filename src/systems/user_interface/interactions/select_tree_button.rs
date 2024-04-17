@@ -9,9 +9,12 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{animal::ZooAnimal, world::{rocks::WorldRock, terrains::WorldTerrain}},
+    assets::images::{
+        animal::ZooAnimal,
+        world::{rocks::WorldRock, terrains::WorldTerrain},
+    },
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{ButtonFilters, SelectRockButtonQuery, SelectTreeButtonQuery},
+    queries::user_interface_queries::{ButtonFilters, SelectTreeButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };

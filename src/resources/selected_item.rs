@@ -23,7 +23,7 @@ impl Default for SelectedMenuItem {
             animal_selection: ZooAnimal::None,
             terrain_selection: WorldTerrain::None,
             rock_selection: WorldRock::None,
-            tree_selection: WorldTree::None
+            tree_selection: WorldTree::None,
         }
     }
 }

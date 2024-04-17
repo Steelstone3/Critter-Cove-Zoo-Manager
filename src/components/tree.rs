@@ -1,4 +1,4 @@
-use crate::assets::images::world::{rocks::WorldRock, tree::WorldTree};
+use crate::assets::images::world::tree::WorldTree;
 use bevy::{ecs::component::Component, math::Vec2};
 
 use super::constants::TILE_SIZE;

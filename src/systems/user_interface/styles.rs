@@ -11,7 +11,9 @@ use bevy::{
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        user_interface::{animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu, tree_sub_menu::TreeSubMenu},
+        user_interface::{
+            animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu, tree_sub_menu::TreeSubMenu,
+        },
         world::{rocks::WorldRock, tree::WorldTree},
     },
     components::user_interface::{SelectAnimalButton, SelectRockButton, SelectTreeButton},

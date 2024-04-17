@@ -7,7 +7,8 @@ use bevy::{
 };
 
 use crate::components::user_interface::{
-    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton, SelectTreeButton, SelectTreeMenuButton, SubMenu
+    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton,
+    SelectTreeButton, SelectTreeMenuButton, SubMenu,
 };
 
 #[derive(QueryData)]

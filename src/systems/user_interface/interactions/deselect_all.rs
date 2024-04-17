@@ -24,7 +24,7 @@ pub fn deselect_all(
         selected_item.terrain_selection = WorldTerrain::None;
         selected_item.rock_selection = WorldRock::None;
         selected_item.tree_selection = WorldTree::None;
-        
+
         user_interface_event.send(UserInterfaceEvent {});
     }
 }
