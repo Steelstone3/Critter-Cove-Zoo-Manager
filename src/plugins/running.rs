@@ -7,9 +7,7 @@ use crate::systems::{
         camera_zoom_mouse_and_touchpad::camera_zoom_mouse_and_touchpad,
     },
     play_music::play_music,
-    spawn_animal::spawn_animal,
-    spawn_rock::spawn_rock,
-    spawn_tree::spawn_tree,
+    spawning::{spawn_animal::spawn_animal, spawn_rock::spawn_rock, spawn_tree::spawn_tree},
 };
 use bevy::{
     app::Update,

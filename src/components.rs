@@ -1,6 +1,7 @@
 pub mod animal;
 pub mod animation_timer;
 pub mod constants;
+pub mod game_states;
 pub mod menu;
 pub mod music;
 pub mod rock;

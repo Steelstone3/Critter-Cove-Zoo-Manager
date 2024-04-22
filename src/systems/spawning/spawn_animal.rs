@@ -57,7 +57,6 @@ pub fn spawn_animal(
     let mut transform = Transform::default();
     transform.translation.z = animal.z_index;
 
-    // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {
         get_cursor_location(&mut transform, position, window_query, camera_query);
     } else {

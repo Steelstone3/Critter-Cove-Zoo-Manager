@@ -1,5 +1,5 @@
 use crate::systems::{
-    camera::spawn_camera::spawn_camera, spawn_world_terrain::spawn_world_terrain,
+    camera::spawn_camera::spawn_camera, spawning::spawn_world_terrain::spawn_world_terrain,
 };
 use bevy::prelude::{App, Plugin, Startup};
 
