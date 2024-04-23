@@ -1,4 +1,7 @@
-use crate::systems::user_interface::layouts::spawn_selection_main_menu::spawn_selection_main_menu;
+use crate::systems::user_interface::{
+    interactions::toggle_pause::toggle_pause,
+    layouts::spawn_selection_main_menu::spawn_selection_main_menu,
+};
 use bevy::{
     app::Update,
     prelude::{App, Plugin, Startup},
@@ -45,6 +48,7 @@ impl Plugin for UserInterfacePlugin {
                     // select_shelter_button
                     // select_path_menu_button
                     // select_path_button
+                    toggle_pause,
                 ),
             );
     }
