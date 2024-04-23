@@ -6,7 +6,7 @@ use crate::{
         camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
     },
     resources::selected_item::SelectedMenuItem,
-    systems::controllers::get_location::get_cursor_location,
+    systems::controllers::get_location::get_tile_location,
 };
 use bevy::{
     ecs::{
@@ -48,7 +48,7 @@ pub fn spawn_terrain(
     transform.translation.z = terrain.z_index;
 
     if let Some(position) = window_query.window.cursor_position() {
-        get_cursor_location(&mut transform, position, window_query, camera_query);
+        get_tile_location(&mut transform, position, window_query, camera_query);
     } else {
         return;
     }
