@@ -19,4 +19,12 @@ impl Terrain {
             z_index: 0.0,
         }
     }
+
+    pub fn new_player(sprite_path: WorldTerrain) -> Self {
+        Self {
+            sprite_path,
+            size: TERRAIN_SIZE,
+            z_index: 1.0,
+        }
+    }
 }
