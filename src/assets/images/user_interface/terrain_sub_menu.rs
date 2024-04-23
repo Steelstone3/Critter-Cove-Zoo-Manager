@@ -32,6 +32,20 @@ pub enum TerrainSubMenu {
     VeryLightGrass3,
     VeryLightGrass4,
     VeryLightGrass5,
+    Water1,
+    Water2,
+    Water3,
+    Water4,
+    Water5,
+    Water6,
+    Water7,
+    Water8,
+    Water9,
+    Water10,
+    Water11,
+    Water12,
+    Water13,
+    Water14,
 }
 
 impl Display for TerrainSubMenu {
@@ -67,6 +81,20 @@ impl Display for TerrainSubMenu {
             TerrainSubMenu::VeryLightGrass3 => write!(f, "images/user_interface/terrain_menu/very_light_grass_3_icon.png"),
             TerrainSubMenu::VeryLightGrass4 => write!(f, "images/user_interface/terrain_menu/very_light_grass_4_icon.png"),
             TerrainSubMenu::VeryLightGrass5 => write!(f, "images/user_interface/terrain_menu/very_light_grass_5_icon.png"),
+            TerrainSubMenu::Water1 => write!(f, "images/user_interface/terrain_menu/water_1_icon.png"),
+            TerrainSubMenu::Water2 => write!(f, "images/user_interface/terrain_menu/water_2_icon.png"),
+            TerrainSubMenu::Water3 => write!(f, "images/user_interface/terrain_menu/water_3_icon.png"),
+            TerrainSubMenu::Water4 => write!(f, "images/user_interface/terrain_menu/water_4_icon.png"),
+            TerrainSubMenu::Water5 => write!(f, "images/user_interface/terrain_menu/water_5_icon.png"),
+            TerrainSubMenu::Water6 => write!(f, "images/user_interface/terrain_menu/water_6_icon.png"),
+            TerrainSubMenu::Water7 => write!(f, "images/user_interface/terrain_menu/water_7_icon.png"),
+            TerrainSubMenu::Water8 => write!(f, "images/user_interface/terrain_menu/water_8_icon.png"),
+            TerrainSubMenu::Water9 => write!(f, "images/user_interface/terrain_menu/water_9_icon.png"),
+            TerrainSubMenu::Water10 => write!(f, "images/user_interface/terrain_menu/water_10_icon.png"),
+            TerrainSubMenu::Water11 => write!(f, "images/user_interface/terrain_menu/water_11_icon.png"),
+            TerrainSubMenu::Water12 => write!(f, "images/user_interface/terrain_menu/water_12_icon.png"),
+            TerrainSubMenu::Water13 => write!(f, "images/user_interface/terrain_menu/water_13_icon.png"),
+            TerrainSubMenu::Water14 => write!(f, "images/user_interface/terrain_menu/water_14_icon.png"),
         }
     }
 }
