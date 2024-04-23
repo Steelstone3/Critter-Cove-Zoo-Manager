@@ -102,6 +102,168 @@ pub fn spawn_path_menu(
                             parent
                                 .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path5));
                         });
+                })
+                // Path_6
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path6))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path6));
+                        });
+                })
+                // Path_7
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path7))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path7));
+                        });
+                })
+                // Path_8
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path8))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path8));
+                        });
+                })
+                // Path_9
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path9))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path9));
+                        });
+                })
+                // Path_10
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path10))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path10));
+                        });
+                })
+                // Path_11
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path11))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path11));
+                        });
+                })
+                // Path_12
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path12))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path12));
+                        });
+                })
+                // Path_13
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path13))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path13));
+                        });
+                })
+                // Path_14
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path14))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path14));
+                        });
+                })
+                // Path_15
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path15))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path15));
+                        });
+                })
+                // Path_16
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path16))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path16));
+                        });
+                })
+                // Path_17
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path17))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path17));
+                        });
+                })
+                // Path_18
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path18))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path18));
+                        });
+                })
+                // Path_19
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path19))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path19));
+                        });
+                })
+                // Path_20
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path20))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path20));
+                        });
+                })
+                // Path_21
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path21))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path21));
+                        });
+                })
+                // Path_22
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path22))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path22));
+                        });
+                })
+                // Path_23
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_path_button_bundle(WorldPath::Path23))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_path_button_icon(&asset_server, PathSubMenu::Path23));
+                        });
                 });
         }
     }
