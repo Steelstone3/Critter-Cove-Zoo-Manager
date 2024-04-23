@@ -9,10 +9,6 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{
-        animal::ZooAnimal,
-        world::{fences::WorldFence, rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
-    },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectPathButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -32,12 +28,8 @@ pub fn select_path_button(
         Interaction::Pressed => {
             tracing::info!("Pressed Path");
 
+            SelectedMenuItem::reset(&mut selected_item);
             selected_item.menu_selection = MainMenuSelection::Paths;
-            selected_item.animal_selection = ZooAnimal::None;
-            selected_item.fence_selection = WorldFence::None;
-            selected_item.terrain_selection = WorldTerrain::None;
-            selected_item.tree_selection = WorldTree::None;
-            selected_item.rock_selection = WorldRock::None;
             selected_item.path_selection = select_path_button_query.selected_path_button.path;
 
             user_interface_event.send(UserInterfaceEvent {});

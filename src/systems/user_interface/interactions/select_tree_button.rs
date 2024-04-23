@@ -9,10 +9,6 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{
-        animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain},
-    },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectTreeButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -32,11 +28,9 @@ pub fn select_tree_button(
         Interaction::Pressed => {
             tracing::info!("Pressed Tree");
 
+            SelectedMenuItem::reset(&mut selected_item);
             selected_item.menu_selection = MainMenuSelection::Trees;
             selected_item.tree_selection = select_tree_button_query.selected_tree_button.tree;
-            selected_item.animal_selection = ZooAnimal::None;
-            selected_item.terrain_selection = WorldTerrain::None;
-            selected_item.rock_selection = WorldRock::None;
 
             user_interface_event.send(UserInterfaceEvent {});
         }
