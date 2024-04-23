@@ -1,7 +1,7 @@
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
+        world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };

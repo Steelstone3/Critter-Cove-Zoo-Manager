@@ -15,7 +15,7 @@ use crate::{
             animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu,
             terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu,
         },
-        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
+        world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
     components::user_interface::{
         SelectAnimalButton, SelectRockButton, SelectTerrainButton, SelectTreeButton,

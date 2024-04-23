@@ -10,7 +10,7 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{user_interface::tree_sub_menu::TreeSubMenu, world::tree::WorldTree},
+    assets::images::{user_interface::tree_sub_menu::TreeSubMenu, world::trees::WorldTree},
     components::{constants::TILE_SIZE, user_interface::SubMenu},
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::SubMenuEntityQuery,

@@ -11,7 +11,7 @@ use bevy::{
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
+        world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectTreeMenuButtonQuery},

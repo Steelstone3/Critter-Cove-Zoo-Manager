@@ -1,6 +1,6 @@
 use crate::assets::images::{
     animal::ZooAnimal,
-    world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
+    world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
 };
 use bevy::ecs::component::Component;
 
