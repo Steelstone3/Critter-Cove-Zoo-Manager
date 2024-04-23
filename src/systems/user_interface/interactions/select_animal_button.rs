@@ -27,7 +27,7 @@ pub fn select_animal_button(
 
     match *select_animal_button_query.interaction {
         Interaction::Pressed => {
-            tracing::info!("Pressed");
+            tracing::info!("Pressed Animal");
 
             selected_item.menu_selection = MainMenuSelection::Animals;
             selected_item.animal_selection =
@@ -39,7 +39,7 @@ pub fn select_animal_button(
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
-            tracing::info!("Hovered");
+            tracing::info!("Hovered Animal");
         }
         Interaction::None => {
             *select_animal_button_query.border_color = Color::DARK_GRAY.into();

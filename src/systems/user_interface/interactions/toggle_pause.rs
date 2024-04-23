@@ -9,7 +9,7 @@ use bevy::{
 use crate::components::game_states::GameState;
 
 pub fn initial_state(mut next_game_state: ResMut<NextState<GameState>>) {
-    // TODO move this to main menu
+    // TODO change this to main menu
     next_game_state.set(GameState::Playing);
 }
 

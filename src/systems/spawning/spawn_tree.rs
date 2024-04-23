@@ -42,7 +42,16 @@ pub fn spawn_tree(
         return;
     }
 
-    let tree = Tree::new(selected_item.tree_selection);
+    let mut tree = Tree::new_128(selected_item.tree_selection);
+
+    if selected_item.tree_selection == WorldTree::Bush1
+        || selected_item.tree_selection == WorldTree::Bush2
+        || selected_item.tree_selection == WorldTree::TallGrass1
+        || selected_item.tree_selection == WorldTree::TallGrass2
+        || selected_item.tree_selection == WorldTree::TallGrass3
+    {
+        tree = Tree::new_32(selected_item.tree_selection);
+    }
 
     let mut transform = Transform::default();
     transform.translation.z = tree.z_index;

@@ -12,11 +12,14 @@ use crate::{
     assets::images::{
         animal::ZooAnimal,
         user_interface::{
-            animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu, tree_sub_menu::TreeSubMenu,
+            animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu,
+            terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu,
         },
-        world::{rocks::WorldRock, tree::WorldTree},
+        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
-    components::user_interface::{SelectAnimalButton, SelectRockButton, SelectTreeButton},
+    components::user_interface::{
+        SelectAnimalButton, SelectRockButton, SelectTerrainButton, SelectTreeButton,
+    },
 };
 
 pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
@@ -46,7 +49,7 @@ pub fn create_animal_button_icon(
     }
 }
 
-pub fn create_rock_button_bundle(rock: WorldRock) -> (ButtonBundle, SelectRockButton) {
+pub fn create_terrain_button_bundle(terrain: WorldTerrain) -> (ButtonBundle, SelectTerrainButton) {
     (
         ButtonBundle {
             style: Style {
@@ -58,16 +61,16 @@ pub fn create_rock_button_bundle(rock: WorldRock) -> (ButtonBundle, SelectRockBu
             border_color: Color::DARK_GRAY.into(),
             ..Default::default()
         },
-        SelectRockButton { rock },
+        SelectTerrainButton { terrain },
     )
 }
 
-pub fn create_rock_button_icon(
+pub fn create_terrain_button_icon(
     asset_server: &Res<AssetServer>,
-    rock_sub_menu: RockSubMenu,
+    terrain_sub_menu: TerrainSubMenu,
 ) -> ImageBundle {
     ImageBundle {
-        image: UiImage::new(asset_server.load(rock_sub_menu.to_string())),
+        image: UiImage::new(asset_server.load(terrain_sub_menu.to_string())),
         background_color: Color::WHITE.into(),
         ..Default::default()
     }
@@ -95,6 +98,33 @@ pub fn create_tree_button_icon(
 ) -> ImageBundle {
     ImageBundle {
         image: UiImage::new(asset_server.load(tree_sub_menu.to_string())),
+        background_color: Color::WHITE.into(),
+        ..Default::default()
+    }
+}
+
+pub fn create_rock_button_bundle(rock: WorldRock) -> (ButtonBundle, SelectRockButton) {
+    (
+        ButtonBundle {
+            style: Style {
+                width: Val::Percent(100.0),
+                height: Val::Percent(100.0),
+                border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
+                ..Default::default()
+            },
+            border_color: Color::DARK_GRAY.into(),
+            ..Default::default()
+        },
+        SelectRockButton { rock },
+    )
+}
+
+pub fn create_rock_button_icon(
+    asset_server: &Res<AssetServer>,
+    rock_sub_menu: RockSubMenu,
+) -> ImageBundle {
+    ImageBundle {
+        image: UiImage::new(asset_server.load(rock_sub_menu.to_string())),
         background_color: Color::WHITE.into(),
         ..Default::default()
     }

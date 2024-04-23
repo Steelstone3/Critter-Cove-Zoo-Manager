@@ -30,7 +30,7 @@ pub fn select_rock_button(
 
     match *select_rock_button_query.interaction {
         Interaction::Pressed => {
-            tracing::info!("Pressed");
+            tracing::info!("Pressed Rock");
 
             selected_item.menu_selection = MainMenuSelection::Rocks;
             selected_item.rock_selection = select_rock_button_query.selected_rock_button.rock;
@@ -41,7 +41,7 @@ pub fn select_rock_button(
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
-            tracing::info!("Hovered");
+            tracing::info!("Hovered Rock");
         }
         Interaction::None => {
             *select_rock_button_query.border_color = Color::DARK_GRAY.into();

@@ -18,7 +18,7 @@ impl Rock {
                 x: TILE_SIZE / 1.5,
                 y: TILE_SIZE / 1.5,
             },
-            z_index: 1.0,
+            z_index: 2.0,
         }
     }
 }

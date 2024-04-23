@@ -67,6 +67,57 @@ pub fn spawn_tree_menu(
                     ..Default::default()
                 })
                 .insert(SubMenu)
+                // Bush_1
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_tree_button_bundle(WorldTree::Bush1))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_tree_button_icon(&asset_server, TreeSubMenu::Bush1));
+                        });
+                })
+                // Bush_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_tree_button_bundle(WorldTree::Bush2))
+                        .with_children(|parent| {
+                            parent
+                                .spawn(create_tree_button_icon(&asset_server, TreeSubMenu::Bush2));
+                        });
+                })
+                // Tall_Grass_1
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_tree_button_bundle(WorldTree::TallGrass1))
+                        .with_children(|parent| {
+                            parent.spawn(create_tree_button_icon(
+                                &asset_server,
+                                TreeSubMenu::TallGrass1,
+                            ));
+                        });
+                })
+                // Tall_Grass_2
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_tree_button_bundle(WorldTree::TallGrass2))
+                        .with_children(|parent| {
+                            parent.spawn(create_tree_button_icon(
+                                &asset_server,
+                                TreeSubMenu::TallGrass2,
+                            ));
+                        });
+                })
+                // Tall_Grass_3
+                .with_children(|parent| {
+                    parent
+                        .spawn(create_tree_button_bundle(WorldTree::TallGrass3))
+                        .with_children(|parent| {
+                            parent.spawn(create_tree_button_icon(
+                                &asset_server,
+                                TreeSubMenu::TallGrass3,
+                            ));
+                        });
+                })
                 // Tree_1
                 .with_children(|parent| {
                     parent

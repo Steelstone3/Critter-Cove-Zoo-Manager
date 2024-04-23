@@ -11,14 +11,24 @@ pub struct Tree {
 }
 
 impl Tree {
-    pub fn new(sprite_path: WorldTree) -> Self {
+    pub fn new_128(sprite_path: WorldTree) -> Self {
         Self {
             sprite_path,
             size: Vec2 {
                 x: TILE_SIZE * 4.0,
                 y: TILE_SIZE * 4.0,
             },
-            z_index: 3.0,
+            z_index: 4.0,
+        }
+    }
+    pub fn new_32(sprite_path: WorldTree) -> Self {
+        Self {
+            sprite_path,
+            size: Vec2 {
+                x: TILE_SIZE,
+                y: TILE_SIZE,
+            },
+            z_index: 4.0,
         }
     }
 }
