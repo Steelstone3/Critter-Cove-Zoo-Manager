@@ -6,7 +6,7 @@ pub enum WorldFence {
     Fence2,
     Fence3,
     Fence4,
-    None
+    None,
 }
 
 impl Display for WorldFence {
@@ -16,7 +16,7 @@ impl Display for WorldFence {
             WorldFence::Fence2 => write!(f, "images/world/fences/fence_2.png"),
             WorldFence::Fence3 => write!(f, "images/world/fences/fence_3.png"),
             WorldFence::Fence4 => write!(f, "images/world/fences/fence_4.png"),
-            WorldFence::None => write!(f, ""), 
+            WorldFence::None => write!(f, ""),
         }
     }
 }
