@@ -30,7 +30,7 @@ pub fn select_tree_button(
 
     match *select_tree_button_query.interaction {
         Interaction::Pressed => {
-            tracing::info!("Pressed");
+            tracing::info!("Pressed Tree");
 
             selected_item.menu_selection = MainMenuSelection::Trees;
             selected_item.tree_selection = select_tree_button_query.selected_tree_button.tree;
@@ -41,7 +41,7 @@ pub fn select_tree_button(
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
-            tracing::info!("Hovered");
+            tracing::info!("Hovered Tree");
         }
         Interaction::None => {
             *select_tree_button_query.border_color = Color::DARK_GRAY.into();

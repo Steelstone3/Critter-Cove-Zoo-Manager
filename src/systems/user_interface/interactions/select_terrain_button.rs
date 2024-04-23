@@ -30,7 +30,7 @@ pub fn select_terrain_button(
 
     match *select_terrain_button_query.interaction {
         Interaction::Pressed => {
-            tracing::info!("Pressed");
+            tracing::info!("Pressed Terrain");
 
             selected_item.menu_selection = MainMenuSelection::Rocks;
             selected_item.terrain_selection =
@@ -42,7 +42,7 @@ pub fn select_terrain_button(
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
-            tracing::info!("Hovered");
+            tracing::info!("Hovered Terrain");
         }
         Interaction::None => {
             *select_terrain_button_query.border_color = Color::DARK_GRAY.into();
