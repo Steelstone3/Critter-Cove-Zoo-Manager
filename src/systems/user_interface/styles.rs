@@ -12,11 +12,14 @@ use crate::{
     assets::images::{
         animal::ZooAnimal,
         user_interface::{
-            animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu, terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu
+            animal_sub_menu::AnimalSubMenu, rock_sub_menu::RockSubMenu,
+            terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu,
         },
         world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
-    components::user_interface::{SelectAnimalButton, SelectRockButton, SelectTerrainButton, SelectTreeButton},
+    components::user_interface::{
+        SelectAnimalButton, SelectRockButton, SelectTerrainButton, SelectTreeButton,
+    },
 };
 
 pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {

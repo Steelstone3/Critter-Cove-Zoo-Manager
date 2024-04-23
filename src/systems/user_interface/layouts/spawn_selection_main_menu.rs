@@ -14,7 +14,10 @@ use crate::{
     components::{
         constants::TILE_SIZE,
         menu::SelectionMenu,
-        user_interface::{SelectAnimalMenuButton, SelectRockMenuButton, SelectTerrainMenuButton, SelectTreeMenuButton},
+        user_interface::{
+            SelectAnimalMenuButton, SelectRockMenuButton, SelectTerrainMenuButton,
+            SelectTreeMenuButton,
+        },
     },
 };
 

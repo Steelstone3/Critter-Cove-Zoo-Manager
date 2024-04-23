@@ -11,8 +11,7 @@ use bevy::{
 
 use crate::{
     assets::images::{
-        user_interface::{terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu},
-        world::{terrains::WorldTerrain, tree::WorldTree},
+        user_interface::terrain_sub_menu::TerrainSubMenu, world::terrains::WorldTerrain,
     },
     components::{constants::TILE_SIZE, user_interface::SubMenu},
     events::user_interface_event::UserInterfaceEvent,
@@ -20,10 +19,7 @@ use crate::{
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::{
         interactions::main_menu_selection::MainMenuSelection,
-        styles::{
-            create_terrain_button_bundle, create_terrain_button_icon, create_tree_button_bundle,
-            create_tree_button_icon,
-        },
+        styles::{create_terrain_button_bundle, create_terrain_button_icon},
     },
 };
 
