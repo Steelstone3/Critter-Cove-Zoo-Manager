@@ -4,6 +4,8 @@ use crate::assets::images::{
 };
 use bevy::ecs::component::Component;
 
+use super::terrain::Terrain;
+
 #[derive(Component)]
 pub struct SelectionMenu;
 
@@ -28,15 +30,13 @@ pub struct SelectAnimalButton {
 //     pub fence: Fence,
 // }
 
-// TODO implement
-// #[derive(Component)]
-// pub struct SelectTerrainMenuButton;
+#[derive(Component)]
+pub struct SelectTerrainMenuButton;
 
-// TODO implement
-// #[derive(Component)]
-// pub struct SelectTerrainButton {
-//     pub terrain: Terrain,
-// }
+#[derive(Component)]
+pub struct SelectTerrainButton {
+    pub terrain: Terrain,
+}
 
 #[derive(Component)]
 pub struct SelectTreeMenuButton;
