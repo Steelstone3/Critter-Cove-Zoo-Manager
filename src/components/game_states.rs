@@ -5,6 +5,6 @@ use bevy::ecs::schedule::States;
 pub enum GameState {
     MainMenu,
     #[default] // TODO move this to main menu
-    InGame,
-    PauseMenu,
+    Playing,
+    Paused,
 }
