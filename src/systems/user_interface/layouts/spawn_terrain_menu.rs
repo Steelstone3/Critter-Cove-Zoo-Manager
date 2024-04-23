@@ -47,6 +47,8 @@ pub fn spawn_terrain_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
+                            GridTrack::flex(1.0),
+                            GridTrack::flex(1.0),
                         ],
                         grid_template_rows: vec![
                             GridTrack::flex(1.0),
@@ -58,7 +60,7 @@ pub fn spawn_terrain_menu(
                             GridTrack::flex(1.0),
                             GridTrack::flex(1.0),
                         ],
-                        width: Val::Px(TILE_SIZE * 1.5 * 4.0),
+                        width: Val::Px(TILE_SIZE * 1.5 * 6.0),
                         height: Val::Px(TILE_SIZE * 1.5 * 8.0),
                         position_type: PositionType::Absolute,
                         left: Val::Px(64.0),
