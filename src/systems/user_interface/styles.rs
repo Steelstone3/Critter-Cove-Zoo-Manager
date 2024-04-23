@@ -12,12 +12,18 @@ use crate::{
     assets::images::{
         animal::ZooAnimal,
         user_interface::{
-            animal_sub_menu::AnimalSubMenu, fence_sub_menu::FenceSubMenu, path_sub_menu::PathSubMenu, rock_sub_menu::RockSubMenu, terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu
+            animal_sub_menu::AnimalSubMenu, fence_sub_menu::FenceSubMenu,
+            path_sub_menu::PathSubMenu, rock_sub_menu::RockSubMenu,
+            terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu,
         },
-        world::{fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
+        world::{
+            fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain,
+            trees::WorldTree,
+        },
     },
     components::user_interface::{
-        SelectAnimalButton, SelectFenceButton, SelectPathButton, SelectRockButton, SelectTerrainButton, SelectTreeButton
+        SelectAnimalButton, SelectFenceButton, SelectPathButton, SelectRockButton,
+        SelectTerrainButton, SelectTreeButton,
     },
 };
 

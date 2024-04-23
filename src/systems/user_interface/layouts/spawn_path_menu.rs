@@ -10,20 +10,14 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::{
-        user_interface::{fence_sub_menu::FenceSubMenu, path_sub_menu::PathSubMenu},
-        world::{fences::WorldFence, paths::WorldPath},
-    },
+    assets::images::{user_interface::path_sub_menu::PathSubMenu, world::paths::WorldPath},
     components::{constants::TILE_SIZE, user_interface::SubMenu},
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::SubMenuEntityQuery,
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::{
         interactions::main_menu_selection::MainMenuSelection,
-        styles::{
-            create_fence_button_bundle, create_fence_button_icon, create_path_button_bundle,
-            create_path_button_icon,
-        },
+        styles::{create_path_button_bundle, create_path_button_icon},
     },
 };
 
