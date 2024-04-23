@@ -6,4 +6,6 @@ pub mod select_rock_button;
 pub mod select_rock_menu_button;
 pub mod select_tree_button;
 pub mod select_tree_menu_button;
+pub mod select_terrain_button;
+pub mod select_terrain_menu_button;
 pub mod toggle_pause;

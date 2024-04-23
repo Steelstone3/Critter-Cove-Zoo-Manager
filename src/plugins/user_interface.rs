@@ -1,5 +1,8 @@
 use crate::systems::user_interface::{
-    interactions::toggle_pause::toggle_pause,
+    interactions::{
+        select_terrain_button::select_terrain_button,
+        select_terrain_menu_button::select_terrain_menu_button, toggle_pause::toggle_pause,
+    },
     layouts::spawn_selection_main_menu::spawn_selection_main_menu,
 };
 use bevy::{
@@ -38,8 +41,8 @@ impl Plugin for UserInterfacePlugin {
                     select_animal_button,
                     // select_fence_menu_button
                     // select_fence_button
-                    // select_terrain_menu_button
-                    // select_terrain_button
+                    select_terrain_menu_button,
+                    select_terrain_button,
                     select_tree_menu_button,
                     select_tree_button,
                     select_rock_menu_button,
