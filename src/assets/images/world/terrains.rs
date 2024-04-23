@@ -77,11 +77,21 @@ impl Display for WorldTerrain {
             WorldTerrain::Savanah2 => write!(f, "images/world/terrains/savanah_2.png"),
             WorldTerrain::Savanah3 => write!(f, "images/world/terrains/savanah_3.png"),
             WorldTerrain::Savanah4 => write!(f, "images/world/terrains/savanah_4.png"),
-            WorldTerrain::VeryLightGrass1 => write!(f, "images/world/terrains/very_light_grass_1.png"),
-            WorldTerrain::VeryLightGrass2 => write!(f, "images/world/terrains/very_light_grass_2.png"),
-            WorldTerrain::VeryLightGrass3 => write!(f, "images/world/terrains/very_light_grass_3.png"),
-            WorldTerrain::VeryLightGrass4 => write!(f, "images/world/terrains/very_light_grass_4.png"),
-            WorldTerrain::VeryLightGrass5 => write!(f, "images/world/terrains/very_light_grass_5.png"),
+            WorldTerrain::VeryLightGrass1 => {
+                write!(f, "images/world/terrains/very_light_grass_1.png")
+            }
+            WorldTerrain::VeryLightGrass2 => {
+                write!(f, "images/world/terrains/very_light_grass_2.png")
+            }
+            WorldTerrain::VeryLightGrass3 => {
+                write!(f, "images/world/terrains/very_light_grass_3.png")
+            }
+            WorldTerrain::VeryLightGrass4 => {
+                write!(f, "images/world/terrains/very_light_grass_4.png")
+            }
+            WorldTerrain::VeryLightGrass5 => {
+                write!(f, "images/world/terrains/very_light_grass_5.png")
+            }
             WorldTerrain::Water1 => write!(f, "images/world/terrains/water_1.png"),
             WorldTerrain::Water2 => write!(f, "images/world/terrains/water_2.png"),
             WorldTerrain::Water3 => write!(f, "images/world/terrains/water_3.png"),

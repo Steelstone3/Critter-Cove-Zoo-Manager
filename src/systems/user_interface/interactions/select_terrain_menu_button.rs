@@ -14,7 +14,7 @@ use crate::{
         world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     },
     events::user_interface_event::UserInterfaceEvent,
-    queries::user_interface_queries::{ButtonFilters, SelectRockMenuButtonQuery, SelectTerrainMenuButtonQuery},
+    queries::user_interface_queries::{ButtonFilters, SelectTerrainMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };

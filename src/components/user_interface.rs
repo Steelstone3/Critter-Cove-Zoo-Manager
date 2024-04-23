@@ -4,8 +4,6 @@ use crate::assets::images::{
 };
 use bevy::ecs::component::Component;
 
-use super::terrain::Terrain;
-
 #[derive(Component)]
 pub struct SelectionMenu;
 
