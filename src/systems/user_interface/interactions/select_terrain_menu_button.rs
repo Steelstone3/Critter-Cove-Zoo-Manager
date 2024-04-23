@@ -33,7 +33,7 @@ pub fn select_terrain_menu_button(
         Interaction::Pressed => {
             tracing::info!("Pressed Terrain");
 
-            selected_item.menu_selection = MainMenuSelection::Rocks;
+            selected_item.menu_selection = MainMenuSelection::Terrain;
             selected_item.animal_selection = ZooAnimal::None;
             selected_item.terrain_selection = WorldTerrain::None;
             selected_item.rock_selection = WorldRock::None;
