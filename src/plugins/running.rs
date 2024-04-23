@@ -10,8 +10,8 @@ use crate::{
         },
         play_music::play_music,
         spawning::{
-            spawn_animal::spawn_animal, spawn_rock::spawn_rock, spawn_terrain::spawn_terrain,
-            spawn_tree::spawn_tree,
+            spawn_animal::spawn_animal, spawn_fence::spawn_fence, spawn_path::spawn_path,
+            spawn_rock::spawn_rock, spawn_terrain::spawn_terrain, spawn_tree::spawn_tree,
         },
     },
 };
@@ -29,9 +29,11 @@ impl Plugin for RunningPlugin {
             Update,
             (
                 spawn_animal,
+                spawn_fence,
                 spawn_terrain,
                 spawn_tree,
                 spawn_rock,
+                spawn_path,
                 play_music,
                 animate_sprites.run_if(in_state(GameState::Playing)),
                 animal_movement.run_if(in_state(GameState::Playing)),
