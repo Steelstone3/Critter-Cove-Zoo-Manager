@@ -12,15 +12,12 @@ use crate::{
     assets::images::{
         animal::ZooAnimal,
         user_interface::{
-            animal_sub_menu::AnimalSubMenu, fence_sub_menu::FenceSubMenu,
-            rock_sub_menu::RockSubMenu, terrain_sub_menu::TerrainSubMenu,
-            tree_sub_menu::TreeSubMenu,
+            animal_sub_menu::AnimalSubMenu, fence_sub_menu::FenceSubMenu, path_sub_menu::PathSubMenu, rock_sub_menu::RockSubMenu, terrain_sub_menu::TerrainSubMenu, tree_sub_menu::TreeSubMenu
         },
-        world::{fences::WorldFence, rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
+        world::{fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
     components::user_interface::{
-        SelectAnimalButton, SelectFenceButton, SelectRockButton, SelectTerrainButton,
-        SelectTreeButton,
+        SelectAnimalButton, SelectFenceButton, SelectPathButton, SelectRockButton, SelectTerrainButton, SelectTreeButton
     },
 };
 
@@ -154,6 +151,33 @@ pub fn create_rock_button_icon(
 ) -> ImageBundle {
     ImageBundle {
         image: UiImage::new(asset_server.load(rock_sub_menu.to_string())),
+        background_color: Color::WHITE.into(),
+        ..Default::default()
+    }
+}
+
+pub fn create_path_button_bundle(path: WorldPath) -> (ButtonBundle, SelectPathButton) {
+    (
+        ButtonBundle {
+            style: Style {
+                width: Val::Percent(100.0),
+                height: Val::Percent(100.0),
+                border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
+                ..Default::default()
+            },
+            border_color: Color::DARK_GRAY.into(),
+            ..Default::default()
+        },
+        SelectPathButton { path },
+    )
+}
+
+pub fn create_path_button_icon(
+    asset_server: &Res<AssetServer>,
+    path_sub_menu: PathSubMenu,
+) -> ImageBundle {
+    ImageBundle {
+        image: UiImage::new(asset_server.load(path_sub_menu.to_string())),
         background_color: Color::WHITE.into(),
         ..Default::default()
     }

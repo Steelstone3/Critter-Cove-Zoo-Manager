@@ -4,7 +4,8 @@ use crate::systems::user_interface::{
         select_terrain_menu_button::select_terrain_menu_button, toggle_pause::toggle_pause,
     },
     layouts::{
-        spawn_fence_menu::spawn_fence_menu, spawn_selection_main_menu::spawn_selection_main_menu,
+        spawn_fence_menu::spawn_fence_menu, spawn_path_menu::spawn_path_menu,
+        spawn_selection_main_menu::spawn_selection_main_menu,
         spawn_terrain_menu::spawn_terrain_menu,
     },
 };
@@ -40,6 +41,7 @@ impl Plugin for UserInterfacePlugin {
                     spawn_terrain_menu,
                     spawn_tree_menu,
                     spawn_rock_menu,
+                    spawn_path_menu,
                     deselect_all,
                     despawn_sub_menus,
                     select_animal_menu_button,
