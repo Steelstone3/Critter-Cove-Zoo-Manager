@@ -1,14 +1,6 @@
 use crate::systems::user_interface::{
     interactions::{
-        deselect_all::deselect_all, select_animal_button::select_animal_button,
-        select_animal_menu_button::select_animal_menu_button,
-        select_fence_button::select_fence_button,
-        select_fence_menu_button::select_fence_menu_button, select_rock_button::select_rock_button,
-        select_rock_menu_button::select_rock_menu_button,
-        select_terrain_button::select_terrain_button,
-        select_terrain_menu_button::select_terrain_menu_button,
-        select_tree_button::select_tree_button, select_tree_menu_button::select_tree_menu_button,
-        toggle_pause::toggle_pause,
+        deselect_all::deselect_all, select_animal_button::select_animal_button, select_animal_menu_button::select_animal_menu_button, select_fence_button::select_fence_button, select_fence_menu_button::select_fence_menu_button, select_path_button::select_path_button, select_path_menu_button::select_path_menu_button, select_rock_button::select_rock_button, select_rock_menu_button::select_rock_menu_button, select_terrain_button::select_terrain_button, select_terrain_menu_button::select_terrain_menu_button, select_tree_button::select_tree_button, select_tree_menu_button::select_tree_menu_button, toggle_pause::toggle_pause
     },
     layouts::{
         despawn_sub_menus::despawn_sub_menus, spawn_animal_menu::spawn_animal_menu,
@@ -40,8 +32,8 @@ impl Plugin for UserInterfacePlugin {
                     despawn_sub_menus,
                     select_animal_menu_button,
                     select_animal_button,
-                    select_fence_menu_button,
-                    select_fence_button,
+                    // select_fence_menu_button,
+                    // select_fence_button,
                     select_terrain_menu_button,
                     select_terrain_button,
                     select_tree_menu_button,
@@ -50,8 +42,8 @@ impl Plugin for UserInterfacePlugin {
                     select_rock_button,
                     // select_shelter_menu_button
                     // select_shelter_button
-                    // select_path_menu_button,
-                    // select_path_button,
+                    select_path_menu_button,
+                    select_path_button,
                     toggle_pause,
                 ),
             );

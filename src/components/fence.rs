@@ -16,7 +16,7 @@ impl Fence {
         Self {
             sprite_path,
             size: TERRAIN_SIZE,
-            z_index: 1.0,
+            z_index: 3.0,
         }
     }
 }

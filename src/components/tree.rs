@@ -18,7 +18,7 @@ impl Tree {
                 x: TILE_SIZE * 4.0,
                 y: TILE_SIZE * 4.0,
             },
-            z_index: 4.0,
+            z_index: 6.0,
         }
     }
     pub fn new_32(sprite_path: WorldTree) -> Self {
@@ -28,7 +28,7 @@ impl Tree {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
             },
-            z_index: 4.0,
+            z_index: 6.0,
         }
     }
 }
