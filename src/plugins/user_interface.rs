@@ -2,8 +2,10 @@ use crate::systems::user_interface::{
     interactions::{
         deselect_all::deselect_all, select_animal_button::select_animal_button,
         select_animal_menu_button::select_animal_menu_button,
-        select_path_button::select_path_button, select_path_menu_button::select_path_menu_button,
-        select_rock_button::select_rock_button, select_rock_menu_button::select_rock_menu_button,
+        select_fence_button::select_fence_button,
+        select_fence_menu_button::select_fence_menu_button, select_path_button::select_path_button,
+        select_path_menu_button::select_path_menu_button, select_rock_button::select_rock_button,
+        select_rock_menu_button::select_rock_menu_button,
         select_terrain_button::select_terrain_button,
         select_terrain_menu_button::select_terrain_menu_button,
         select_tree_button::select_tree_button, select_tree_menu_button::select_tree_menu_button,
@@ -35,12 +37,15 @@ impl Plugin for UserInterfacePlugin {
                     spawn_tree_menu,
                     spawn_rock_menu,
                     spawn_path_menu,
-                    deselect_all,
-                    despawn_sub_menus,
+                ),
+            )
+            .add_systems(
+                Update,
+                (
                     select_animal_menu_button,
                     select_animal_button,
-                    // select_fence_menu_button,
-                    // select_fence_button,
+                    select_fence_menu_button,
+                    select_fence_button,
                     select_terrain_menu_button,
                     select_terrain_button,
                     select_tree_menu_button,
@@ -51,8 +56,8 @@ impl Plugin for UserInterfacePlugin {
                     // select_shelter_button
                     select_path_menu_button,
                     select_path_button,
-                    toggle_pause,
                 ),
-            );
+            )
+            .add_systems(Update, (deselect_all, despawn_sub_menus, toggle_pause));
     }
 }

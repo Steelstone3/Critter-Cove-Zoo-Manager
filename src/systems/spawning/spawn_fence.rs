@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::world::rocks::WorldRock,
+    assets::images::world::fences::WorldFence,
     components::fence::Fence,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
@@ -26,7 +26,7 @@ pub fn spawn_fence(
     windows_queries: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.rock_selection == WorldRock::None {
+    if selected_item.fence_selection == WorldFence::None {
         return;
     }
 
