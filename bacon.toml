@@ -102,6 +102,17 @@ command = [
 need_stdout = true
 allow_warnings = true
 
+[jobs.update]
+command = [
+    "cargo",
+    "update",
+    "--color",
+    "always"
+]
+need_stdout = false
+on_success = "back" # so it is clear it has finished
+
 [keybindings]
 f = "job:format"
 j = "job:test-coverage"
+u = "job:update"
