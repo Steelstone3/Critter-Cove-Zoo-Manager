@@ -110,7 +110,7 @@ command = [
     "always"
 ]
 need_stdout = false
-on_success = "back" # so it is clear it has finished
+on_success = "job:test" # so it is clear it has finished
 
 [keybindings]
 f = "job:format"
