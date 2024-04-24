@@ -7,7 +7,8 @@ use bevy::{
 };
 
 use crate::components::user_interface::{
-    SelectAnimalButton, SelectAnimalMenuButton, SelectRockButton, SelectRockMenuButton,
+    SelectAnimalButton, SelectAnimalMenuButton, SelectFenceButton, SelectFenceMenuButton,
+    SelectPathButton, SelectPathMenuButton, SelectRockButton, SelectRockMenuButton,
     SelectTerrainButton, SelectTerrainMenuButton, SelectTreeButton, SelectTreeMenuButton, SubMenu,
 };
 
@@ -31,6 +32,22 @@ pub struct SelectAnimalButtonQuery {
     pub interaction: &'static Interaction,
     pub border_color: &'static mut BorderColor,
     pub selected_animal_button: &'static SelectAnimalButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectFenceMenuButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_fence_menu_button: &'static SelectFenceMenuButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectFenceButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_fence_button: &'static SelectFenceButton,
 }
 
 #[derive(QueryData)]
@@ -79,6 +96,22 @@ pub struct SelectRockButtonQuery {
     pub interaction: &'static Interaction,
     pub border_color: &'static mut BorderColor,
     pub selected_rock_button: &'static SelectRockButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectPathMenuButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_path_menu_button: &'static SelectPathMenuButton,
+}
+
+#[derive(QueryData)]
+#[query_data(mutable)]
+pub struct SelectPathButtonQuery {
+    pub interaction: &'static Interaction,
+    pub border_color: &'static mut BorderColor,
+    pub selected_path_button: &'static SelectPathButton,
 }
 
 #[derive(QueryFilter)]

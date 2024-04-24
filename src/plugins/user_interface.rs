@@ -1,30 +1,26 @@
 use crate::systems::user_interface::{
     interactions::{
+        deselect_all::deselect_all, select_animal_button::select_animal_button,
+        select_animal_menu_button::select_animal_menu_button,
+        select_fence_button::select_fence_button,
+        select_fence_menu_button::select_fence_menu_button, select_path_button::select_path_button,
+        select_path_menu_button::select_path_menu_button, select_rock_button::select_rock_button,
+        select_rock_menu_button::select_rock_menu_button,
         select_terrain_button::select_terrain_button,
-        select_terrain_menu_button::select_terrain_menu_button, toggle_pause::toggle_pause,
+        select_terrain_menu_button::select_terrain_menu_button,
+        select_tree_button::select_tree_button, select_tree_menu_button::select_tree_menu_button,
+        toggle_pause::toggle_pause,
     },
     layouts::{
-        spawn_selection_main_menu::spawn_selection_main_menu,
-        spawn_terrain_menu::spawn_terrain_menu,
+        despawn_sub_menus::despawn_sub_menus, spawn_animal_menu::spawn_animal_menu,
+        spawn_fence_menu::spawn_fence_menu, spawn_path_menu::spawn_path_menu,
+        spawn_rock_menu::spawn_rock_menu, spawn_selection_main_menu::spawn_selection_main_menu,
+        spawn_terrain_menu::spawn_terrain_menu, spawn_tree_menu::spawn_tree_menu,
     },
 };
 use bevy::{
     app::Update,
     prelude::{App, Plugin, Startup},
-};
-
-use crate::systems::user_interface::interactions::select_tree_button::select_tree_button;
-use crate::systems::user_interface::interactions::select_tree_menu_button::select_tree_menu_button;
-use crate::systems::user_interface::{
-    interactions::{
-        deselect_all::deselect_all, select_animal_button::select_animal_button,
-        select_animal_menu_button::select_animal_menu_button,
-        select_rock_button::select_rock_button, select_rock_menu_button::select_rock_menu_button,
-    },
-    layouts::{
-        despawn_sub_menus::despawn_sub_menus, spawn_animal_menu::spawn_animal_menu,
-        spawn_rock_menu::spawn_rock_menu, spawn_tree_menu::spawn_tree_menu,
-    },
 };
 
 pub struct UserInterfacePlugin;
@@ -36,15 +32,20 @@ impl Plugin for UserInterfacePlugin {
                 Update,
                 (
                     spawn_animal_menu,
+                    spawn_fence_menu,
                     spawn_terrain_menu,
                     spawn_tree_menu,
                     spawn_rock_menu,
-                    deselect_all,
-                    despawn_sub_menus,
+                    spawn_path_menu,
+                ),
+            )
+            .add_systems(
+                Update,
+                (
                     select_animal_menu_button,
                     select_animal_button,
-                    // select_fence_menu_button
-                    // select_fence_button
+                    select_fence_menu_button,
+                    select_fence_button,
                     select_terrain_menu_button,
                     select_terrain_button,
                     select_tree_menu_button,
@@ -53,10 +54,10 @@ impl Plugin for UserInterfacePlugin {
                     select_rock_button,
                     // select_shelter_menu_button
                     // select_shelter_button
-                    // select_path_menu_button
-                    // select_path_button
-                    toggle_pause,
+                    select_path_menu_button,
+                    select_path_button,
                 ),
-            );
+            )
+            .add_systems(Update, (deselect_all, despawn_sub_menus, toggle_pause));
     }
 }

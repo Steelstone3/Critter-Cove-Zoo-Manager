@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::world::tree::WorldTree,
+    assets::images::world::trees::WorldTree,
     components::tree::Tree,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{

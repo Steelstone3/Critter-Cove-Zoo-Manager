@@ -15,8 +15,8 @@ use crate::{
         constants::TILE_SIZE,
         menu::SelectionMenu,
         user_interface::{
-            SelectAnimalMenuButton, SelectRockMenuButton, SelectTerrainMenuButton,
-            SelectTreeMenuButton,
+            SelectAnimalMenuButton, SelectFenceMenuButton, SelectPathMenuButton,
+            SelectRockMenuButton, SelectTerrainMenuButton, SelectTreeMenuButton,
         },
     },
 };
@@ -79,6 +79,35 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
                     });
                 });
             // Fences
+            parent
+                .spawn((
+                    ButtonBundle {
+                        style: Style {
+                            width: Val::Percent(100.0),
+                            height: Val::Percent(100.0),
+                            border: UiRect::new(
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                            ),
+
+                            ..Default::default()
+                        },
+                        border_color: Color::DARK_GRAY.into(),
+                        ..Default::default()
+                    },
+                    SelectFenceMenuButton {},
+                ))
+                .with_children(|parent| {
+                    parent.spawn(ImageBundle {
+                        image: UiImage::new(
+                            asset_server.load(MainMenuUserInterface::Fences.to_string()),
+                        ),
+                        background_color: Color::WHITE.into(),
+                        ..Default::default()
+                    });
+                });
             // Terrain
             parent
                 .spawn((
@@ -171,5 +200,34 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
                 });
             // Shelter
             // Paths
+            parent
+                .spawn((
+                    ButtonBundle {
+                        style: Style {
+                            width: Val::Percent(100.0),
+                            height: Val::Percent(100.0),
+                            border: UiRect::new(
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                                Val::Px(2.0),
+                            ),
+
+                            ..Default::default()
+                        },
+                        border_color: Color::DARK_GRAY.into(),
+                        ..Default::default()
+                    },
+                    SelectPathMenuButton {},
+                ))
+                .with_children(|parent| {
+                    parent.spawn(ImageBundle {
+                        image: UiImage::new(
+                            asset_server.load(MainMenuUserInterface::Paths.to_string()),
+                        ),
+                        background_color: Color::WHITE.into(),
+                        ..Default::default()
+                    });
+                });
         });
 }
