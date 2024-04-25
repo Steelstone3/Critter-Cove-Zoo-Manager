@@ -1,11 +1,12 @@
 use crate::{
-    assets::images::world::tree::WorldTree,
+    assets::images::world::trees::WorldTree,
     components::tree::Tree,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
         camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
     },
     resources::selected_item::SelectedMenuItem,
+    systems::controllers::get_location::get_cursor_location,
 };
 use bevy::{
     ecs::{
@@ -41,19 +42,22 @@ pub fn spawn_tree(
         return;
     }
 
-    let tree = Tree::new(selected_item.tree_selection);
+    let mut tree = Tree::new_128(selected_item.tree_selection);
+
+    if selected_item.tree_selection == WorldTree::Bush1
+        || selected_item.tree_selection == WorldTree::Bush2
+        || selected_item.tree_selection == WorldTree::TallGrass1
+        || selected_item.tree_selection == WorldTree::TallGrass2
+        || selected_item.tree_selection == WorldTree::TallGrass3
+    {
+        tree = Tree::new_32(selected_item.tree_selection);
+    }
 
     let mut transform = Transform::default();
     transform.translation.z = tree.z_index;
 
-    // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {
-        transform.translation.x = ((position.x - window_query.window.resolution.width() / 2.0)
-            * camera_query.projection.scale)
-            + camera_query.transform.translation.x;
-        transform.translation.y = -((position.y - window_query.window.resolution.height() / 2.0)
-            * camera_query.projection.scale)
-            + camera_query.transform.translation.y;
+        get_cursor_location(&mut transform, position, window_query, camera_query);
     } else {
         return;
     }

@@ -37,7 +37,7 @@ impl Animal {
                 random_value_f32(generate_seed(), -MAP_SIZE..MAP_SIZE),
                 1.0,
             ),
-            z_index: 2.0,
+            z_index: 5.0,
         }
     }
     pub fn new_32(sprite_path: ZooAnimal) -> Self {
@@ -56,7 +56,7 @@ impl Animal {
                 random_value_f32(generate_seed(), -MAP_SIZE..MAP_SIZE),
                 1.0,
             ),
-            z_index: 2.0,
+            z_index: 5.0,
         }
     }
 }

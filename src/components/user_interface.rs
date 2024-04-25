@@ -1,6 +1,9 @@
 use crate::assets::images::{
     animal::ZooAnimal,
-    world::{rocks::WorldRock, tree::WorldTree},
+    world::{
+        fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain,
+        trees::WorldTree,
+    },
 };
 use bevy::ecs::component::Component;
 
@@ -19,11 +22,19 @@ pub struct SelectAnimalButton {
 }
 
 #[derive(Component)]
-pub struct SelectRockMenuButton;
+pub struct SelectFenceMenuButton;
 
 #[derive(Component)]
-pub struct SelectRockButton {
-    pub rock: WorldRock,
+pub struct SelectFenceButton {
+    pub fence: WorldFence,
+}
+
+#[derive(Component)]
+pub struct SelectTerrainMenuButton;
+
+#[derive(Component)]
+pub struct SelectTerrainButton {
+    pub terrain: WorldTerrain,
 }
 
 #[derive(Component)]
@@ -34,6 +45,28 @@ pub struct SelectTreeButton {
     pub tree: WorldTree,
 }
 
+#[derive(Component)]
+pub struct SelectRockMenuButton;
+
+#[derive(Component)]
+pub struct SelectRockButton {
+    pub rock: WorldRock,
+}
+
 // TODO implement
 // #[derive(Component)]
-// pub struct SelectTerrainMenuButton;
+// pub struct SelectShelterMenuButton;
+
+// TODO implement
+// #[derive(Component)]
+// pub struct SelectShelterButton {
+//     pub shelter: Shelter,
+// }
+
+#[derive(Component)]
+pub struct SelectPathMenuButton;
+
+#[derive(Component)]
+pub struct SelectPathButton {
+    pub path: WorldPath,
+}
