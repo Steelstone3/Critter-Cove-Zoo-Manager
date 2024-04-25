@@ -29,14 +29,10 @@ pub fn get_tile_location(
     window_query: WindowQueryItem<'_>,
     camera_query: CameraTransformOrthographicProjectionQueryItem<'_>,
 ) {
-    transform.translation.x = ((cursor_position.x - window_query.window.resolution.width() / 2.0)
-        * camera_query.projection.scale)
-        + camera_query.transform.translation.x;
-    transform.translation.y = -((cursor_position.y - window_query.window.resolution.height() / 2.0)
-        * camera_query.projection.scale)
-        + camera_query.transform.translation.y;
+    get_cursor_location(transform, cursor_position, window_query, camera_query);
 
-    let tile_position = get_nearest_tile(Vec2::new(transform.translation.x, transform.translation.y));
+    let tile_position =
+        get_nearest_tile(Vec2::new(transform.translation.x, transform.translation.y));
 
     transform.translation.x = tile_position.x;
     transform.translation.y = tile_position.y;
