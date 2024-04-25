@@ -1,7 +1,8 @@
 use bevy::prelude::*;
 use plugins::{
     event_handlers::EventHandlersPlugin, events::EventsPlugin, resources::ResourcesPlugin,
-    running::RunningPlugin, start::StartPlugin, user_interface::UserInterfacePlugin,
+    running::RunningPlugin, start::StartPlugin, states::GameStatesPlugin,
+    user_interface::UserInterfacePlugin,
 };
 
 mod assets;
@@ -30,6 +31,7 @@ fn main() {
                     }),
                     ..Default::default()
                 }),
+            GameStatesPlugin,
             EventsPlugin,
             EventHandlersPlugin,
             ResourcesPlugin,

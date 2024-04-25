@@ -7,7 +7,7 @@ use super::main_menu_selection::MainMenuSelection;
 use crate::{
     assets::images::{
         animal::ZooAnimal,
-        world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
+        world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
     events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,

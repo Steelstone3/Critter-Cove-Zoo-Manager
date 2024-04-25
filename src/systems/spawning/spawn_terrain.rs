@@ -1,11 +1,12 @@
 use crate::{
-    assets::images::world::rocks::WorldRock,
-    components::rock::Rock,
+    assets::images::world::terrains::WorldTerrain,
+    components::terrain::Terrain,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
         camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
     },
     resources::selected_item::SelectedMenuItem,
+    systems::controllers::get_location::get_tile_location,
 };
 use bevy::{
     ecs::{
@@ -17,19 +18,19 @@ use bevy::{
     utils::tracing,
 };
 
-pub fn spawn_rock(
+pub fn spawn_terrain(
     mut commands: Commands,
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
-    windows_queries: Query<WindowQuery>,
+    windows_query: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.rock_selection == WorldRock::None {
+    if selected_item.terrain_selection == WorldTerrain::None {
         return;
     }
 
-    let Ok(window_query) = windows_queries.get_single() else {
+    let Ok(window_query) = windows_query.get_single() else {
         return;
     };
 
@@ -41,29 +42,23 @@ pub fn spawn_rock(
         return;
     }
 
-    let rock = Rock::new(selected_item.rock_selection);
+    let terrain = Terrain::new_player(selected_item.terrain_selection);
 
     let mut transform = Transform::default();
-    transform.translation.z = rock.z_index;
+    transform.translation.z = terrain.z_index;
 
-    // TODO Extract this "spawn at mouse pointer" system (used in Animals, Trees and Rocks)
     if let Some(position) = window_query.window.cursor_position() {
-        transform.translation.x = ((position.x - window_query.window.resolution.width() / 2.0)
-            * camera_query.projection.scale)
-            + camera_query.transform.translation.x;
-        transform.translation.y = -((position.y - window_query.window.resolution.height() / 2.0)
-            * camera_query.projection.scale)
-            + camera_query.transform.translation.y;
+        get_tile_location(&mut transform, position, window_query, camera_query);
     } else {
         return;
     }
 
-    tracing::info!("rock at {:?}", transform.translation);
+    tracing::info!("terrain at {:?}", transform.translation);
 
     spawn_sprite_event.send(SpawnSpriteEvent {
-        sprite_path: rock.sprite_path.to_string(),
-        size: rock.size,
+        sprite_path: terrain.sprite_path.to_string(),
+        size: terrain.size,
         transform,
-        entity: commands.spawn(rock).id(),
+        entity: commands.spawn(terrain).id(),
     });
 }

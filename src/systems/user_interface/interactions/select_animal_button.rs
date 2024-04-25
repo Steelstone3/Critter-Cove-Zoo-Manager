@@ -9,7 +9,6 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::world::{rocks::WorldRock, terrains::WorldTerrain, tree::WorldTree},
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectAnimalButtonQuery},
     resources::selected_item::SelectedMenuItem,
@@ -27,19 +26,17 @@ pub fn select_animal_button(
 
     match *select_animal_button_query.interaction {
         Interaction::Pressed => {
-            tracing::info!("Pressed");
+            tracing::info!("Pressed Animal");
 
+            SelectedMenuItem::reset(&mut selected_item);
             selected_item.menu_selection = MainMenuSelection::Animals;
             selected_item.animal_selection =
                 select_animal_button_query.selected_animal_button.animal;
-            selected_item.terrain_selection = WorldTerrain::None;
-            selected_item.rock_selection = WorldRock::None;
-            selected_item.tree_selection = WorldTree::None;
 
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
-            tracing::info!("Hovered");
+            tracing::info!("Hovered Animal");
         }
         Interaction::None => {
             *select_animal_button_query.border_color = Color::DARK_GRAY.into();
