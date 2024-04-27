@@ -82,6 +82,13 @@ need_stdout = false
 
 # Git jobs
 
+[jobs.git-status]
+command = [
+    "git",
+    "status",
+]
+need_stdout = true
+
 [jobs.git-add]
 command = [
     "git",
@@ -124,5 +131,6 @@ j = "job:test-coverage"
 # c = "jobs:clippy"
 f = "job:format"
 u = "job:update"
+s = "job:git-status"
 p = "job:git-add" # Runs: git add . && git commit -m update && git pull && git push
 # v = "jobs:check"
