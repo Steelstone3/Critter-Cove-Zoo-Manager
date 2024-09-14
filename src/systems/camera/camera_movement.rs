@@ -16,12 +16,16 @@ pub fn camera_movement(
     };
 
     // Camera Movement Speeds
-    let camera_speed = 100.0 * time.delta_seconds();
+    let camera_speed = 500.0 * time.delta_seconds();
     let diagonal_camera_speed = calculate_diagonal_camera_speed(camera_speed);
-    let fast_camera_speed = 500.0 * time.delta_seconds();
+    let slow_camera_speed = 100.0 * time.delta_seconds();
+    let slow_diagonal_camera_speed = calculate_diagonal_camera_speed(slow_camera_speed);
+    let fast_camera_speed = 1000.0 * time.delta_seconds();
     let fast_diagonal_camera_speed = calculate_diagonal_camera_speed(fast_camera_speed);
 
     // Inputs
+    let is_control_pressed =
+        input.pressed(KeyCode::ControlRight) || input.pressed(KeyCode::ControlLeft);
     let is_shift_pressed = input.pressed(KeyCode::ShiftRight) || input.pressed(KeyCode::ShiftLeft);
     let is_camera_up_pressed = input.pressed(KeyCode::KeyW) || input.pressed(KeyCode::ArrowUp);
     let is_camera_right_pressed =
@@ -34,6 +38,9 @@ pub fn camera_movement(
         if is_shift_pressed {
             camera.transform.translation.x += fast_diagonal_camera_speed;
             camera.transform.translation.y += fast_diagonal_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x += slow_camera_speed;
+            camera.transform.translation.y += slow_diagonal_camera_speed;
         } else {
             camera.transform.translation.x += diagonal_camera_speed;
             camera.transform.translation.y += diagonal_camera_speed;
@@ -44,6 +51,9 @@ pub fn camera_movement(
         if is_shift_pressed {
             camera.transform.translation.x += fast_diagonal_camera_speed;
             camera.transform.translation.y -= fast_diagonal_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x += slow_camera_speed;
+            camera.transform.translation.y -= slow_diagonal_camera_speed;
         } else {
             camera.transform.translation.x += diagonal_camera_speed;
             camera.transform.translation.y -= diagonal_camera_speed;
@@ -54,6 +64,9 @@ pub fn camera_movement(
         if is_shift_pressed {
             camera.transform.translation.x -= fast_diagonal_camera_speed;
             camera.transform.translation.y -= fast_diagonal_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x -= slow_camera_speed;
+            camera.transform.translation.y -= slow_diagonal_camera_speed;
         } else {
             camera.transform.translation.x -= diagonal_camera_speed;
             camera.transform.translation.y -= diagonal_camera_speed;
@@ -64,6 +77,9 @@ pub fn camera_movement(
         if is_shift_pressed {
             camera.transform.translation.x -= fast_diagonal_camera_speed;
             camera.transform.translation.y += fast_diagonal_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x -= slow_camera_speed;
+            camera.transform.translation.y += slow_diagonal_camera_speed;
         } else {
             camera.transform.translation.x -= diagonal_camera_speed;
             camera.transform.translation.y += diagonal_camera_speed;
@@ -73,6 +89,8 @@ pub fn camera_movement(
     else if is_camera_up_pressed {
         if is_shift_pressed {
             camera.transform.translation.y += fast_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.y += slow_camera_speed;
         } else {
             camera.transform.translation.y += camera_speed;
         }
@@ -81,6 +99,8 @@ pub fn camera_movement(
     else if is_camera_right_pressed {
         if is_shift_pressed {
             camera.transform.translation.x += fast_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x += slow_camera_speed;
         } else {
             camera.transform.translation.x += camera_speed;
         }
@@ -89,6 +109,8 @@ pub fn camera_movement(
     else if is_camera_down_pressed {
         if is_shift_pressed {
             camera.transform.translation.y -= fast_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.y -= slow_camera_speed;
         } else {
             camera.transform.translation.y -= camera_speed;
         }
@@ -97,6 +119,8 @@ pub fn camera_movement(
     else if is_camera_left_pressed {
         if is_shift_pressed {
             camera.transform.translation.x -= fast_camera_speed;
+        } else if is_control_pressed {
+            camera.transform.translation.x -= slow_camera_speed;
         } else {
             camera.transform.translation.x -= camera_speed;
         }
