@@ -1,42 +1,22 @@
 # This is a configuration file for the bacon tool
 #
-# Bacon repository: https://github.com/Canop/bacon
-# Complete help on configuration: https://dystroy.org/bacon/config/
-# You can also check bacon's own bacon.toml file
-#  as an example: https://github.com/Canop/bacon/blob/main/bacon.toml
+# repository: https://github.com/Canop/bacon
+# help: https://dystroy.org/bacon/config/
+# example: https://github.com/Canop/bacon/blob/main/bacon.toml
 
 default_job = "check"
 
-[jobs.check]
+[jobs.run]
 command = [
     "cargo",
-    "check",
+    "run",
     "--color",
-    "always"
-]
-need_stdout = false
-
-[jobs.check-all]
-command = [
-    "cargo",
-    "check",
-    "--all-targets",
-    "--color",
-    "always"
-]
-need_stdout = false
-
-[jobs.clippy]
-command = [
-    "cargo", 
-    "clippy",
-    "--all-targets",
-    "--fix",
-    "--allow-dirty",
-    "--color", 
     "always",
+    # put launch parameters for your program behind a `--` separator
 ]
-need_stdout = false
+need_stdout = true
+allow_warnings = true
+background = true
 
 [jobs.test]
 command = [
@@ -60,39 +40,17 @@ command = [
 ]
 need_stdout = true
 
-[jobs.doc]
+[jobs.clippy]
 command = [
-    "cargo",
-    "doc",
-    "--color",
+    "cargo", 
+    "clippy",
+    "--all-targets",
+    "--fix",
+    "--allow-dirty",
+    "--color", 
     "always",
-    "--no-deps"
 ]
 need_stdout = false
-
-[jobs.doc-open]
-command = [
-    "cargo",
-    "doc",
-    "--color",
-    "always",
-    "--no-deps",
-    "--open"
-]
-need_stdout = false
-on_success = "back" # so that we don't open the browser at each change
-
-[jobs.run]
-command = [
-    "cargo",
-    "run",
-    "--color",
-    "always",
-    # put launch parameters for your program behind a `--` separator
-]
-need_stdout = true
-allow_warnings = true
-background = true
 
 [jobs.format]
 command = [
@@ -101,6 +59,7 @@ command = [
 ]
 need_stdout = true
 allow_warnings = true
+on_success = "job:test" # so it is clear it has finished
 
 [jobs.update]
 command = [
@@ -112,7 +71,66 @@ command = [
 need_stdout = false
 on_success = "job:test" # so it is clear it has finished
 
+[jobs.check]
+command = [
+    "cargo",
+    "check",
+    "--color",
+    "always"
+]
+need_stdout = false
+
+# Git jobs
+
+[jobs.git-status]
+command = [
+    "git",
+    "status",
+]
+need_stdout = true
+
+[jobs.git-add]
+command = [
+    "git",
+    "add",
+    "--all"
+]
+need_stdout = true
+on_success = "job:git-commit"
+
+[jobs.git-commit]
+command = [
+    "git",
+    "commit",
+    "-m",
+    "update",
+]
+need_stdout = true
+on_success = "job:git-pull-rebase"
+
+[jobs.git-pull-rebase]
+command = [
+    "git",
+    "pull",
+    "--rebase",
+]
+need_stdout = true
+on_success = "job:git-push"
+
+[jobs.git-push]
+command = [
+    "git",
+    "push",
+]
+need_stdout = true
+
 [keybindings]
-f = "job:format"
+r = "job:run"
+t = "job:test"
 j = "job:test-coverage"
+# c = "jobs:clippy"
+f = "job:format"
 u = "job:update"
+s = "job:git-status"
+p = "job:git-add" # Runs: git add . && git commit -m update && git pull && git push
+# v = "jobs:check"
