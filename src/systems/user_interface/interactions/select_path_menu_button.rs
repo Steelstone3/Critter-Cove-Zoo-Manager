@@ -2,10 +2,12 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectPathMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::{interactions::main_menu_selection::MainMenuSelection, styles::{GREY, YELLOW}},
+    systems::user_interface::{
+        interactions::main_menu_selection::MainMenuSelection,
+        styles::{GREY, YELLOW},
+    },
 };
 use bevy::{
-    color::Color,
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},

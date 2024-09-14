@@ -1,5 +1,4 @@
 use bevy::{
-    color::Color,
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},
