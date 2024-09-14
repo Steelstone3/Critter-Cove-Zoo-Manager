@@ -1,9 +1,9 @@
 use bevy::{
+    color::Color,
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},
     },
-    render::color::Color,
     ui::Interaction,
     utils::tracing,
 };
@@ -38,7 +38,7 @@ pub fn select_rock_button(
             tracing::info!("Hovered Rock");
         }
         Interaction::None => {
-            *select_rock_button_query.border_color = Color::DARK_GRAY.into();
+            *select_rock_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
         }
     }
 }

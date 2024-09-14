@@ -1,9 +1,9 @@
 use bevy::{
+    color::Color,
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},
     },
-    render::color::Color,
     ui::Interaction,
     utils::tracing,
 };
@@ -39,7 +39,7 @@ pub fn select_terrain_button(
             tracing::info!("Hovered Terrain");
         }
         Interaction::None => {
-            *select_terrain_button_query.border_color = Color::DARK_GRAY.into();
+            *select_terrain_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
         }
     }
 }

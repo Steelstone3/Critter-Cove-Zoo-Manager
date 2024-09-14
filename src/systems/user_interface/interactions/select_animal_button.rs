@@ -1,9 +1,9 @@
 use bevy::{
+    color::Color,
     ecs::{
         event::EventWriter,
         system::{Query, ResMut},
     },
-    render::color::Color,
     ui::Interaction,
     utils::tracing,
 };
@@ -39,7 +39,8 @@ pub fn select_animal_button(
             tracing::info!("Hovered Animal");
         }
         Interaction::None => {
-            *select_animal_button_query.border_color = Color::DARK_GRAY.into();
+            // Dark Grey
+            *select_animal_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
         }
     }
 }
