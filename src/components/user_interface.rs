@@ -7,8 +7,8 @@ use crate::assets::images::{
 };
 use bevy::ecs::component::Component;
 
-#[derive(Component)]
-pub struct SelectionMenu;
+// #[derive(Component)]
+// pub struct SelectionMenu;
 
 #[derive(Component)]
 pub struct SubMenu;
