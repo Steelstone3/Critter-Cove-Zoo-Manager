@@ -1,11 +1,11 @@
 use bevy::{
     asset::AssetServer,
+    color::Color,
     ecs::{
         event::EventReader,
         system::{Commands, Query, Res},
     },
     hierarchy::{BuildChildren, DespawnRecursiveExt},
-    render::color::Color,
     ui::{node_bundles::NodeBundle, Display, GridTrack, PositionType, Style, Val},
 };
 
@@ -63,7 +63,7 @@ pub fn spawn_rock_menu(
                         top: Val::Percent(0.0),
                         ..Default::default()
                     },
-                    background_color: Color::rgba(0.0, 0.0, 0.0, 0.0).into(),
+                    background_color: Color::srgba(0.0, 0.0, 0.0, 0.0).into(),
                     ..Default::default()
                 })
                 .insert(SubMenu)

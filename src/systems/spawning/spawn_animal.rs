@@ -69,7 +69,7 @@ pub fn spawn_animal(
         frame_timing: animal.frame_timing,
         frame_count: animal.frame_count,
         tile_size: animal.tile_size,
-        tile_columns: animal.frame_count,
+        tile_columns: animal.frame_count as u32,
         spawn_sprite_event: SpawnSpriteEvent {
             sprite_path: animal.sprite_path.to_string(),
             size: animal.size,
