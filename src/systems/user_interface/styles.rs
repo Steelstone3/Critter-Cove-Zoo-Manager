@@ -27,6 +27,10 @@ use crate::{
     },
 };
 
+pub const GREY: Color = Color::srgb(189.0, 189.0, 189.0);
+
+pub const YELLOW: Color = Color::srgb(255.0, 238.0, 88.0);
+
 pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
     (
         ButtonBundle {

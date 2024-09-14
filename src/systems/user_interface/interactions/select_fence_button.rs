@@ -12,7 +12,7 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectFenceButtonQuery},
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::{interactions::main_menu_selection::MainMenuSelection, styles::GREY},
 };
 
 pub fn select_fence_button(
@@ -38,7 +38,7 @@ pub fn select_fence_button(
             tracing::info!("Hovered Fence");
         }
         Interaction::None => {
-            *select_fence_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
+            *select_fence_button_query.border_color = GREY.into();
         }
     }
 }

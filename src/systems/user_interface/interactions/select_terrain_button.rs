@@ -12,7 +12,7 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectTerrainButtonQuery},
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::{interactions::main_menu_selection::MainMenuSelection, styles::GREY},
 };
 
 pub fn select_terrain_button(
@@ -39,7 +39,7 @@ pub fn select_terrain_button(
             tracing::info!("Hovered Terrain");
         }
         Interaction::None => {
-            *select_terrain_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
+            *select_terrain_button_query.border_color = GREY.into();
         }
     }
 }

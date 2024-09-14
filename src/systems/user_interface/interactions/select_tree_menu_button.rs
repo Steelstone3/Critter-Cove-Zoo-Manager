@@ -12,7 +12,7 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectTreeMenuButtonQuery},
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::{interactions::main_menu_selection::MainMenuSelection, styles::{GREY, YELLOW}},
 };
 
 pub fn select_tree_menu_button(
@@ -32,17 +32,17 @@ pub fn select_tree_menu_button(
             SelectedMenuItem::reset(&mut selected_item);
             selected_item.menu_selection = MainMenuSelection::Trees;
 
-            *select_tree_menu_button_query.border_color = Color::srgb(255.0, 238.0, 88.0).into();
+            *select_tree_menu_button_query.border_color = YELLOW.into();
 
             user_interface_event.send(UserInterfaceEvent {});
         }
         Interaction::Hovered => {
             tracing::info!("Hovered Tree");
 
-            *select_tree_menu_button_query.border_color = Color::srgb(255.0, 238.0, 88.0).into();
+            *select_tree_menu_button_query.border_color = YELLOW.into();
         }
         Interaction::None => {
-            *select_tree_menu_button_query.border_color = Color::srgb(189.0, 189.0, 189.0).into();
+            *select_tree_menu_button_query.border_color = GREY.into();
         }
     }
 }
