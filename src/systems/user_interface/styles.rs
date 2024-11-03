@@ -1,7 +1,7 @@
 use bevy::{
     asset::AssetServer,
+    color::Color,
     ecs::system::Res,
-    render::color::Color,
     ui::{
         node_bundles::{ButtonBundle, ImageBundle},
         Style, UiImage, UiRect, Val,
@@ -27,6 +27,10 @@ use crate::{
     },
 };
 
+pub const GREY: Color = Color::srgb(189.0, 189.0, 189.0);
+
+pub const YELLOW: Color = Color::srgb(255.0, 238.0, 88.0);
+
 pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAnimalButton) {
     (
         ButtonBundle {
@@ -36,7 +40,7 @@ pub fn create_animal_button_bundle(animal: ZooAnimal) -> (ButtonBundle, SelectAn
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectAnimalButton { animal },
@@ -63,7 +67,7 @@ pub fn create_fence_button_bundle(fence: WorldFence) -> (ButtonBundle, SelectFen
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectFenceButton { fence },
@@ -90,7 +94,7 @@ pub fn create_terrain_button_bundle(terrain: WorldTerrain) -> (ButtonBundle, Sel
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectTerrainButton { terrain },
@@ -117,7 +121,7 @@ pub fn create_tree_button_bundle(tree: WorldTree) -> (ButtonBundle, SelectTreeBu
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectTreeButton { tree },
@@ -144,7 +148,7 @@ pub fn create_rock_button_bundle(rock: WorldRock) -> (ButtonBundle, SelectRockBu
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectRockButton { rock },
@@ -171,7 +175,7 @@ pub fn create_path_button_bundle(path: WorldPath) -> (ButtonBundle, SelectPathBu
                 border: UiRect::new(Val::Px(2.0), Val::Px(2.0), Val::Px(2.0), Val::Px(2.0)),
                 ..Default::default()
             },
-            border_color: Color::DARK_GRAY.into(),
+            border_color: Color::srgb(189.0, 189.0, 189.0).into(),
             ..Default::default()
         },
         SelectPathButton { path },
