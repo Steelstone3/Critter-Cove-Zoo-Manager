@@ -2,17 +2,13 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 use crate::{
-    resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    assets::images::{animals::AnimalSprite, world::fence_sprites::FenceSprite}, resources::selected_item::{self, SelectedMenuItem}, systems::user_interface::interactions::main_menu_selection::MainMenuSelection
 };
 
 pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<SelectedMenuItem>) {
     match selected_menu_item.menu_selection {
-        // TODO animals, fences, terrain, trees, rocks, (shelters later on), paths
         MainMenuSelection::None => {
-            egui::Window::new("Spawn Menu").show(contexts.ctx_mut(), |ui| {
-                // ui.label("");
-
+            egui::Window::new("Zoo Manager").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Zoo Animal")).clicked() {
                     selected_menu_item.menu_selection = MainMenuSelection::Animals;
                 }
@@ -34,8 +30,25 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
-        MainMenuSelection::Animals => {}
-        MainMenuSelection::Fences => {}
+        // TODO animals, fences, terrain, trees, rocks, (shelters later on), paths
+        MainMenuSelection::Animals => {
+            egui::Window::new("Animals").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Boar")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Boar;
+                }
+                
+            });
+        }
+        MainMenuSelection::Fences => {
+            egui::Window::new("Fences").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Fence 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.fence_selection = FenceSprite::Fence1;
+                }
+                
+            });
+        }
         MainMenuSelection::Terrains => {}
         MainMenuSelection::Trees => {}
         MainMenuSelection::Rocks => {}

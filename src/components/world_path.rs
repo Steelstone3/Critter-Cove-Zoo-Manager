@@ -1,5 +1,5 @@
 use super::path::Path;
-use crate::assets::images::world::paths::WorldPath;
+use crate::assets::images::world::path_sprites::PathSprite;
 use bevy::prelude::Component;
 
 #[allow(dead_code)]
@@ -10,7 +10,7 @@ pub struct MapPath {
 
 #[allow(dead_code)]
 impl MapPath {
-    pub fn new(sprite_path: WorldPath) -> Self {
+    pub fn new(sprite_path: PathSprite) -> Self {
         Self {
             path: Path::new(sprite_path),
         }

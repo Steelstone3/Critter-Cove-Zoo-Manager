@@ -5,7 +5,7 @@ use bevy::{
 };
 
 use crate::{
-    assets::images::world::terrains::WorldTerrain,
+    assets::images::world::terrain_sprites::TerrainSprite,
     components::{
         constants::{MAP_TILES, TILE_SIZE},
         terrain::Terrain,
@@ -17,7 +17,7 @@ pub fn spawn_world_terrain(
     mut commands: Commands,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
 ) {
-    let terrain = Terrain::new(WorldTerrain::Grass1);
+    let terrain = Terrain::new(TerrainSprite::Grass1);
 
     for x in MAP_TILES {
         for y in MAP_TILES {

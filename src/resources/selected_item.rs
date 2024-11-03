@@ -1,9 +1,9 @@
 use crate::{
     assets::images::{
-        zoo_animal::ZooAnimal,
+        animals::AnimalSprite,
         world::{
-            fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain,
-            trees::WorldTree,
+            fence_sprites::FenceSprite, path_sprites::PathSprite, rock_sprites::RockSprite,
+            terrain_sprites::TerrainSprite, tree_sprites::TreeSprite,
         },
     },
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
@@ -13,25 +13,36 @@ use bevy::ecs::system::Resource;
 #[derive(Resource)]
 pub struct SelectedMenuItem {
     pub menu_selection: MainMenuSelection,
-    pub animal_selection: ZooAnimal,
-    pub fence_selection: WorldFence,
-    pub terrain_selection: WorldTerrain,
-    pub tree_selection: WorldTree,
-    pub rock_selection: WorldRock,
+    pub animal_selection: AnimalSprite,
+    pub fence_selection: FenceSprite,
+    pub terrain_selection: TerrainSprite,
+    pub tree_selection: TreeSprite,
+    pub rock_selection: RockSprite,
     // pub shelter_selection: Shelter,
-    pub path_selection: WorldPath,
+    pub path_selection: PathSprite,
 }
 
 impl Default for SelectedMenuItem {
     fn default() -> Self {
         Self {
             menu_selection: MainMenuSelection::None,
-            animal_selection: ZooAnimal::None,
-            fence_selection: WorldFence::None,
-            terrain_selection: WorldTerrain::None,
-            tree_selection: WorldTree::None,
-            rock_selection: WorldRock::None,
-            path_selection: WorldPath::None,
+            animal_selection: AnimalSprite::None,
+            fence_selection: FenceSprite::None,
+            terrain_selection: TerrainSprite::None,
+            tree_selection: TreeSprite::None,
+            rock_selection: RockSprite::None,
+            path_selection: PathSprite::None,
         }
+    }
+}
+
+impl SelectedMenuItem {
+    pub fn reset(&mut self) {
+        self.animal_selection = AnimalSprite::None;
+        self.fence_selection = FenceSprite::None;
+        self.terrain_selection = TerrainSprite::None;
+        self.tree_selection = TreeSprite::None;
+        self.rock_selection = RockSprite::None;
+        self.path_selection = PathSprite::None;
     }
 }
