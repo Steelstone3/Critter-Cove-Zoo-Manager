@@ -137,8 +137,150 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.terrain_selection = TerrainSprite::DarkGrass1;
                 }
+                if ui.add(egui::Button::new("Dark Grass 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass2;
+                }
+                if ui.add(egui::Button::new("Dark Grass 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass3;
+                }
+                if ui.add(egui::Button::new("Dark Grass 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass4;
+                }
+                if ui.add(egui::Button::new("Dark Grass 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass5;
+                }
+                if ui.add(egui::Button::new("Dark Grass 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass6;
+                }
+                if ui.add(egui::Button::new("Dark Grass 7")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass7;
+                }
+                if ui.add(egui::Button::new("Dark Grass 8")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass8;
+                }
+                if ui.add(egui::Button::new("Dark Grass 9")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass9;
+                }
+                if ui.add(egui::Button::new("Grass 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass1;
+                }
+                if ui.add(egui::Button::new("Grass 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass2;
+                }
+                if ui.add(egui::Button::new("Grass 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass3;
+                }
+                if ui.add(egui::Button::new("Grass 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass4;
+                }
+                if ui.add(egui::Button::new("Grass 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass5;
+                }
+                if ui.add(egui::Button::new("Grass 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Grass6;
+                }
+                if ui.add(egui::Button::new("Light Grass 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass1;
+                }
+                if ui.add(egui::Button::new("Light Grass 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass2;
+                }
+                if ui.add(egui::Button::new("Light Grass 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass3;
+                }
+                if ui.add(egui::Button::new("Light Grass 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass4;
+                }
+                if ui.add(egui::Button::new("Light Grass 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass5;
+                }
+                if ui.add(egui::Button::new("Light Grass 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::LightGrass6;
+                }
             });
         }
+      
+
+    //     |     ^^^^^^
+    //  20 |     LightGrass1,
+    //     |     ^^^^^^^^^^^
+    //  21 |     LightGrass2,
+    //     |     ^^^^^^^^^^^
+    //  22 |     LightGrass3,
+    //     |     ^^^^^^^^^^^
+    //  23 |     LightGrass4,
+    //     |     ^^^^^^^^^^^
+    //  24 |     LightGrass5,
+    //     |     ^^^^^^^^^^^
+    //  25 |     LightGrass6,
+    //     |     ^^^^^^^^^^^
+    //  26 |     Savanah1,
+    //     |     ^^^^^^^^
+    //  27 |     Savanah2,
+    //     |     ^^^^^^^^
+    //  28 |     Savanah3,
+    //     |     ^^^^^^^^
+    //  29 |     Savanah4,
+    //     |     ^^^^^^^^
+    //  30 |     VeryLightGrass1,
+    //     |     ^^^^^^^^^^^^^^^
+    //  31 |     VeryLightGrass2,
+    //     |     ^^^^^^^^^^^^^^^
+    //  32 |     VeryLightGrass3,
+    //     |     ^^^^^^^^^^^^^^^
+    //  33 |     VeryLightGrass4,
+    //     |     ^^^^^^^^^^^^^^^
+    //  34 |     VeryLightGrass5,
+    //     |     ^^^^^^^^^^^^^^^
+    //  35 |     Water1,
+    //     |     ^^^^^^
+    //  36 |     Water2,
+    //     |     ^^^^^^
+    //  37 |     Water3,
+    //     |     ^^^^^^
+    //  38 |     Water4,
+    //     |     ^^^^^^
+    //  39 |     Water5,
+    //     |     ^^^^^^
+    //  40 |     Water6,
+    //     |     ^^^^^^
+    //  41 |     Water7,
+    //     |     ^^^^^^
+    //  42 |     Water8,
+    //     |     ^^^^^^
+    //  43 |     Water9,
+    //     |     ^^^^^^
+    //  44 |     Water10,
+    //     |     ^^^^^^^
+    //  45 |     Water11,
+    //     |     ^^^^^^^
+    //  46 |     Water12,
+    //     |     ^^^^^^^
+    //  47 |     Water13,
+    //     |     ^^^^^^^
+    //  48 |     Water14,
+
+
         MainMenuSelection::Trees => {
             egui::Window::new("Trees").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Bush 1")).clicked() {
