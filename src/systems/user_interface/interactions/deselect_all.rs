@@ -1,5 +1,5 @@
 use bevy::{
-    ecs::{event::EventWriter, system::ResMut},
+    ecs::system::ResMut,
     input::{keyboard::KeyCode, ButtonInput},
 };
 
@@ -8,7 +8,6 @@ use crate::{
         animal::ZooAnimal,
         world::{rocks::WorldRock, terrains::WorldTerrain, trees::WorldTree},
     },
-    events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,
 };
 
@@ -17,7 +16,6 @@ use super::main_menu_selection::MainMenuSelection;
 pub fn deselect_all(
     mut input: ResMut<ButtonInput<KeyCode>>,
     mut selected_item: ResMut<SelectedMenuItem>,
-    mut user_interface_event: EventWriter<UserInterfaceEvent>,
 ) {
     if input.clear_just_pressed(KeyCode::Escape) {
         selected_item.menu_selection = MainMenuSelection::None;
@@ -25,7 +23,5 @@ pub fn deselect_all(
         selected_item.terrain_selection = WorldTerrain::None;
         selected_item.rock_selection = WorldRock::None;
         selected_item.tree_selection = WorldTree::None;
-
-        user_interface_event.send(UserInterfaceEvent {});
     }
 }
