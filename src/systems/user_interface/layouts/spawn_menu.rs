@@ -38,7 +38,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
-        // TODO animals, fences, terrain, trees, rocks, (shelters later on), paths
+
         MainMenuSelection::Animals => {
             egui::Window::new("Animals").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Boar")).clicked() {
@@ -111,6 +111,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
+
         MainMenuSelection::Fences => {
             egui::Window::new("Fences").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Fence 1")).clicked() {
@@ -131,6 +132,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
+
         MainMenuSelection::Terrains => {
             egui::Window::new("Terrains").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Dark Grass 1")).clicked() {
@@ -253,42 +255,64 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.terrain_selection = TerrainSprite::VeryLightGrass5;
                 }
-
+                if ui.add(egui::Button::new("Water 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water1;
+                }
+                if ui.add(egui::Button::new("Water 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water2;
+                }
+                if ui.add(egui::Button::new("Water 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water3;
+                }
+                if ui.add(egui::Button::new("Water 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water4;
+                }
+                if ui.add(egui::Button::new("Water 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water5;
+                }
+                if ui.add(egui::Button::new("Water 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water6;
+                }
+                if ui.add(egui::Button::new("Water 7")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water7;
+                }
+                if ui.add(egui::Button::new("Water 8")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water8;
+                }
+                if ui.add(egui::Button::new("Water 9")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water9;
+                }
+                if ui.add(egui::Button::new("Water 10")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water10;
+                }
+                if ui.add(egui::Button::new("Water 11")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water11;
+                }
+                if ui.add(egui::Button::new("Water 12")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water12;
+                }
+                if ui.add(egui::Button::new("Water 13")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water13;
+                }
+                if ui.add(egui::Button::new("Water 14")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::Water14;
+                }
             });
         }
-      
-
-      
-     
-    //     |     ^^^^^^^^^^^^^^^
-    //  35 |     Water1,
-    //     |     ^^^^^^
-    //  36 |     Water2,
-    //     |     ^^^^^^
-    //  37 |     Water3,
-    //     |     ^^^^^^
-    //  38 |     Water4,
-    //     |     ^^^^^^
-    //  39 |     Water5,
-    //     |     ^^^^^^
-    //  40 |     Water6,
-    //     |     ^^^^^^
-    //  41 |     Water7,
-    //     |     ^^^^^^
-    //  42 |     Water8,
-    //     |     ^^^^^^
-    //  43 |     Water9,
-    //     |     ^^^^^^
-    //  44 |     Water10,
-    //     |     ^^^^^^^
-    //  45 |     Water11,
-    //     |     ^^^^^^^
-    //  46 |     Water12,
-    //     |     ^^^^^^^
-    //  47 |     Water13,
-    //     |     ^^^^^^^
-    //  48 |     Water14,
-
 
         MainMenuSelection::Trees => {
             egui::Window::new("Trees").show(contexts.ctx_mut(), |ui| {
@@ -330,6 +354,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
+
         MainMenuSelection::Rocks => {
             egui::Window::new("Rocks").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Ice Rock 1")).clicked() {
@@ -450,6 +475,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
+        
         MainMenuSelection::Paths => {
             egui::Window::new("Paths").show(contexts.ctx_mut(), |ui| {
                 if ui.add(egui::Button::new("Path 1")).clicked() {
