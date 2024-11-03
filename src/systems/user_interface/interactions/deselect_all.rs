@@ -3,7 +3,6 @@ use bevy::{
     input::{keyboard::KeyCode, ButtonInput},
 };
 
-use super::main_menu_selection::MainMenuSelection;
 use crate::{
     assets::images::{
         animal::ZooAnimal,
@@ -12,6 +11,8 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     resources::selected_item::SelectedMenuItem,
 };
+
+use super::main_menu_selection::MainMenuSelection;
 
 pub fn deselect_all(
     mut input: ResMut<ButtonInput<KeyCode>>,
