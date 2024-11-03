@@ -77,6 +77,38 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.animal_selection = AnimalSprite::Goose;
                 }
+                if ui.add(egui::Button::new("Monkey")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Monkey;
+                }
+                if ui.add(egui::Button::new("Pig")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Pig;
+                }
+                if ui.add(egui::Button::new("Porcupine")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Porcupine;
+                }
+                if ui.add(egui::Button::new("Sheep")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Sheep;
+                }
+                if ui.add(egui::Button::new("Skunk")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Skunk;
+                }
+                if ui.add(egui::Button::new("Toad")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Toad;
+                }
+                if ui.add(egui::Button::new("Turtle")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Turtle;
+                }
+                if ui.add(egui::Button::new("Wolf")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Wolf;
+                }
             });
         }
         MainMenuSelection::Fences => {
@@ -84,6 +116,18 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 if ui.add(egui::Button::new("Fence 1")).clicked() {
                     selected_menu_item.reset();
                     selected_menu_item.fence_selection = FenceSprite::Fence1;
+                }
+                if ui.add(egui::Button::new("Fence 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.fence_selection = FenceSprite::Fence2;
+                }
+                if ui.add(egui::Button::new("Fence 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.fence_selection = FenceSprite::Fence3;
+                }
+                if ui.add(egui::Button::new("Fence 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.fence_selection = FenceSprite::Fence4;
                 }
             });
         }
