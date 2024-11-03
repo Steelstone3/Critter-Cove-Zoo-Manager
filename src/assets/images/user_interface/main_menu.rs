@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-pub enum MainMenuUserInterface {
+pub enum MainMenuIcon {
     Animals,
     Fences,
     Terrain,
@@ -9,25 +9,25 @@ pub enum MainMenuUserInterface {
     Paths,
 }
 
-impl Display for MainMenuUserInterface {
+impl Display for MainMenuIcon {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            MainMenuUserInterface::Animals => {
+            MainMenuIcon::Animals => {
                 write!(f, "images/user_interface/main_menu/animals_icon.png")
             }
-            MainMenuUserInterface::Fences => {
+            MainMenuIcon::Fences => {
                 write!(f, "images/user_interface/main_menu/fences_icon.png")
             }
-            MainMenuUserInterface::Terrain => {
+            MainMenuIcon::Terrain => {
                 write!(f, "images/user_interface/main_menu/terrains_icon.png")
             }
-            MainMenuUserInterface::Trees => {
+            MainMenuIcon::Trees => {
                 write!(f, "images/user_interface/main_menu/trees_icon.png")
             }
-            MainMenuUserInterface::Rocks => {
+            MainMenuIcon::Rocks => {
                 write!(f, "images/user_interface/main_menu/rocks_icon.png")
             }
-            MainMenuUserInterface::Paths => {
+            MainMenuIcon::Paths => {
                 write!(f, "images/user_interface/main_menu/paths_icon.png")
             }
         }

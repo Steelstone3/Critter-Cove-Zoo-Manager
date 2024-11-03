@@ -1,7 +1,7 @@
 use std::fmt::Display;
 
 #[derive(Clone, Copy, PartialEq)]
-pub enum ZooAnimal {
+pub enum AnimalSprite {
     // 16 bit
     // Zoo
     Boar,
@@ -32,79 +32,79 @@ pub enum ZooAnimal {
     None,
 }
 
-impl Display for ZooAnimal {
+impl Display for AnimalSprite {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             // 16 bit
             // Zoo
-            ZooAnimal::Boar => {
+            AnimalSprite::Boar => {
                 write!(f, "images/animals/zoo/boar.png")
             }
-            ZooAnimal::Chicken => {
+            AnimalSprite::Chicken => {
                 write!(f, "images/animals/zoo/chicken.png")
             }
-            ZooAnimal::Cow => {
+            AnimalSprite::Cow => {
                 write!(f, "images/animals/zoo/cow.png")
             }
-            ZooAnimal::Crab => {
+            AnimalSprite::Crab => {
                 write!(f, "images/animals/zoo/crab.png")
             }
-            ZooAnimal::Dog => {
+            AnimalSprite::Dog => {
                 write!(f, "images/animals/zoo/dog.png")
             }
-            ZooAnimal::Fox => {
+            AnimalSprite::Fox => {
                 write!(f, "images/animals/zoo/fox.png")
             }
-            ZooAnimal::Frog => {
+            AnimalSprite::Frog => {
                 write!(f, "images/animals/zoo/frog.png")
             }
-            ZooAnimal::Goat => {
+            AnimalSprite::Goat => {
                 write!(f, "images/animals/zoo/goat.png")
             }
-            ZooAnimal::Goose => {
+            AnimalSprite::Goose => {
                 write!(f, "images/animals/zoo/goose.png")
             }
-            ZooAnimal::Monkey => {
+            AnimalSprite::Monkey => {
                 write!(f, "images/animals/zoo/monkey.png")
             }
-            ZooAnimal::Pig => {
+            AnimalSprite::Pig => {
                 write!(f, "images/animals/zoo/pig.png")
             }
-            ZooAnimal::Porcupine => {
+            AnimalSprite::Porcupine => {
                 write!(f, "images/animals/zoo/porcupine.png")
             }
-            ZooAnimal::Sheep => {
+            AnimalSprite::Sheep => {
                 write!(f, "images/animals/zoo/sheep.png")
             }
-            ZooAnimal::Skunk => {
+            AnimalSprite::Skunk => {
                 write!(f, "images/animals/zoo/skunk.png")
             }
-            ZooAnimal::Toad => {
+            AnimalSprite::Toad => {
                 write!(f, "images/animals/zoo/toad.png")
             }
-            ZooAnimal::Turtle => {
+            AnimalSprite::Turtle => {
                 write!(f, "images/animals/zoo/turtle.png")
             }
-            ZooAnimal::Wolf => {
+            AnimalSprite::Wolf => {
                 write!(f, "images/animals/zoo/wolf.png")
             }
             // Chungus 32 bit
             // Zoo
-            ZooAnimal::Gorilla => {
+            AnimalSprite::Gorilla => {
                 write!(f, "images/animals/zoo/gorilla.png")
             }
-            ZooAnimal::Moose => {
+            AnimalSprite::Moose => {
                 write!(f, "images/animals/zoo/moose.png")
             }
             // Monsters
-            ZooAnimal::RearingNightmare => {
+            AnimalSprite::RearingNightmare => {
                 write!(f, "images/animals/monsters/rearing_nightmare.png")
             }
-            ZooAnimal::StormGiant => {
+            AnimalSprite::StormGiant => {
                 write!(f, "images/animals/monsters/storm_giant.png")
             }
             // No asset to load
-            ZooAnimal::None => {
+            AnimalSprite::None => {
                 write!(f, "")
             }
         }

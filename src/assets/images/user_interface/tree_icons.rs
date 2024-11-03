@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-pub enum TreeSubMenu {
+pub enum TreeIcon {
     Bush1,
     Bush2,
     TallGrass1,
@@ -12,34 +12,34 @@ pub enum TreeSubMenu {
     Tree4,
 }
 
-impl Display for TreeSubMenu {
+impl Display for TreeIcon {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            TreeSubMenu::Bush1 => {
+            TreeIcon::Bush1 => {
                 write!(f, "images/user_interface/tree_menu/bush_1_icon.png")
             }
-            TreeSubMenu::Bush2 => {
+            TreeIcon::Bush2 => {
                 write!(f, "images/user_interface/tree_menu/bush_2_icon.png")
             }
-            TreeSubMenu::TallGrass1 => {
+            TreeIcon::TallGrass1 => {
                 write!(f, "images/user_interface/tree_menu/tall_grass_1_icon.png")
             }
-            TreeSubMenu::TallGrass2 => {
+            TreeIcon::TallGrass2 => {
                 write!(f, "images/user_interface/tree_menu/tall_grass_2_icon.png")
             }
-            TreeSubMenu::TallGrass3 => {
+            TreeIcon::TallGrass3 => {
                 write!(f, "images/user_interface/tree_menu/tall_grass_3_icon.png")
             }
-            TreeSubMenu::Tree1 => {
+            TreeIcon::Tree1 => {
                 write!(f, "images/user_interface/tree_menu/tree_1_icon.png")
             }
-            TreeSubMenu::Tree2 => {
+            TreeIcon::Tree2 => {
                 write!(f, "images/user_interface/tree_menu/tree_2_icon.png")
             }
-            TreeSubMenu::Tree3 => {
+            TreeIcon::Tree3 => {
                 write!(f, "images/user_interface/tree_menu/tree_3_icon.png")
             }
-            TreeSubMenu::Tree4 => {
+            TreeIcon::Tree4 => {
                 write!(f, "images/user_interface/tree_menu/tree_4_icon.png")
             }
         }

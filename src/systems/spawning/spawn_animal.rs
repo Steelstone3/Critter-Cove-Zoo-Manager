@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::animal::ZooAnimal,
+    assets::images::animals::AnimalSprite,
     components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
@@ -28,7 +28,7 @@ pub fn spawn_animal(
     windows_query: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.animal_selection == ZooAnimal::None {
+    if selected_item.animal_selection == AnimalSprite::None {
         return;
     }
 
@@ -46,10 +46,10 @@ pub fn spawn_animal(
 
     let mut animal = Animal::new_16(selected_item.animal_selection);
 
-    if selected_item.animal_selection == ZooAnimal::Gorilla
-        || selected_item.animal_selection == ZooAnimal::Moose
-        || selected_item.animal_selection == ZooAnimal::RearingNightmare
-        || selected_item.animal_selection == ZooAnimal::StormGiant
+    if selected_item.animal_selection == AnimalSprite::Gorilla
+        || selected_item.animal_selection == AnimalSprite::Moose
+        || selected_item.animal_selection == AnimalSprite::RearingNightmare
+        || selected_item.animal_selection == AnimalSprite::StormGiant
     {
         animal = Animal::new_32(selected_item.animal_selection)
     }
