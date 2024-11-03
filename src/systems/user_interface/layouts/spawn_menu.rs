@@ -2,7 +2,13 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 use crate::{
-    assets::images::{animals::AnimalSprite, world::fence_sprites::FenceSprite},
+    assets::images::{
+        animals::AnimalSprite,
+        world::{
+            fence_sprites::FenceSprite, path_sprites::PathSprite, rock_sprites::RockSprite,
+            terrain_sprites::TerrainSprite, tree_sprites::TreeSprite,
+        },
+    },
     resources::selected_item::{self, SelectedMenuItem},
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
@@ -49,9 +55,37 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 }
             });
         }
-        MainMenuSelection::Terrains => {}
-        MainMenuSelection::Trees => {}
-        MainMenuSelection::Rocks => {}
-        MainMenuSelection::Paths => {}
+        MainMenuSelection::Terrains => {
+            egui::Window::new("Terrains").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Dark Grass 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.terrain_selection = TerrainSprite::DarkGrass1;
+                }
+            });
+        }
+        MainMenuSelection::Trees => {
+            egui::Window::new("Trees").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Bush 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Bush1;
+                }
+            });
+        }
+        MainMenuSelection::Rocks => {
+            egui::Window::new("Rocks").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Ice Rock 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock1;
+                }
+            });
+        }
+        MainMenuSelection::Paths => {
+            egui::Window::new("Paths").show(contexts.ctx_mut(), |ui| {
+                if ui.add(egui::Button::new("Path 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path1;
+                }
+            });
+        }
     }
 }
