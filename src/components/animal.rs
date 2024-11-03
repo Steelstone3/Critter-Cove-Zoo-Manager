@@ -13,7 +13,7 @@ pub struct Animal {
     pub sprite_path: ZooAnimal,
     pub frame_timing: f32,
     pub frame_count: usize,
-    pub tile_size: f32,
+    pub tile_size: u32,
     pub size: Vec2,
     pub speed: f32,
     pub destination: Vec3,
@@ -26,7 +26,7 @@ impl Animal {
             sprite_path,
             frame_timing: 0.25,
             frame_count: 4,
-            tile_size: TILE_SIZE / 2.0,
+            tile_size: (TILE_SIZE / 2.0) as u32,
             size: Vec2 {
                 x: TILE_SIZE,
                 y: TILE_SIZE,
@@ -45,7 +45,7 @@ impl Animal {
             sprite_path,
             frame_timing: 0.1,
             frame_count: 8,
-            tile_size: TILE_SIZE,
+            tile_size: TILE_SIZE as u32,
             size: Vec2 {
                 x: TILE_SIZE,
                 y: TILE_SIZE,

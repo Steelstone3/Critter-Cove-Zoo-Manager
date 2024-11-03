@@ -3,7 +3,6 @@ use bevy::{
         event::EventWriter,
         system::{Query, ResMut},
     },
-    render::color::Color,
     ui::Interaction,
     utils::tracing,
 };
@@ -12,7 +11,7 @@ use crate::{
     events::user_interface_event::UserInterfaceEvent,
     queries::user_interface_queries::{ButtonFilters, SelectRockButtonQuery},
     resources::selected_item::SelectedMenuItem,
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::{interactions::main_menu_selection::MainMenuSelection, styles::GREY},
 };
 
 pub fn select_rock_button(
@@ -38,7 +37,7 @@ pub fn select_rock_button(
             tracing::info!("Hovered Rock");
         }
         Interaction::None => {
-            *select_rock_button_query.border_color = Color::DARK_GRAY.into();
+            *select_rock_button_query.border_color = GREY.into();
         }
     }
 }

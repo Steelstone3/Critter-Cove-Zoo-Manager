@@ -1,9 +1,11 @@
-use bevy::ecs::schedule::States;
+// TODO AH Reimplement
 
-#[allow(dead_code)]
-#[derive(States, Debug, Clone, PartialEq, Eq, Hash)]
-pub enum GameState {
-    MainMenu,
-    Playing,
-    Paused,
-}
+// use bevy::ecs::schedule::States;
+
+// #[allow(dead_code)]
+// #[derive(States, Debug, Clone, PartialEq, Eq, Hash)]
+// pub enum GameState {
+//     MainMenu,
+//     Playing,
+//     Paused,
+// }

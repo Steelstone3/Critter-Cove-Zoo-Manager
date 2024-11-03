@@ -1,8 +1,8 @@
 use bevy::{
     asset::AssetServer,
+    color::Color,
     ecs::system::{Commands, Res},
     hierarchy::BuildChildren,
-    render::color::Color,
     ui::{
         node_bundles::{ButtonBundle, ImageBundle, NodeBundle},
         Display, GridTrack, PositionType, Style, UiImage, UiRect, Val,
@@ -43,7 +43,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
                 top: Val::Percent(0.0),
                 ..Default::default()
             },
-            background_color: Color::rgba(0.0, 0.0, 0.0, 0.0).into(),
+            background_color: Color::srgba(0.0, 0.0, 0.0, 0.0).into(),
             ..Default::default()
         })
         .insert(SelectionMenu)
@@ -64,7 +64,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectAnimalMenuButton {},
@@ -94,7 +94,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectFenceMenuButton {},
@@ -124,7 +124,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectTerrainMenuButton {},
@@ -154,7 +154,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectTreeMenuButton {},
@@ -184,7 +184,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectRockMenuButton {},
@@ -215,7 +215,7 @@ pub fn spawn_selection_main_menu(mut commands: Commands, asset_server: Res<Asset
 
                             ..Default::default()
                         },
-                        border_color: Color::DARK_GRAY.into(),
+                        border_color: Color::srgb(189.0, 189.0, 189.0).into(),
                         ..Default::default()
                     },
                     SelectPathMenuButton {},
