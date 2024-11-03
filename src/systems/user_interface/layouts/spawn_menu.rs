@@ -145,6 +145,38 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.tree_selection = TreeSprite::Bush1;
                 }
+                if ui.add(egui::Button::new("Bush 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Bush2;
+                }
+                if ui.add(egui::Button::new("Tall Grass 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::TallGrass1;
+                }
+                if ui.add(egui::Button::new("Tall Grass 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::TallGrass2;
+                }
+                if ui.add(egui::Button::new("Tall Grass 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::TallGrass3;
+                }
+                if ui.add(egui::Button::new("Tree 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Tree1;
+                }
+                if ui.add(egui::Button::new("Tree 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Tree2;
+                }
+                if ui.add(egui::Button::new("Tree 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Tree3;
+                }
+                if ui.add(egui::Button::new("Tree 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.tree_selection = TreeSprite::Tree4;
+                }
             });
         }
         MainMenuSelection::Rocks => {
@@ -152,6 +184,118 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                 if ui.add(egui::Button::new("Ice Rock 1")).clicked() {
                     selected_menu_item.reset();
                     selected_menu_item.rock_selection = RockSprite::IceRock1;
+                }
+                if ui.add(egui::Button::new("Ice Rock 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock2;
+                }
+                if ui.add(egui::Button::new("Ice Rock 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock3;
+                }
+                if ui.add(egui::Button::new("Ice Rock 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock4;
+                }
+                if ui.add(egui::Button::new("Ice Rock 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock5;
+                }
+                if ui.add(egui::Button::new("Ice Rock 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::IceRock6;
+                }
+                if ui.add(egui::Button::new("Rock 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock1;
+                }
+                if ui.add(egui::Button::new("Rock 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock2;
+                }
+                if ui.add(egui::Button::new("Rock 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock3;
+                }
+                if ui.add(egui::Button::new("Rock 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock4;
+                }
+                if ui.add(egui::Button::new("Rock 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock5;
+                }
+                if ui.add(egui::Button::new("Rock 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock6;
+                }
+                if ui.add(egui::Button::new("Rock 7")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock7;
+                }
+                if ui.add(egui::Button::new("Rock 8")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock8;
+                }
+                if ui.add(egui::Button::new("Rock 9")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock9;
+                }
+                if ui.add(egui::Button::new("Rock 10")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock10;
+                }
+                if ui.add(egui::Button::new("Rock 11")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock11;
+                }
+                if ui.add(egui::Button::new("Rock 12")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock12;
+                }
+                if ui.add(egui::Button::new("Rock 13")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock13;
+                }
+                if ui.add(egui::Button::new("Rock 14")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock14;
+                }
+                if ui.add(egui::Button::new("Rock 15")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock15;
+                }
+                if ui.add(egui::Button::new("Rock 16")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock16;
+                }
+                if ui.add(egui::Button::new("Rock 17")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::Rock17;
+                }
+                if ui.add(egui::Button::new("Water Rock 1")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock1;
+                }
+                if ui.add(egui::Button::new("Water Rock 2")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock2;
+                }
+                if ui.add(egui::Button::new("Water Rock 3")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock3;
+                }
+                if ui.add(egui::Button::new("Water Rock 4")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock4;
+                }
+                if ui.add(egui::Button::new("Water Rock 5")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock5;
+                }
+                if ui.add(egui::Button::new("Water Rock 6")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.rock_selection = RockSprite::WaterRock6;
                 }
             });
         }
