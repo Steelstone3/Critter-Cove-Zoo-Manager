@@ -45,6 +45,38 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.animal_selection = AnimalSprite::Boar;
                 }
+                if ui.add(egui::Button::new("Chicken")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Chicken;
+                }
+                if ui.add(egui::Button::new("Cow")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Cow;
+                }
+                if ui.add(egui::Button::new("Crab")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Crab;
+                }
+                if ui.add(egui::Button::new("Dog")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Dog;
+                }
+                if ui.add(egui::Button::new("Fox")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Fox;
+                }
+                if ui.add(egui::Button::new("Frog")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Frog;
+                }
+                if ui.add(egui::Button::new("Goat")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Goat;
+                }
+                if ui.add(egui::Button::new("Goose")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.animal_selection = AnimalSprite::Goose;
+                }
             });
         }
         MainMenuSelection::Fences => {
