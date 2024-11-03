@@ -225,6 +225,30 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.path_selection = PathSprite::Path17;
                 }
+                if ui.add(egui::Button::new("Path 18")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path18;
+                }
+                if ui.add(egui::Button::new("Path 19")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path19;
+                }
+                if ui.add(egui::Button::new("Path 20")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path20;
+                }
+                if ui.add(egui::Button::new("Path 21")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path21;
+                }
+                if ui.add(egui::Button::new("Path 22")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path22;
+                }
+                if ui.add(egui::Button::new("Path 23")).clicked() {
+                    selected_menu_item.reset();
+                    selected_menu_item.path_selection = PathSprite::Path23;
+                }
             });
         }
     }
