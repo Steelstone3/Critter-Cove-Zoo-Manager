@@ -9,7 +9,7 @@ use crate::{
             terrain_sprites::TerrainSprite, tree_sprites::TreeSprite,
         },
     },
-    resources::selected_item::{self, SelectedMenuItem},
+    resources::selected_item::SelectedMenuItem,
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
