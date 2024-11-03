@@ -1,8 +1,8 @@
+use crate::resources::selected_item::SelectedMenuItem;
 use bevy::{
     ecs::system::ResMut,
     input::{keyboard::KeyCode, ButtonInput},
 };
-use crate::resources::selected_item::SelectedMenuItem;
 
 pub fn deselect_all(
     mut input: ResMut<ButtonInput<KeyCode>>,

@@ -2,7 +2,9 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 use crate::{
-    assets::images::{animals::AnimalSprite, world::fence_sprites::FenceSprite}, resources::selected_item::{self, SelectedMenuItem}, systems::user_interface::interactions::main_menu_selection::MainMenuSelection
+    assets::images::{animals::AnimalSprite, world::fence_sprites::FenceSprite},
+    resources::selected_item::{self, SelectedMenuItem},
+    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
 
 pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<SelectedMenuItem>) {
@@ -37,7 +39,6 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.animal_selection = AnimalSprite::Boar;
                 }
-                
             });
         }
         MainMenuSelection::Fences => {
@@ -46,7 +47,6 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
                     selected_menu_item.reset();
                     selected_menu_item.fence_selection = FenceSprite::Fence1;
                 }
-                
             });
         }
         MainMenuSelection::Terrains => {}

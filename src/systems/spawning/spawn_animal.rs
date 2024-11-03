@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::animals::{ AnimalSprite},
+    assets::images::animals::AnimalSprite,
     components::animal::Animal,
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
