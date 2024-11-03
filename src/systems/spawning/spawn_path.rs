@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::world::paths::WorldPath,
+    assets::images::world::path_sprites::PathSprite,
     components::path::Path,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
@@ -26,7 +26,7 @@ pub fn spawn_path(
     windows_query: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.path_selection == WorldPath::None {
+    if selected_item.path_selection == PathSprite::None {
         return;
     }
 

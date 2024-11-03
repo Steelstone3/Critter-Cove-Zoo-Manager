@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-pub enum AnimalSubMenu {
+pub enum AnimalIcon {
     Boar,
     Chicken,
     Cow,
@@ -22,64 +22,64 @@ pub enum AnimalSubMenu {
     Wolf,
 }
 
-impl Display for AnimalSubMenu {
+impl Display for AnimalIcon {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            AnimalSubMenu::Boar => {
+            AnimalIcon::Boar => {
                 write!(f, "images/user_interface/animal_menu/boar_icon.png")
             }
-            AnimalSubMenu::Chicken => {
+            AnimalIcon::Chicken => {
                 write!(f, "images/user_interface/animal_menu/chicken_icon.png")
             }
-            AnimalSubMenu::Cow => {
+            AnimalIcon::Cow => {
                 write!(f, "images/user_interface/animal_menu/cow_icon.png")
             }
-            AnimalSubMenu::Crab => {
+            AnimalIcon::Crab => {
                 write!(f, "images/user_interface/animal_menu/crab_icon.png")
             }
-            AnimalSubMenu::Dog => {
+            AnimalIcon::Dog => {
                 write!(f, "images/user_interface/animal_menu/dog_icon.png")
             }
-            AnimalSubMenu::Fox => {
+            AnimalIcon::Fox => {
                 write!(f, "images/user_interface/animal_menu/fox_icon.png")
             }
-            AnimalSubMenu::Frog => {
+            AnimalIcon::Frog => {
                 write!(f, "images/user_interface/animal_menu/frog_icon.png")
             }
-            AnimalSubMenu::Goat => {
+            AnimalIcon::Goat => {
                 write!(f, "images/user_interface/animal_menu/goat_icon.png")
             }
-            AnimalSubMenu::Goose => {
+            AnimalIcon::Goose => {
                 write!(f, "images/user_interface/animal_menu/goose_icon.png")
             }
-            AnimalSubMenu::Gorilla => {
+            AnimalIcon::Gorilla => {
                 write!(f, "images/user_interface/animal_menu/gorilla_icon.png")
             }
-            AnimalSubMenu::Monkey => {
+            AnimalIcon::Monkey => {
                 write!(f, "images/user_interface/animal_menu/monkey_icon.png")
             }
-            AnimalSubMenu::Moose => {
+            AnimalIcon::Moose => {
                 write!(f, "images/user_interface/animal_menu/moose_icon.png")
             }
-            AnimalSubMenu::Pig => {
+            AnimalIcon::Pig => {
                 write!(f, "images/user_interface/animal_menu/pig_icon.png")
             }
-            AnimalSubMenu::Porcupine => {
+            AnimalIcon::Porcupine => {
                 write!(f, "images/user_interface/animal_menu/porcupine_icon.png")
             }
-            AnimalSubMenu::Sheep => {
+            AnimalIcon::Sheep => {
                 write!(f, "images/user_interface/animal_menu/sheep_icon.png")
             }
-            AnimalSubMenu::Skunk => {
+            AnimalIcon::Skunk => {
                 write!(f, "images/user_interface/animal_menu/skunk_icon.png")
             }
-            AnimalSubMenu::Toad => {
+            AnimalIcon::Toad => {
                 write!(f, "images/user_interface/animal_menu/toad_icon.png")
             }
-            AnimalSubMenu::Turtle => {
+            AnimalIcon::Turtle => {
                 write!(f, "images/user_interface/animal_menu/turtle_icon.png")
             }
-            AnimalSubMenu::Wolf => {
+            AnimalIcon::Wolf => {
                 write!(f, "images/user_interface/animal_menu/wolf_icon.png")
             }
         }

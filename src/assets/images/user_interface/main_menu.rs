@@ -1,33 +1,33 @@
 use std::fmt::Display;
 
-pub enum MainMenuUserInterface {
+pub enum SpawnMenuIcon {
     Animals,
     Fences,
-    Terrain,
+    Terrains,
     Trees,
     Rocks,
     Paths,
 }
 
-impl Display for MainMenuUserInterface {
+impl Display for SpawnMenuIcon {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            MainMenuUserInterface::Animals => {
+            SpawnMenuIcon::Animals => {
                 write!(f, "images/user_interface/main_menu/animals_icon.png")
             }
-            MainMenuUserInterface::Fences => {
+            SpawnMenuIcon::Fences => {
                 write!(f, "images/user_interface/main_menu/fences_icon.png")
             }
-            MainMenuUserInterface::Terrain => {
+            SpawnMenuIcon::Terrains => {
                 write!(f, "images/user_interface/main_menu/terrains_icon.png")
             }
-            MainMenuUserInterface::Trees => {
+            SpawnMenuIcon::Trees => {
                 write!(f, "images/user_interface/main_menu/trees_icon.png")
             }
-            MainMenuUserInterface::Rocks => {
+            SpawnMenuIcon::Rocks => {
                 write!(f, "images/user_interface/main_menu/rocks_icon.png")
             }
-            MainMenuUserInterface::Paths => {
+            SpawnMenuIcon::Paths => {
                 write!(f, "images/user_interface/main_menu/paths_icon.png")
             }
         }

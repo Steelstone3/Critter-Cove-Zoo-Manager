@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::world::terrains::WorldTerrain,
+    assets::images::world::terrain_sprites::TerrainSprite,
     components::terrain::Terrain,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
@@ -26,7 +26,7 @@ pub fn spawn_terrain(
     windows_query: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.terrain_selection == WorldTerrain::None {
+    if selected_item.terrain_selection == TerrainSprite::None {
         return;
     }
 

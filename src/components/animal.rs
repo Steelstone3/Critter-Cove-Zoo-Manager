@@ -1,6 +1,6 @@
 use super::constants::{MAP_SIZE, TILE_SIZE};
 use crate::{
-    assets::images::animal::ZooAnimal,
+    assets::images::animal_sprites::AnimalSprite,
     systems::controllers::random_generator::{generate_seed, random_value_f32},
 };
 use bevy::{
@@ -10,7 +10,7 @@ use bevy::{
 
 #[derive(Component)]
 pub struct Animal {
-    pub sprite_path: ZooAnimal,
+    pub sprite_path: AnimalSprite,
     pub frame_timing: f32,
     pub frame_count: usize,
     pub tile_size: u32,
@@ -21,7 +21,7 @@ pub struct Animal {
 }
 
 impl Animal {
-    pub fn new_16(sprite_path: ZooAnimal) -> Self {
+    pub fn new_16(sprite_path: AnimalSprite) -> Self {
         Self {
             sprite_path,
             frame_timing: 0.25,
@@ -40,7 +40,7 @@ impl Animal {
             z_index: 5.0,
         }
     }
-    pub fn new_32(sprite_path: ZooAnimal) -> Self {
+    pub fn new_32(sprite_path: AnimalSprite) -> Self {
         Self {
             sprite_path,
             frame_timing: 0.1,

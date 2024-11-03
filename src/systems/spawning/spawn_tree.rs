@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::world::trees::WorldTree,
+    assets::images::world::tree_sprites::TreeSprite,
     components::tree::Tree,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
@@ -26,7 +26,7 @@ pub fn spawn_tree(
     windows_queries: Query<WindowQuery>,
     camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
 ) {
-    if selected_item.tree_selection == WorldTree::None {
+    if selected_item.tree_selection == TreeSprite::None {
         return;
     }
 
@@ -44,11 +44,11 @@ pub fn spawn_tree(
 
     let mut tree = Tree::new_128(selected_item.tree_selection);
 
-    if selected_item.tree_selection == WorldTree::Bush1
-        || selected_item.tree_selection == WorldTree::Bush2
-        || selected_item.tree_selection == WorldTree::TallGrass1
-        || selected_item.tree_selection == WorldTree::TallGrass2
-        || selected_item.tree_selection == WorldTree::TallGrass3
+    if selected_item.tree_selection == TreeSprite::Bush1
+        || selected_item.tree_selection == TreeSprite::Bush2
+        || selected_item.tree_selection == TreeSprite::TallGrass1
+        || selected_item.tree_selection == TreeSprite::TallGrass2
+        || selected_item.tree_selection == TreeSprite::TallGrass3
     {
         tree = Tree::new_32(selected_item.tree_selection);
     }

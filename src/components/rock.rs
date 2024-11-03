@@ -1,17 +1,17 @@
-use crate::assets::images::world::rocks::WorldRock;
+use crate::assets::images::world::rock_sprites::RockSprite;
 use bevy::{ecs::component::Component, math::Vec2};
 
 use super::constants::TILE_SIZE;
 
 #[derive(Component)]
 pub struct Rock {
-    pub sprite_path: WorldRock,
+    pub sprite_path: RockSprite,
     pub size: Vec2,
     pub z_index: f32,
 }
 
 impl Rock {
-    pub fn new(sprite_path: WorldRock) -> Self {
+    pub fn new(sprite_path: RockSprite) -> Self {
         Self {
             sprite_path,
             size: Vec2 {

@@ -1,6 +1,6 @@
 [package]
 name = "critter-cove-zoo-manager"
-version = "0.8.1"
+version = "0.8.2"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
@@ -17,10 +17,10 @@ wayland-sys = "0.31"
 
 [dependencies]
 bevy = "0.14"
+bevy_egui = "0.30"
 rayon = "1"
 rstest = "0"
 rand = "0"
-rand_derive2 ="0"
 float-lerp = "0"
 
 [workspace]
