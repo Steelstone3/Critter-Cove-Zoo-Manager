@@ -1,7 +1,7 @@
-pub mod animal_sub_menu;
-pub mod fence_sub_menu;
+pub mod zoo_animal_icons;
+pub mod fence_icons;
 pub mod main_menu;
-pub mod path_sub_menu;
-pub mod rock_sub_menu;
-pub mod terrain_sub_menu;
-pub mod tree_sub_menu;
+pub mod path_icons;
+pub mod rock_icons;
+pub mod terrain_icons;
+pub mod tree_icons;

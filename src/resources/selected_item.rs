@@ -1,6 +1,6 @@
 use crate::{
     assets::images::{
-        animal::ZooAnimal,
+        zoo_animal::ZooAnimal,
         world::{
             fences::WorldFence, paths::WorldPath, rocks::WorldRock, terrains::WorldTerrain,
             trees::WorldTree,
@@ -8,7 +8,7 @@ use crate::{
     },
     systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
 };
-use bevy::ecs::system::{ResMut, Resource};
+use bevy::ecs::system::Resource;
 
 #[derive(Resource)]
 pub struct SelectedMenuItem {
@@ -33,16 +33,5 @@ impl Default for SelectedMenuItem {
             rock_selection: WorldRock::None,
             path_selection: WorldPath::None,
         }
-    }
-}
-
-impl SelectedMenuItem {
-    pub fn reset(selected_item: &mut ResMut<'_, SelectedMenuItem>) {
-        selected_item.animal_selection = ZooAnimal::None;
-        selected_item.fence_selection = WorldFence::None;
-        selected_item.terrain_selection = WorldTerrain::None;
-        selected_item.tree_selection = WorldTree::None;
-        selected_item.rock_selection = WorldRock::None;
-        selected_item.path_selection = WorldPath::None;
     }
 }

@@ -1,6 +1,6 @@
 use super::constants::{MAP_SIZE, TILE_SIZE};
 use crate::{
-    assets::images::animal::ZooAnimal,
+    assets::images::zoo_animal::ZooAnimal,
     systems::controllers::random_generator::{generate_seed, random_value_f32},
 };
 use bevy::{

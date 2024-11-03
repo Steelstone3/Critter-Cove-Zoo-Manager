@@ -3,7 +3,7 @@ pub enum MainMenuSelection {
     None,
     Animals,
     Fences,
-    Terrain,
+    Terrains,
     Trees,
     Rocks,
     // Shelters,
