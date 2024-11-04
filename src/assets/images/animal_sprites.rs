@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-use super::user_interface::zoo_animal_icons::AnimalIcon;
+use super::user_interface::animal_icons::AnimalIcon;
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub enum AnimalSprite {

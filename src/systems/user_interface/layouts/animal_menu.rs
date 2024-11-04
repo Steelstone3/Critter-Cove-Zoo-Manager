@@ -1,5 +1,5 @@
 use crate::{
-    assets::images::{animal_sprites::AnimalSprite, user_interface::zoo_animal_icons::AnimalIcon},
+    assets::images::{animal_sprites::AnimalSprite, user_interface::animal_icons::AnimalIcon},
     resources::selected_item::SelectedMenuItem,
 };
 use bevy::prelude::ResMut;
@@ -43,9 +43,17 @@ pub fn animal_menu(contexts: &mut EguiContexts, selected_menu_item: &mut ResMut<
             selected_menu_item.reset();
             selected_menu_item.animal_selection = AnimalSprite::convert_from(AnimalIcon::Goose);
         }
+        if ui.add(egui::Button::new("Gorilla")).clicked() {
+            selected_menu_item.reset();
+            selected_menu_item.animal_selection = AnimalSprite::convert_from(AnimalIcon::Gorilla);
+        }
         if ui.add(egui::Button::new("Monkey")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.animal_selection = AnimalSprite::convert_from(AnimalIcon::Monkey);
+        }
+        if ui.add(egui::Button::new("Moose")).clicked() {
+            selected_menu_item.reset();
+            selected_menu_item.animal_selection = AnimalSprite::convert_from(AnimalIcon::Moose);
         }
         if ui.add(egui::Button::new("Pig")).clicked() {
             selected_menu_item.reset();
