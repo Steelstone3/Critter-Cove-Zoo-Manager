@@ -113,7 +113,6 @@ impl Display for TerrainSprite {
     }
 }
 
-
 impl TerrainSprite {
     pub fn convert_from(icon: TerrainIcon) -> Self {
         match icon {
