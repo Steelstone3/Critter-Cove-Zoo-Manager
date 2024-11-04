@@ -1,6 +1,6 @@
 use crate::{
     assets::images::{
-        animals::AnimalSprite,
+        animal_sprites::AnimalSprite,
         world::{
             fence_sprites::FenceSprite, path_sprites::PathSprite, rock_sprites::RockSprite,
             terrain_sprites::TerrainSprite, tree_sprites::TreeSprite,

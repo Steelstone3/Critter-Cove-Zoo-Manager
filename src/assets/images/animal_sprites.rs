@@ -1,6 +1,8 @@
 use std::fmt::Display;
 
-#[derive(Clone, Copy, PartialEq)]
+use super::user_interface::zoo_animal_icons::AnimalIcon;
+
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum AnimalSprite {
     // 16 bit
     // Zoo
@@ -108,5 +110,65 @@ impl Display for AnimalSprite {
                 write!(f, "")
             }
         }
+    }
+}
+
+impl AnimalSprite {
+    pub fn convert_from(icon: AnimalIcon) -> Self {
+        match icon {
+            AnimalIcon::Boar => AnimalSprite::Boar,
+            AnimalIcon::Chicken => AnimalSprite::Chicken,
+            AnimalIcon::Cow => AnimalSprite::Cow,
+            AnimalIcon::Crab => AnimalSprite::Crab,
+            AnimalIcon::Dog => AnimalSprite::Dog,
+            AnimalIcon::Fox => AnimalSprite::Fox,
+            AnimalIcon::Frog => AnimalSprite::Frog,
+            AnimalIcon::Goat => AnimalSprite::Goat,
+            AnimalIcon::Goose => AnimalSprite::Goose,
+            AnimalIcon::Gorilla => AnimalSprite::Gorilla,
+            AnimalIcon::Monkey => AnimalSprite::Monkey,
+            AnimalIcon::Moose => AnimalSprite::Moose,
+            AnimalIcon::Pig => AnimalSprite::Pig,
+            AnimalIcon::Porcupine => AnimalSprite::Porcupine,
+            AnimalIcon::Sheep => AnimalSprite::Sheep,
+            AnimalIcon::Skunk => AnimalSprite::Skunk,
+            AnimalIcon::Toad => AnimalSprite::Toad,
+            AnimalIcon::Turtle => AnimalSprite::Turtle,
+            AnimalIcon::Wolf => AnimalSprite::Wolf,
+        }
+    }
+}
+
+#[cfg(test)]
+mod animal_sprite_should {
+    use super::*;
+    use rstest::rstest;
+
+    #[rstest]
+    #[case(AnimalIcon::Boar, AnimalSprite::Boar)]
+    #[case(AnimalIcon::Chicken, AnimalSprite::Chicken)]
+    #[case(AnimalIcon::Cow, AnimalSprite::Cow)]
+    #[case(AnimalIcon::Crab, AnimalSprite::Crab)]
+    #[case(AnimalIcon::Dog, AnimalSprite::Dog)]
+    #[case(AnimalIcon::Fox, AnimalSprite::Fox)]
+    #[case(AnimalIcon::Frog, AnimalSprite::Frog)]
+    #[case(AnimalIcon::Goat, AnimalSprite::Goat)]
+    #[case(AnimalIcon::Goose, AnimalSprite::Goose)]
+    #[case(AnimalIcon::Monkey, AnimalSprite::Monkey)]
+    #[case(AnimalIcon::Pig, AnimalSprite::Pig)]
+    #[case(AnimalIcon::Porcupine, AnimalSprite::Porcupine)]
+    #[case(AnimalIcon::Sheep, AnimalSprite::Sheep)]
+    #[case(AnimalIcon::Skunk, AnimalSprite::Skunk)]
+    #[case(AnimalIcon::Toad, AnimalSprite::Toad)]
+    #[case(AnimalIcon::Turtle, AnimalSprite::Turtle)]
+    #[case(AnimalIcon::Wolf, AnimalSprite::Wolf)]
+    #[case(AnimalIcon::Gorilla, AnimalSprite::Gorilla)]
+    #[case(AnimalIcon::Moose, AnimalSprite::Moose)]
+    fn convert_from(#[case] icon: AnimalIcon, #[case] expected_sprite: AnimalSprite) {
+        // when
+        let actual_sprite = AnimalSprite::convert_from(icon);
+
+        // then
+        assert_eq!(expected_sprite, actual_sprite);
     }
 }
