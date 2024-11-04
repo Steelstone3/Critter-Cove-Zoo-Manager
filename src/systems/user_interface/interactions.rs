@@ -1,3 +1,3 @@
 pub mod deselect_all;
-pub mod main_menu_selection;
+pub mod spawn_menu;
 pub mod toggle_pause;

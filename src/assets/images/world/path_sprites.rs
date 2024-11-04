@@ -92,7 +92,7 @@ impl PathSprite {
 }
 
 #[cfg(test)]
-mod fence_sprite_should {
+mod path_sprite_should {
     use super::*;
     use rstest::rstest;
 

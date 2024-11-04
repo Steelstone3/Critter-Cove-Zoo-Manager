@@ -6,13 +6,13 @@ use crate::{
             terrain_sprites::TerrainSprite, tree_sprites::TreeSprite,
         },
     },
-    systems::user_interface::interactions::main_menu_selection::MainMenuSelection,
+    systems::user_interface::interactions::spawn_menu::SpawnMenu,
 };
 use bevy::ecs::system::Resource;
 
 #[derive(Resource)]
 pub struct SelectedMenuItem {
-    pub menu_selection: MainMenuSelection,
+    pub menu_selection: SpawnMenu,
     pub animal_selection: AnimalSprite,
     pub fence_selection: FenceSprite,
     pub terrain_selection: TerrainSprite,
@@ -25,7 +25,7 @@ pub struct SelectedMenuItem {
 impl Default for SelectedMenuItem {
     fn default() -> Self {
         Self {
-            menu_selection: MainMenuSelection::None,
+            menu_selection: SpawnMenu::None,
             animal_selection: AnimalSprite::None,
             fence_selection: FenceSprite::None,
             terrain_selection: TerrainSprite::None,
