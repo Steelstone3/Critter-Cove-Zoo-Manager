@@ -1,5 +1,6 @@
 use crate::{
-    assets::images::world::path_sprites::PathSprite, resources::selected_item::SelectedMenuItem,
+    assets::images::{user_interface::path_icons::PathIcon, world::path_sprites::PathSprite},
+    resources::selected_item::SelectedMenuItem,
 };
 use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
@@ -8,95 +9,95 @@ pub fn path_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sele
     egui::Window::new("Paths").show(contexts.ctx_mut(), |ui| {
         if ui.add(egui::Button::new("Path 1")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path1;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path1);
         }
         if ui.add(egui::Button::new("Path 2")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path2;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path2);
         }
         if ui.add(egui::Button::new("Path 3")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path3;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path3);
         }
         if ui.add(egui::Button::new("Path 4")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path4;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path4);
         }
         if ui.add(egui::Button::new("Path 5")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path5;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path5);
         }
         if ui.add(egui::Button::new("Path 6")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path6;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path6);
         }
         if ui.add(egui::Button::new("Path 7")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path7;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path7);
         }
         if ui.add(egui::Button::new("Path 8")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path8;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path8);
         }
         if ui.add(egui::Button::new("Path 9")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path9;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path9);
         }
         if ui.add(egui::Button::new("Path 10")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path10;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path10);
         }
         if ui.add(egui::Button::new("Path 11")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path11;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path11);
         }
         if ui.add(egui::Button::new("Path 12")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path12;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path12);
         }
         if ui.add(egui::Button::new("Path 13")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path13;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path13);
         }
         if ui.add(egui::Button::new("Path 14")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path14;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path14);
         }
         if ui.add(egui::Button::new("Path 15")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path15;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path15);
         }
         if ui.add(egui::Button::new("Path 16")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path16;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path16);
         }
         if ui.add(egui::Button::new("Path 17")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path17;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path17);
         }
         if ui.add(egui::Button::new("Path 18")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path18;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path18);
         }
         if ui.add(egui::Button::new("Path 19")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path19;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path19);
         }
         if ui.add(egui::Button::new("Path 20")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path20;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path20);
         }
         if ui.add(egui::Button::new("Path 21")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path21;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path21);
         }
         if ui.add(egui::Button::new("Path 22")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path22;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path22);
         }
         if ui.add(egui::Button::new("Path 23")).clicked() {
             selected_menu_item.reset();
-            selected_menu_item.path_selection = PathSprite::Path23;
+            selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path23);
         }
     });
 }

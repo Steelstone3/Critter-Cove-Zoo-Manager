@@ -1,6 +1,8 @@
 use std::fmt::Display;
 
-#[derive(PartialEq, Clone, Copy)]
+use crate::assets::images::user_interface::path_icons::PathIcon;
+
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum PathSprite {
     Path1,
     Path2,
@@ -56,5 +58,73 @@ impl Display for PathSprite {
             PathSprite::Path23 => write!(f, "images/world/paths/path_23.png"),
             PathSprite::None => write!(f, ""),
         }
+    }
+}
+
+impl PathSprite {
+    pub fn convert_from(icon: PathIcon) -> Self {
+        match icon {
+            PathIcon::Path1 => PathSprite::Path1,
+            PathIcon::Path2 => PathSprite::Path2,
+            PathIcon::Path3 => PathSprite::Path3,
+            PathIcon::Path4 => PathSprite::Path4,
+            PathIcon::Path5 => PathSprite::Path5,
+            PathIcon::Path6 => PathSprite::Path6,
+            PathIcon::Path7 => PathSprite::Path7,
+            PathIcon::Path8 => PathSprite::Path8,
+            PathIcon::Path9 => PathSprite::Path9,
+            PathIcon::Path10 => PathSprite::Path10,
+            PathIcon::Path11 => PathSprite::Path11,
+            PathIcon::Path12 => PathSprite::Path12,
+            PathIcon::Path13 => PathSprite::Path13,
+            PathIcon::Path14 => PathSprite::Path14,
+            PathIcon::Path15 => PathSprite::Path15,
+            PathIcon::Path16 => PathSprite::Path16,
+            PathIcon::Path17 => PathSprite::Path17,
+            PathIcon::Path18 => PathSprite::Path18,
+            PathIcon::Path19 => PathSprite::Path19,
+            PathIcon::Path20 => PathSprite::Path20,
+            PathIcon::Path21 => PathSprite::Path21,
+            PathIcon::Path22 => PathSprite::Path22,
+            PathIcon::Path23 => PathSprite::Path23,
+        }
+    }
+}
+
+#[cfg(test)]
+mod fence_sprite_should {
+    use super::*;
+    use rstest::rstest;
+
+    #[rstest]
+    #[case(PathIcon::Path1, PathSprite::Path1)]
+    #[case(PathIcon::Path2, PathSprite::Path2)]
+    #[case(PathIcon::Path3, PathSprite::Path3)]
+    #[case(PathIcon::Path4, PathSprite::Path4)]
+    #[case(PathIcon::Path5, PathSprite::Path5)]
+    #[case(PathIcon::Path6, PathSprite::Path6)]
+    #[case(PathIcon::Path7, PathSprite::Path7)]
+    #[case(PathIcon::Path8, PathSprite::Path8)]
+    #[case(PathIcon::Path9, PathSprite::Path9)]
+    #[case(PathIcon::Path10, PathSprite::Path10)]
+    #[case(PathIcon::Path11, PathSprite::Path11)]
+    #[case(PathIcon::Path12, PathSprite::Path12)]
+    #[case(PathIcon::Path13, PathSprite::Path13)]
+    #[case(PathIcon::Path14, PathSprite::Path14)]
+    #[case(PathIcon::Path15, PathSprite::Path15)]
+    #[case(PathIcon::Path16, PathSprite::Path16)]
+    #[case(PathIcon::Path17, PathSprite::Path17)]
+    #[case(PathIcon::Path18, PathSprite::Path18)]
+    #[case(PathIcon::Path19, PathSprite::Path19)]
+    #[case(PathIcon::Path20, PathSprite::Path20)]
+    #[case(PathIcon::Path21, PathSprite::Path21)]
+    #[case(PathIcon::Path22, PathSprite::Path22)]
+    #[case(PathIcon::Path23, PathSprite::Path23)]
+    fn convert_from(#[case] icon: PathIcon, #[case] expected_sprite: PathSprite) {
+        // when
+        let actual_sprite = PathSprite::convert_from(icon);
+
+        // then
+        assert_eq!(expected_sprite, actual_sprite);
     }
 }
