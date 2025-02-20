@@ -1,7 +1,9 @@
-use rand_derive2::RandGen;
+use rand::{
+    distr::{Distribution, StandardUniform},
+    Rng,
+};
 use std::fmt::Display;
 
-#[derive(RandGen)]
 pub enum GameMusic {
     Dessert,
     Grassland,
@@ -28,6 +30,19 @@ impl Display for GameMusic {
             GameMusic::Ocean => {
                 write!(f, "sounds/music/ocean_biome.ogg")
             }
+        }
+    }
+}
+
+impl Distribution<GameMusic> for StandardUniform {
+    fn sample<R: Rng + ?Sized>(&self, rng: &mut R) -> GameMusic {
+        match rng.random_range(0..4) {
+            0 => GameMusic::Dessert,
+            1 => GameMusic::Grassland,
+            2 => GameMusic::Jungle,
+            3 => GameMusic::Mountain,
+            4 => GameMusic::Ocean,
+            _ => unreachable!(),
         }
     }
 }
