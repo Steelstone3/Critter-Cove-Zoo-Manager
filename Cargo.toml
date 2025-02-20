@@ -21,7 +21,6 @@ bevy_egui = "0.30"
 rayon = "1"
 rstest = "0"
 rand = "0"
-rand_derive2 = "0"
 float-lerp = "0"
 
 [workspace]
