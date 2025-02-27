@@ -32,7 +32,7 @@ pub fn spawn_animated_sprite(
         if let Some(mut entity) =
             commands.get_entity(spawn_animated_sprite_event.spawn_sprite_event.entity)
         {
-            entity.insert(Sprite::from_atlas_image(
+            let mut sprite = Sprite::from_atlas_image(
                 asset_server.load(
                     spawn_animated_sprite_event
                         .spawn_sprite_event
@@ -43,7 +43,12 @@ pub fn spawn_animated_sprite(
                     layout: texture_atlas_layout,
                     index: 0,
                 },
-            ));
+            );
+
+            sprite.custom_size = Some(spawn_animated_sprite_event.spawn_sprite_event.size);
+
+            entity.insert(sprite);
+
             //     (
             //     SpriteBundle {
             //         sprite: Sprite {
