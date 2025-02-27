@@ -10,7 +10,8 @@ pub struct UserInterfacePlugin;
 
 impl Plugin for UserInterfacePlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Update, spawn_menu);
+        // TODO AH work on adding the spawn menu back
+        // app.add_systems(Update, spawn_menu);
         app.add_systems(Update, deselect_all); // toggle_pause
     }
 }

@@ -31,7 +31,8 @@ fn main() {
                     }),
                     ..Default::default()
                 }),
-            EguiPlugin,
+            // TODO AH Work out what Egui Plugin requires
+            // EguiPlugin,
             // GameStatesPlugin,
             EventsPlugin,
             EventHandlersPlugin,

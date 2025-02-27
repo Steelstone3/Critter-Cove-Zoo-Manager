@@ -16,11 +16,11 @@ pub fn camera_movement(
     };
 
     // Camera Movement Speeds
-    let camera_speed = 500.0 * time.delta_seconds();
+    let camera_speed = 500.0 * time.delta_secs();
     let diagonal_camera_speed = calculate_diagonal_camera_speed(camera_speed);
-    let slow_camera_speed = 100.0 * time.delta_seconds();
+    let slow_camera_speed = 100.0 * time.delta_secs();
     let slow_diagonal_camera_speed = calculate_diagonal_camera_speed(slow_camera_speed);
-    let fast_camera_speed = 1000.0 * time.delta_seconds();
+    let fast_camera_speed = 1000.0 * time.delta_secs();
     let fast_diagonal_camera_speed = calculate_diagonal_camera_speed(fast_camera_speed);
 
     // Inputs
