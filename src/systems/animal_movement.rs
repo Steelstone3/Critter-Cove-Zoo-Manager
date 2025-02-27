@@ -11,7 +11,7 @@ use bevy::{
 
 pub fn animal_movement(mut animal_queries: Query<MutableAnimalTransformQuery>, time: Res<Time>) {
     animal_queries.par_iter_mut().for_each(|mut animal_query| {
-        let speed = animal_query.animal.speed * time.delta_seconds();
+        let speed = animal_query.animal.speed * time.delta_secs();
 
         // Check if the animal has reached its destination
         let distance_to_destination =
