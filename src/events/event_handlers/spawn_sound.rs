@@ -15,10 +15,8 @@ pub fn spawn_sound(
 ) {
     for spawn_sound_event in spawn_sound_events.read() {
         let source = asset_server.load(&spawn_sound_event.sound_path);
-        
-        // TODO AH Need to work out how to add settings
-        // let settings = spawn_sound_event.playback_settings;
+        let settings = spawn_sound_event.playback_settings;
 
-        commands.spawn(AudioPlayer::<AudioSource>(source));
+        commands.spawn((AudioPlayer::<AudioSource>(source), settings));
     }
 }
