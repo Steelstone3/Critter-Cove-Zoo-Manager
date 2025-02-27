@@ -1,4 +1,4 @@
-use bevy::{ecs::query::QueryData, sprite::TextureAtlas};
+use bevy::{ecs::query::QueryData, sprite::Sprite};
 
 use crate::components::animation_timer::AnimationTimer;
 
@@ -6,5 +6,6 @@ use crate::components::animation_timer::AnimationTimer;
 #[query_data(mutable)]
 pub struct MutableAnimationQuery {
     pub animation_timer: &'static mut AnimationTimer,
-    pub texture_atlas: &'static mut TextureAtlas,
+    pub sprite: &'static mut Sprite,
+    // pub texture_atlas: &'static mut TextureAtlas,
 }
