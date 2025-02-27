@@ -8,7 +8,10 @@ use bevy::{
     sprite::{Sprite, TextureAtlas, TextureAtlasLayout},
 };
 
-use crate::events::spawn_animated_sprite_event::SpawnAnimatedSpriteEvent;
+use crate::{
+    components::animation_timer::AnimationTimer,
+    events::spawn_animated_sprite_event::SpawnAnimatedSpriteEvent,
+};
 
 pub fn spawn_animated_sprite(
     mut commands: Commands,
@@ -32,6 +35,7 @@ pub fn spawn_animated_sprite(
         if let Some(mut entity) =
             commands.get_entity(spawn_animated_sprite_event.spawn_sprite_event.entity)
         {
+            // create sprite
             let mut sprite = Sprite::from_atlas_image(
                 asset_server.load(
                     spawn_animated_sprite_event
@@ -44,12 +48,20 @@ pub fn spawn_animated_sprite(
                     index: 0,
                 },
             );
-
             sprite.custom_size = Some(spawn_animated_sprite_event.spawn_sprite_event.size);
 
-            // TODO AH insert transform
+            // create animation timer
+            let animation_timer = AnimationTimer::new(
+                spawn_animated_sprite_event.frame_timing,
+                spawn_animated_sprite_event.frame_count,
+            );
+
             // TODO AH find a way of doing the animation timer
-            entity.insert(sprite);
+            entity.insert((
+                sprite,
+                spawn_animated_sprite_event.spawn_sprite_event.transform,
+                animation_timer,
+            ));
 
             //     (
             //     SpriteBundle {

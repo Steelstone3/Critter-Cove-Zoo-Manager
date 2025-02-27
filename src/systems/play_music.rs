@@ -24,11 +24,11 @@ pub fn play_music(
 
         spawn_sound_event.send(SpawnSoundEvent {
             sound_path: music.sound_path.to_string(),
-            playback_settings: PlaybackSettings {
-                mode: PlaybackMode::Remove,
-                volume: Volume::new(0.5),
-                ..Default::default()
-            },
+            // playback_settings: PlaybackSettings {
+            //     mode: PlaybackMode::Remove,
+            //     volume: Volume::new(0.5),
+            //     ..Default::default()
+            // },
         });
     }
 }
