@@ -47,6 +47,8 @@ pub fn spawn_animated_sprite(
 
             sprite.custom_size = Some(spawn_animated_sprite_event.spawn_sprite_event.size);
 
+            // TODO AH insert transform
+            // TODO AH find a way of doing the animation timer
             entity.insert(sprite);
 
             //     (
