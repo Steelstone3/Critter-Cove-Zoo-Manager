@@ -3,7 +3,7 @@ use crate::{
     components::rock::Rock,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
-        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
+        camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery,
     },
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_cursor_location,
@@ -22,7 +22,7 @@ pub fn spawn_rock(
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
     windows_queries: Query<WindowQuery>,
-    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
+    camera_queries: Query<CameraTransformProjectionQuery>,
 ) {
     if selected_item.rock_selection == RockSprite::None {
         return;

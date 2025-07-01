@@ -3,7 +3,7 @@ use bevy::{math::Vec2, transform::components::Transform};
 use crate::{
     components::constants::TILE_SIZE,
     queries::{
-        camera_queries::CameraTransformOrthographicProjectionQueryItem,
+        camera_queries::CameraTransformProjectionQueryItem,
         window_queries::WindowQueryItem,
     },
 };
@@ -12,7 +12,7 @@ pub fn get_cursor_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
     window_query: WindowQueryItem<'_>,
-    camera_query: CameraTransformOrthographicProjectionQueryItem<'_>,
+    camera_query: CameraTransformProjectionQueryItem<'_>,
 ) {
     transform.translation.x = ((cursor_position.x - window_query.window.resolution.width() / 2.0)
         * camera_query.projection.scale)
@@ -27,7 +27,7 @@ pub fn get_tile_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
     window_query: WindowQueryItem<'_>,
-    camera_query: CameraTransformOrthographicProjectionQueryItem<'_>,
+    camera_query: CameraTransformProjectionQueryItem<'_>,
 ) {
     get_cursor_location(transform, cursor_position, window_query, camera_query);
 

@@ -3,7 +3,7 @@ use crate::{
     components::path::Path,
     events::spawn_sprite_event::SpawnSpriteEvent,
     queries::{
-        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
+        camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery,
     },
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_tile_location,
@@ -21,7 +21,7 @@ pub fn spawn_path(
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
     windows_query: Query<WindowQuery>,
-    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
+    camera_queries: Query<CameraTransformProjectionQuery>,
 ) {
     if selected_item.path_selection == PathSprite::None {
         return;
