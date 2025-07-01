@@ -6,6 +6,7 @@ use bevy::{
 };
 // use bevy_egui::EguiPlugin;
 use bevy::prelude::PluginGroup;
+use bevy_egui::EguiPlugin;
 use plugins::{
     event_handlers::EventHandlersPlugin, events::EventsPlugin, resources::ResourcesPlugin,
     running::RunningPlugin, start::StartPlugin, user_interface::UserInterfacePlugin,
@@ -37,7 +38,7 @@ fn main() {
                     }),
                     ..Default::default()
                 }),
-            // EguiPlugin,
+            EguiPlugin::default(),
             // GameStatesPlugin,
             EventsPlugin,
             EventHandlersPlugin,
