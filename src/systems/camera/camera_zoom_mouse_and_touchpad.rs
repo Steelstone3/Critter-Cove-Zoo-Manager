@@ -8,6 +8,7 @@ use bevy::{
         system::{Query, ResMut},
     },
     input::{keyboard::KeyCode, mouse::MouseWheel, ButtonInput},
+    render::camera::Projection,
 };
 use float_lerp::lerp;
 
@@ -39,5 +40,11 @@ pub fn camera_zoom_mouse_and_touchpad(
         camera_settings.current_zoom = 1.0;
     }
 
-    camera.projection.scale = lerp(camera.projection.scale, camera_settings.current_zoom, 0.05);
+    if let Projection::Orthographic(orthographic_projection) = &mut *camera.projection {
+        orthographic_projection.scale = lerp(
+            orthographic_projection.scale,
+            camera_settings.current_zoom,
+            0.05,
+        );
+    }
 }

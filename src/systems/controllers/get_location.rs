@@ -1,35 +1,37 @@
-use bevy::{math::Vec2, transform::components::Transform};
+use bevy::{math::Vec2, render::camera::Projection, transform::components::Transform};
 
 use crate::{
     components::constants::TILE_SIZE,
     queries::{
-        camera_queries::CameraTransformProjectionQueryItem,
-        window_queries::WindowQueryItem,
+        camera_queries::CameraTransformProjectionQueryItem, window_queries::WindowQueryItem,
     },
 };
 
 pub fn get_cursor_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
-    window_query: WindowQueryItem<'_>,
-    camera_query: CameraTransformProjectionQueryItem<'_>,
+    window: WindowQueryItem<'_>,
+    camera: CameraTransformProjectionQueryItem<'_>,
 ) {
-    transform.translation.x = ((cursor_position.x - window_query.window.resolution.width() / 2.0)
-        * camera_query.projection.scale)
-        + camera_query.transform.translation.x;
-    transform.translation.y = -((cursor_position.y
-        - window_query.window.resolution.height() / 2.0)
-        * camera_query.projection.scale)
-        + camera_query.transform.translation.y;
+    if let Projection::Orthographic(orthographic_projection) = &*camera.projection {
+        transform.translation.x = ((cursor_position.x
+            - window.window.resolution.width() / 2.0)
+            * orthographic_projection.scale)
+            + camera.transform.translation.x;
+        transform.translation.y = -((cursor_position.y
+            - window.window.resolution.height() / 2.0)
+            * orthographic_projection.scale)
+            + camera.transform.translation.y;
+    }
 }
 
 pub fn get_tile_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
-    window_query: WindowQueryItem<'_>,
-    camera_query: CameraTransformProjectionQueryItem<'_>,
+    window: WindowQueryItem<'_>,
+    camera: CameraTransformProjectionQueryItem<'_>,
 ) {
-    get_cursor_location(transform, cursor_position, window_query, camera_query);
+    get_cursor_location(transform, cursor_position, window, camera);
 
     let tile_position =
         get_nearest_tile(Vec2::new(transform.translation.x, transform.translation.y));
