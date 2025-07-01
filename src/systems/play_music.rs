@@ -26,7 +26,7 @@ pub fn play_music(
             sound_path: music.sound_path.to_string(),
             playback_settings: PlaybackSettings {
                 mode: PlaybackMode::Remove,
-                // volume: Volume::new(0.5),
+                volume: Volume::Linear(0.5),
                 ..Default::default()
             },
         });
