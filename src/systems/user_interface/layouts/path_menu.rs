@@ -6,7 +6,7 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 pub fn path_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<SelectedMenuItem>) {
-    egui::Window::new("Paths").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Paths").show(contexts.ctx_mut().expect("Path Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Path 1")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.path_selection = PathSprite::convert_from(PathIcon::Path1);

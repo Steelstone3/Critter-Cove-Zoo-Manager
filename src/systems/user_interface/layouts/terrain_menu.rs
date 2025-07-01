@@ -11,7 +11,7 @@ pub fn terrain_menu(
     contexts: &mut EguiContexts,
     selected_menu_item: &mut ResMut<SelectedMenuItem>,
 ) {
-    egui::Window::new("Terrains").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Terrains").show(contexts.ctx_mut().expect("Terrain Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Dark Grass 1")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.terrain_selection =

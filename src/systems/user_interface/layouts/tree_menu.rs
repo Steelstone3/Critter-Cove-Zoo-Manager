@@ -7,7 +7,7 @@ use crate::{
 };
 
 pub fn tree_menu(contexts: &mut EguiContexts, selected_menu_item: &mut ResMut<SelectedMenuItem>) {
-    egui::Window::new("Trees").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Trees").show(contexts.ctx_mut().expect("Tree Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Bush 1")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.tree_selection = TreeSprite::convert_from(TreeIcon::Bush1);

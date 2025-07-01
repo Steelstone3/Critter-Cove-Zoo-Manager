@@ -7,7 +7,7 @@ use crate::{
 };
 
 pub fn rock_menu(contexts: &mut EguiContexts, selected_menu_item: &mut ResMut<SelectedMenuItem>) {
-    egui::Window::new("Rocks").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Rocks").show(contexts.ctx_mut().expect("Rocks Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Ice Rock 1")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.rock_selection = RockSprite::convert_from(RockIcon::IceRock1);

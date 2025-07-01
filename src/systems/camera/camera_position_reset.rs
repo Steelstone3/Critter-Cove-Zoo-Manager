@@ -9,7 +9,7 @@ pub fn camera_position_reset(
     mut input: ResMut<ButtonInput<KeyCode>>,
     mut cameras: Query<MutableCameraTransformQuery>,
 ) {
-    let Ok(mut camera) = cameras.get_single_mut() else {
+    let Ok(mut camera) = cameras.single_mut() else {
         return;
     };
 

@@ -13,7 +13,7 @@ pub fn camera_zoom_keyboard(
     mut cameras: Query<MutableCameraOrthographicProjectionQuery>,
     mut camera_settings: ResMut<CameraSettings>,
 ) {
-    let Ok(mut camera) = cameras.get_single_mut() else {
+    let Ok(mut camera) = cameras.single_mut() else {
         return;
     };
 

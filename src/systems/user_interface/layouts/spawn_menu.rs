@@ -13,7 +13,7 @@ use bevy_egui::{egui, EguiContexts};
 pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<SelectedMenuItem>) {
     match selected_menu_item.menu_selection {
         SpawnMenu::None => {
-            egui::Window::new("Zoo Manager").show(contexts.ctx_mut(), |ui| {
+            egui::Window::new("Zoo Manager").show(contexts.ctx_mut().expect("Spawn Menu failed to render"), |ui| {
                 if ui.add(egui::Button::new("Zoo Animal")).clicked() {
                     selected_menu_item.menu_selection =
                         SpawnMenu::convert_from(SpawnMenuIcon::Animals);

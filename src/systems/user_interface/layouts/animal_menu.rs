@@ -6,7 +6,7 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 pub fn animal_menu(contexts: &mut EguiContexts, selected_menu_item: &mut ResMut<SelectedMenuItem>) {
-    egui::Window::new("Animals").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Animals").show(contexts.ctx_mut().expect("Animals Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Boar")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.animal_selection = AnimalSprite::convert_from(AnimalIcon::Boar);

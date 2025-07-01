@@ -12,10 +12,7 @@ use bevy::{
     ecs::{
         event::EventWriter,
         system::{Commands, Query, ResMut},
-    },
-    input::{mouse::MouseButton, ButtonInput},
-    transform::components::Transform,
-    utils::tracing,
+    }, input::{mouse::MouseButton, ButtonInput}, log::tracing, transform::components::Transform
 };
 
 pub fn spawn_tree(
@@ -30,11 +27,11 @@ pub fn spawn_tree(
         return;
     }
 
-    let Ok(window_query) = windows_queries.get_single() else {
+    let Ok(window_query) = windows_queries.single() else {
         return;
     };
 
-    let Ok(camera_query) = camera_queries.get_single() else {
+    let Ok(camera_query) = camera_queries.single() else {
         return;
     };
 
@@ -64,7 +61,7 @@ pub fn spawn_tree(
 
     tracing::info!("tree at {:?}", transform.translation);
 
-    spawn_sprite_event.send(SpawnSpriteEvent {
+    spawn_sprite_event.write(SpawnSpriteEvent {
         sprite_path: tree.sprite_path.to_string(),
         size: tree.size,
         transform,

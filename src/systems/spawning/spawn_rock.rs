@@ -12,10 +12,8 @@ use bevy::{
     ecs::{
         event::EventWriter,
         system::{Commands, Query, ResMut},
-    },
-    input::{mouse::MouseButton, ButtonInput},
-    transform::components::Transform,
-    utils::tracing,
+    }, input::{mouse::MouseButton, ButtonInput}, log::tracing, transform::components::Transform
+
 };
 
 pub fn spawn_rock(
@@ -30,11 +28,11 @@ pub fn spawn_rock(
         return;
     }
 
-    let Ok(window_query) = windows_queries.get_single() else {
+    let Ok(window_query) = windows_queries.single() else {
         return;
     };
 
-    let Ok(camera_query) = camera_queries.get_single() else {
+    let Ok(camera_query) = camera_queries.single() else {
         return;
     };
 
@@ -55,7 +53,7 @@ pub fn spawn_rock(
 
     tracing::info!("rock at {:?}", transform.translation);
 
-    spawn_sprite_event.send(SpawnSpriteEvent {
+    spawn_sprite_event.write(SpawnSpriteEvent {
         sprite_path: rock.sprite_path.to_string(),
         size: rock.size,
         transform,

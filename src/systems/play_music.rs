@@ -22,11 +22,11 @@ pub fn play_music(
     if music_timer.timer.just_finished() {
         let music = Music::default();
 
-        spawn_sound_event.send(SpawnSoundEvent {
+        spawn_sound_event.write(SpawnSoundEvent {
             sound_path: music.sound_path.to_string(),
             playback_settings: PlaybackSettings {
                 mode: PlaybackMode::Remove,
-                volume: Volume::new(0.5),
+                // volume: Volume::new(0.5),
                 ..Default::default()
             },
         });

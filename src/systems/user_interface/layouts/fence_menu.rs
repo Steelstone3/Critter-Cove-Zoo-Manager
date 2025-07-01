@@ -6,7 +6,7 @@ use bevy::prelude::ResMut;
 use bevy_egui::{egui, EguiContexts};
 
 pub fn fence_menu(contexts: &mut EguiContexts, selected_menu_item: &mut ResMut<SelectedMenuItem>) {
-    egui::Window::new("Fences").show(contexts.ctx_mut(), |ui| {
+    egui::Window::new("Fences").show(contexts.ctx_mut().expect("Fence Menu failed to render"), |ui| {
         if ui.add(egui::Button::new("Fence 1")).clicked() {
             selected_menu_item.reset();
             selected_menu_item.fence_selection = FenceSprite::convert_from(FenceIcon::Fence1);

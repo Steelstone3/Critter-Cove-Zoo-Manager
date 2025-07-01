@@ -16,8 +16,8 @@ use bevy::{
         system::{Commands, Query, ResMut},
     },
     input::{mouse::MouseButton, ButtonInput},
+    log::tracing,
     transform::components::Transform,
-    utils::tracing,
 };
 
 pub fn spawn_animal(
@@ -32,11 +32,11 @@ pub fn spawn_animal(
         return;
     }
 
-    let Ok(window_query) = windows_query.get_single() else {
+    let Ok(window_query) = windows_query.single() else {
         return;
     };
 
-    let Ok(camera_query) = camera_queries.get_single() else {
+    let Ok(camera_query) = camera_queries.single() else {
         return;
     };
 
@@ -65,7 +65,7 @@ pub fn spawn_animal(
 
     tracing::info!("animal at {:?}", transform.translation);
 
-    spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
+    spawn_animated_sprite_event.write(SpawnAnimatedSpriteEvent {
         frame_timing: animal.frame_timing,
         frame_count: animal.frame_count,
         tile_size: animal.tile_size,
