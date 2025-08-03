@@ -1,12 +1,16 @@
-use bevy::{
-    asset::{AssetServer, Assets}, ecs::{
-        event::EventReader,
-        system::{Commands, Res, ResMut},
-    }, image::{TextureAtlas, TextureAtlasLayout}, math::UVec2, sprite::Sprite
-};
 use crate::{
     components::animation_timer::AnimationTimer,
     events::spawn_animated_sprite_event::SpawnAnimatedSpriteEvent,
+};
+use bevy::{
+    asset::{AssetServer, Assets},
+    ecs::{
+        event::EventReader,
+        system::{Commands, Res, ResMut},
+    },
+    image::{TextureAtlas, TextureAtlasLayout},
+    math::UVec2,
+    sprite::Sprite,
 };
 
 pub fn spawn_animated_sprite(

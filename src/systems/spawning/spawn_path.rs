@@ -2,9 +2,7 @@ use crate::{
     assets::images::world::path_sprites::PathSprite,
     components::path::Path,
     events::spawn_sprite_event::SpawnSpriteEvent,
-    queries::{
-        camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery,
-    },
+    queries::{camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery},
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_tile_location,
 };
@@ -12,7 +10,10 @@ use bevy::{
     ecs::{
         event::EventWriter,
         system::{Commands, Query, ResMut},
-    }, input::{mouse::MouseButton, ButtonInput}, log::tracing, transform::components::Transform
+    },
+    input::{mouse::MouseButton, ButtonInput},
+    log::tracing,
+    transform::components::Transform,
 };
 
 pub fn spawn_path(

@@ -1,4 +1,3 @@
-use bevy::ecs::resource::Resource;
 use crate::{
     assets::images::{
         animal_sprites::AnimalSprite,
@@ -9,6 +8,7 @@ use crate::{
     },
     systems::user_interface::interactions::spawn_menu::SpawnMenu,
 };
+use bevy::ecs::resource::Resource;
 
 #[derive(Resource)]
 pub struct SelectedMenuItem {

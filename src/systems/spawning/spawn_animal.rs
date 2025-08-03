@@ -4,9 +4,7 @@ use crate::{
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
-    queries::{
-        camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery,
-    },
+    queries::{camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery},
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_cursor_location,
 };

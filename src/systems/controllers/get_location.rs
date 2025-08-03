@@ -14,12 +14,10 @@ pub fn get_cursor_location(
     camera: CameraTransformProjectionQueryItem<'_>,
 ) {
     if let Projection::Orthographic(orthographic_projection) = &*camera.projection {
-        transform.translation.x = ((cursor_position.x
-            - window.window.resolution.width() / 2.0)
+        transform.translation.x = ((cursor_position.x - window.window.resolution.width() / 2.0)
             * orthographic_projection.scale)
             + camera.transform.translation.x;
-        transform.translation.y = -((cursor_position.y
-            - window.window.resolution.height() / 2.0)
+        transform.translation.y = -((cursor_position.y - window.window.resolution.height() / 2.0)
             * orthographic_projection.scale)
             + camera.transform.translation.y;
     }
