@@ -5,13 +5,15 @@ use bevy::{
     app::Update,
     prelude::{App, Plugin},
 };
+use bevy_egui::EguiPrimaryContextPass;
 
 pub struct UserInterfacePlugin;
 
 impl Plugin for UserInterfacePlugin {
     fn build(&self, app: &mut App) {
         // TODO AH work on adding the spawn menu back
+        app.add_systems(EguiPrimaryContextPass, spawn_menu);
         // app.add_systems(Update, spawn_menu);
-        // app.add_systems(Update, deselect_all); // toggle_pause
+        app.add_systems(Update, deselect_all); // toggle_pause
     }
 }
