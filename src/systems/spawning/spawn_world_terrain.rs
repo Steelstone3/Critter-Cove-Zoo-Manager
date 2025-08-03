@@ -21,7 +21,7 @@ pub fn spawn_world_terrain(
 
     for x in MAP_TILES {
         for y in MAP_TILES {
-            spawn_sprite_event.send(SpawnSpriteEvent {
+            spawn_sprite_event.write(SpawnSpriteEvent {
                 sprite_path: terrain.sprite_path.to_string(),
                 size: terrain.size,
                 transform: Transform {

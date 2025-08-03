@@ -1,4 +1,11 @@
-use bevy::prelude::*;
+use bevy::{
+    app::App,
+    render::texture::ImagePlugin,
+    window::{Window, WindowPlugin, WindowResizeConstraints},
+    DefaultPlugins,
+};
+// use bevy_egui::EguiPlugin;
+use bevy::prelude::PluginGroup;
 use bevy_egui::EguiPlugin;
 use plugins::{
     event_handlers::EventHandlersPlugin, events::EventsPlugin, resources::ResourcesPlugin,
@@ -31,8 +38,7 @@ fn main() {
                     }),
                     ..Default::default()
                 }),
-            EguiPlugin,
-            // GameStatesPlugin,
+            EguiPlugin::default(),
             EventsPlugin,
             EventHandlersPlugin,
             ResourcesPlugin,

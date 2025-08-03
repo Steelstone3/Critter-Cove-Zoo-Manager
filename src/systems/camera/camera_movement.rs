@@ -11,7 +11,7 @@ pub fn camera_movement(
     time: Res<Time>,
     mut cameras: Query<MutableCameraTransformQuery>,
 ) {
-    let Ok(mut camera) = cameras.get_single_mut() else {
+    let Ok(mut camera) = cameras.single_mut() else {
         return;
     };
 

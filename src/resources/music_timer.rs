@@ -1,5 +1,5 @@
 use bevy::{
-    ecs::system::Resource,
+    ecs::resource::Resource,
     time::{Timer, TimerMode},
 };
 

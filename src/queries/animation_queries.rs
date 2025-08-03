@@ -7,5 +7,4 @@ use crate::components::animation_timer::AnimationTimer;
 pub struct MutableAnimationQuery {
     pub animation_timer: &'static mut AnimationTimer,
     pub sprite: &'static mut Sprite,
-    // pub texture_atlas: &'static mut TextureAtlas,
 }

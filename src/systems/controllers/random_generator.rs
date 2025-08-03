@@ -1,20 +1,14 @@
-use std::ops::Range;
-
 use rand::{rngs::StdRng, Rng, RngCore, SeedableRng};
+use std::ops::Range;
 
 pub fn random_value_f32(seed: u64, range: Range<f32>) -> f32 {
     let mut rng = StdRng::seed_from_u64(seed);
 
-    rng.random_range(range.start..range.end)
+    rng.gen_range(range.start..range.end)
 }
 
 pub fn generate_seed() -> u64 {
-    let seed = [
-        1, 0, 0, 0, 23, 0, 0, 0, 200, 1, 0, 0, 210, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0,
-    ];
-
-    let mut rng = StdRng::from_seed(seed);
+    let mut rng = rand::thread_rng();
     rng.next_u64()
 }
 

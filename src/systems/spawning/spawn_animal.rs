@@ -4,9 +4,7 @@ use crate::{
     events::{
         spawn_animated_sprite_event::SpawnAnimatedSpriteEvent, spawn_sprite_event::SpawnSpriteEvent,
     },
-    queries::{
-        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
-    },
+    queries::{camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery},
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_cursor_location,
 };
@@ -16,8 +14,8 @@ use bevy::{
         system::{Commands, Query, ResMut},
     },
     input::{mouse::MouseButton, ButtonInput},
+    log::tracing,
     transform::components::Transform,
-    utils::tracing,
 };
 
 pub fn spawn_animal(
@@ -26,17 +24,17 @@ pub fn spawn_animal(
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_animated_sprite_event: EventWriter<SpawnAnimatedSpriteEvent>,
     windows_query: Query<WindowQuery>,
-    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
+    camera_queries: Query<CameraTransformProjectionQuery>,
 ) {
     if selected_item.animal_selection == AnimalSprite::None {
         return;
     }
 
-    let Ok(window_query) = windows_query.get_single() else {
+    let Ok(window_query) = windows_query.single() else {
         return;
     };
 
-    let Ok(camera_query) = camera_queries.get_single() else {
+    let Ok(camera_query) = camera_queries.single() else {
         return;
     };
 
@@ -65,7 +63,7 @@ pub fn spawn_animal(
 
     tracing::info!("animal at {:?}", transform.translation);
 
-    spawn_animated_sprite_event.send(SpawnAnimatedSpriteEvent {
+    spawn_animated_sprite_event.write(SpawnAnimatedSpriteEvent {
         frame_timing: animal.frame_timing,
         frame_count: animal.frame_count,
         tile_size: animal.tile_size,

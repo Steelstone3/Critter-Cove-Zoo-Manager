@@ -8,7 +8,7 @@ use crate::{
     },
     systems::user_interface::interactions::spawn_menu::SpawnMenu,
 };
-use bevy::ecs::system::Resource;
+use bevy::ecs::resource::Resource;
 
 #[derive(Resource)]
 pub struct SelectedMenuItem {

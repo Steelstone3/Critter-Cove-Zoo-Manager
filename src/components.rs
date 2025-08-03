@@ -2,7 +2,6 @@ pub mod animal;
 pub mod animation_timer;
 pub mod constants;
 pub mod fence;
-pub mod game_states;
 pub mod music;
 pub mod path;
 pub mod rock;

@@ -2,9 +2,7 @@ use crate::{
     assets::images::world::fence_sprites::FenceSprite,
     components::fence::Fence,
     events::spawn_sprite_event::SpawnSpriteEvent,
-    queries::{
-        camera_queries::CameraTransformOrthographicProjectionQuery, window_queries::WindowQuery,
-    },
+    queries::{camera_queries::CameraTransformProjectionQuery, window_queries::WindowQuery},
     resources::selected_item::SelectedMenuItem,
     systems::controllers::get_location::get_tile_location,
 };
@@ -14,8 +12,8 @@ use bevy::{
         system::{Commands, Query, ResMut},
     },
     input::{mouse::MouseButton, ButtonInput},
+    log::tracing,
     transform::components::Transform,
-    utils::tracing,
 };
 
 pub fn spawn_fence(
@@ -24,17 +22,17 @@ pub fn spawn_fence(
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
     mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
     windows_queries: Query<WindowQuery>,
-    camera_queries: Query<CameraTransformOrthographicProjectionQuery>,
+    camera_queries: Query<CameraTransformProjectionQuery>,
 ) {
     if selected_item.fence_selection == FenceSprite::None {
         return;
     }
 
-    let Ok(window_query) = windows_queries.get_single() else {
+    let Ok(window_query) = windows_queries.single() else {
         return;
     };
 
-    let Ok(camera_query) = camera_queries.get_single() else {
+    let Ok(camera_query) = camera_queries.single() else {
         return;
     };
 
@@ -55,7 +53,7 @@ pub fn spawn_fence(
 
     tracing::info!("fence at {:?}", transform.translation);
 
-    spawn_sprite_event.send(SpawnSpriteEvent {
+    spawn_sprite_event.write(SpawnSpriteEvent {
         sprite_path: fence.sprite_path.to_string(),
         size: fence.size,
         transform,
