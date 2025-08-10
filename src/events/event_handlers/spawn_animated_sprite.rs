@@ -56,37 +56,11 @@ pub fn spawn_animated_sprite(
                 spawn_animated_sprite_event.frame_count,
             );
 
-            // TODO AH find a way of doing the animation timer
             entity.insert((
                 sprite,
                 spawn_animated_sprite_event.spawn_sprite_event.transform,
                 animation_timer,
             ));
-
-            //     (
-            //     SpriteBundle {
-            //         sprite: Sprite {
-            //             custom_size: Some(spawn_animated_sprite_event.spawn_sprite_event.size),
-            //             ..Default::default()
-            //         },
-            //         texture: asset_server.load(
-            //             spawn_animated_sprite_event
-            //                 .spawn_sprite_event
-            //                 .sprite_path
-            //                 .to_string(),
-            //         ),
-            //         transform: spawn_animated_sprite_event.spawn_sprite_event.transform,
-            //         ..Default::default()
-            //     },
-            //     AnimationTimer::new(
-            //         spawn_animated_sprite_event.frame_timing,
-            //         spawn_animated_sprite_event.frame_count,
-            //     ),
-            //     TextureAtlas {
-            //         layout: texture_atlas_layout,
-            //         index: 0,
-            //     },
-            // )
         }
     }
 }

@@ -4,7 +4,6 @@ use bevy::{
     window::{Window, WindowPlugin, WindowResizeConstraints},
     DefaultPlugins,
 };
-// use bevy_egui::EguiPlugin;
 use bevy::prelude::PluginGroup;
 use bevy_egui::EguiPlugin;
 use plugins::{

@@ -1,9 +1,7 @@
 pub mod animal_menu;
-pub mod animal_menu_2;
 pub mod fence_menu;
 pub mod path_menu;
 pub mod rock_menu;
 pub mod spawn_menu;
-pub mod spawn_menu_2;
 pub mod terrain_menu;
 pub mod tree_menu;

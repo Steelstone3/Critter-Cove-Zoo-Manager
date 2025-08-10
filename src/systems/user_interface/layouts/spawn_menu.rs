@@ -13,36 +13,27 @@ use bevy_egui::{egui, EguiContexts};
 pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<SelectedMenuItem>) {
     match selected_menu_item.menu_selection {
         SpawnMenu::None => {
-            egui::Window::new("Zoo Manager").show(
-                contexts.ctx_mut().expect("Spawn Menu failed to render"),
-                |ui| {
-                    if ui.add(egui::Button::new("Zoo Animal")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Animals);
+            let items = [
+                ("Animals", SpawnMenuIcon::Animals),
+                ("Fences", SpawnMenuIcon::Fences),
+                ("Terrains", SpawnMenuIcon::Terrains),
+                ("Trees", SpawnMenuIcon::Trees),
+                ("Rocks", SpawnMenuIcon::Rocks),
+                ("Paths", SpawnMenuIcon::Paths),
+            ];
+
+            if let Ok(ctx) = contexts.ctx_mut() {
+                egui::Window::new("Zoo Manager").show(ctx, |ui| {
+                    for (label, icon) in items {
+                        if ui.add(egui::Button::new(label)).clicked() {
+                            selected_menu_item.reset();
+                            selected_menu_item.menu_selection = SpawnMenu::convert_from(icon);
+                        }
                     }
-                    if ui.add(egui::Button::new("Fences")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Fences);
-                    }
-                    if ui.add(egui::Button::new("Terrain")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Terrains);
-                    }
-                    if ui.add(egui::Button::new("Trees")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Trees);
-                    }
-                    if ui.add(egui::Button::new("Rocks")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Rocks);
-                    }
-                    // Shelters
-                    if ui.add(egui::Button::new("Paths")).clicked() {
-                        selected_menu_item.menu_selection =
-                            SpawnMenu::convert_from(SpawnMenuIcon::Paths);
-                    }
-                },
-            );
+                });
+            } else {
+                eprintln!("Terrain Menu failed to render");
+            }
         }
 
         SpawnMenu::Animals => {
@@ -64,7 +55,7 @@ pub fn spawn_menu(mut contexts: EguiContexts, mut selected_menu_item: ResMut<Sel
         }
 
         SpawnMenu::Paths => {
-            path_menu(contexts, selected_menu_item);
+            path_menu(&mut contexts, &mut selected_menu_item);
         }
     }
 }

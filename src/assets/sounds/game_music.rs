@@ -1,5 +1,5 @@
 use rand::Rng;
-use rand_distr::{Distribution, Standard};
+use rand_distr::{Distribution, StandardUniform};
 use std::fmt::Display;
 
 pub enum GameMusic {
@@ -32,9 +32,9 @@ impl Display for GameMusic {
     }
 }
 
-impl Distribution<GameMusic> for Standard {
+impl Distribution<GameMusic> for StandardUniform {
     fn sample<R: Rng + ?Sized>(&self, rng: &mut R) -> GameMusic {
-        match rng.gen_range(0..5) {
+        match rng.random_range(0..5) {
             0 => GameMusic::Dessert,
             1 => GameMusic::Grassland,
             2 => GameMusic::Jungle,
