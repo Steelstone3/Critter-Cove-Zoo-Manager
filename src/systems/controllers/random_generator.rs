@@ -4,11 +4,11 @@ use std::ops::Range;
 pub fn random_value_f32(seed: u64, range: Range<f32>) -> f32 {
     let mut rng = StdRng::seed_from_u64(seed);
 
-    rng.gen_range(range.start..range.end)
+    rng.random_range(range.start..range.end)
 }
 
 pub fn generate_seed() -> u64 {
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     rng.next_u64()
 }
 

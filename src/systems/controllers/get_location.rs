@@ -13,7 +13,7 @@ pub fn get_cursor_location(
     window: WindowQueryItem<'_>,
     camera: CameraTransformProjectionQueryItem<'_>,
 ) {
-    if let Projection::Orthographic(orthographic_projection) = &*camera.projection {
+    if let Projection::Orthographic(orthographic_projection) = camera.projection {
         transform.translation.x = ((cursor_position.x - window.window.resolution.width() / 2.0)
             * orthographic_projection.scale)
             + camera.transform.translation.x;
