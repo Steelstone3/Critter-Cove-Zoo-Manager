@@ -7,20 +7,14 @@ use crate::{
     systems::controllers::get_location::get_cursor_location,
 };
 use bevy::{
-    ecs::{
-        event::EventWriter,
-        system::{Commands, Query, ResMut},
-    },
-    input::{mouse::MouseButton, ButtonInput},
-    log::tracing,
-    transform::components::Transform,
+    ecs::{message::MessageWriter, system::{Commands, Query, ResMut}}, input::{ButtonInput, mouse::MouseButton}, log::tracing, transform::components::Transform,
 };
 
 pub fn spawn_rock(
     mut commands: Commands,
     selected_item: ResMut<SelectedMenuItem>,
     mut mouse_button_input: ResMut<ButtonInput<MouseButton>>,
-    mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
+    mut spawn_sprite_event: MessageWriter<SpawnSpriteEvent>,
     windows_queries: Query<WindowQuery>,
     camera_queries: Query<CameraTransformProjectionQuery>,
 ) {

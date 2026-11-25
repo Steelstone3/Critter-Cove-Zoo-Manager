@@ -1,10 +1,7 @@
 use bevy::{
-    audio::{PlaybackMode, PlaybackSettings, Volume},
-    ecs::{
-        event::EventWriter,
-        system::{Res, ResMut},
-    },
-    time::Time,
+    audio::{PlaybackMode, PlaybackSettings, Volume}, ecs::{
+        message::MessageWriter, system::{Res, ResMut},
+    }, time::Time,
 };
 
 use crate::{
@@ -13,7 +10,7 @@ use crate::{
 };
 
 pub fn play_music(
-    mut spawn_sound_event: EventWriter<SpawnSoundEvent>,
+    mut spawn_sound_event: MessageWriter<SpawnSoundEvent>,
     mut music_timer: ResMut<MusicTimer>,
     time: Res<Time>,
 ) {

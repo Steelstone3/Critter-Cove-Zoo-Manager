@@ -1,8 +1,7 @@
-use bevy::ecs::event::Event;
-
 use super::spawn_sprite_event::SpawnSpriteEvent;
+use bevy::ecs::message::Message;
 
-#[derive(Event)]
+#[derive(Message)]
 pub struct SpawnAnimatedSpriteEvent {
     pub tile_size: u32,
     pub tile_columns: u32,

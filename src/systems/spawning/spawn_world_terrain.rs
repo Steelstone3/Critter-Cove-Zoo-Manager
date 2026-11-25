@@ -1,8 +1,4 @@
-use bevy::{
-    ecs::{event::EventWriter, system::Commands},
-    math::Vec3,
-    transform::components::Transform,
-};
+use bevy::{ecs::{message::MessageWriter, system::Commands}, math::Vec3, transform::components::Transform};
 
 use crate::{
     assets::images::world::terrain_sprites::TerrainSprite,
@@ -15,7 +11,7 @@ use crate::{
 
 pub fn spawn_world_terrain(
     mut commands: Commands,
-    mut spawn_sprite_event: EventWriter<SpawnSpriteEvent>,
+    mut spawn_sprite_event: MessageWriter<SpawnSpriteEvent>,
 ) {
     let terrain = Terrain::new(TerrainSprite::Grass1);
 

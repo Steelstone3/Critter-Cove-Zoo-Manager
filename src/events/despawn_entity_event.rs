@@ -1,6 +1,6 @@
-use bevy::ecs::{entity::Entity, event::Event};
+use bevy::ecs::{entity::Entity, message::Message};
 
-#[derive(Event)]
+#[derive(Message)]
 pub struct DespawnEntityEvent {
     pub entity: Entity,
 }

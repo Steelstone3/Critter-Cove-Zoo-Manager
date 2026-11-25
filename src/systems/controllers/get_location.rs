@@ -1,4 +1,4 @@
-use bevy::{math::Vec2, render::camera::Projection, transform::components::Transform};
+use bevy::{camera::Projection, math::Vec2, transform::components::Transform};
 
 use crate::{
     components::constants::TILE_SIZE,
@@ -10,8 +10,8 @@ use crate::{
 pub fn get_cursor_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
-    window: WindowQueryItem<'_>,
-    camera: CameraTransformProjectionQueryItem<'_>,
+    window: WindowQueryItem<'_, '_>,
+    camera: CameraTransformProjectionQueryItem<'_, '_>,
 ) {
     if let Projection::Orthographic(orthographic_projection) = camera.projection {
         transform.translation.x = ((cursor_position.x - window.window.resolution.width() / 2.0)
@@ -26,8 +26,8 @@ pub fn get_cursor_location(
 pub fn get_tile_location(
     transform: &mut Transform,
     cursor_position: bevy::prelude::Vec2,
-    window: WindowQueryItem<'_>,
-    camera: CameraTransformProjectionQueryItem<'_>,
+    window: WindowQueryItem<'_, '_>,
+    camera: CameraTransformProjectionQueryItem<'_, '_>,
 ) {
     get_cursor_location(transform, cursor_position, window, camera);
 

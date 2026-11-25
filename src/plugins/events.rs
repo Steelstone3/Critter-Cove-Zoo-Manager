@@ -10,9 +10,9 @@ pub struct EventsPlugin;
 
 impl Plugin for EventsPlugin {
     fn build(&self, app: &mut App) {
-        app.add_event::<SpawnAnimatedSpriteEvent>()
-            .add_event::<SpawnSpriteEvent>()
-            .add_event::<DespawnEntityEvent>()
-            .add_event::<SpawnSoundEvent>();
+        app.add_message::<SpawnAnimatedSpriteEvent>()
+            .add_message::<SpawnSpriteEvent>()
+            .add_message::<DespawnEntityEvent>()
+            .add_message::<SpawnSoundEvent>();
     }
 }

@@ -1,10 +1,10 @@
+use bevy::prelude::PluginGroup;
 use bevy::{
     app::App,
-    render::texture::ImagePlugin,
-    window::{Window, WindowPlugin, WindowResizeConstraints},
+    image::ImagePlugin,
+    window::{Window, WindowPlugin, WindowResizeConstraints, WindowResolution},
     DefaultPlugins,
 };
-use bevy::prelude::PluginGroup;
 use bevy_egui::EguiPlugin;
 use plugins::{
     event_handlers::EventHandlersPlugin, events::EventsPlugin, resources::ResourcesPlugin,
@@ -27,7 +27,7 @@ fn main() {
                 .set(WindowPlugin {
                     primary_window: Some(Window {
                         title: "Critter Cove: Zoo Manager".to_string(),
-                        resolution: (640.0_f32, 480.0).into(),
+                        resolution: WindowResolution::new(640, 480),
                         resize_constraints: WindowResizeConstraints {
                             min_width: 640.0,
                             min_height: 480.0,

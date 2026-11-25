@@ -3,21 +3,14 @@ use crate::{
     events::spawn_animated_sprite_event::SpawnAnimatedSpriteEvent,
 };
 use bevy::{
-    asset::{AssetServer, Assets},
-    ecs::{
-        event::EventReader,
-        system::{Commands, Res, ResMut},
-    },
-    image::{TextureAtlas, TextureAtlasLayout},
-    math::UVec2,
-    sprite::Sprite,
+    asset::{AssetServer, Assets}, ecs::{message::MessageReader, system::{Commands, Res, ResMut}}, image::{TextureAtlas, TextureAtlasLayout}, math::UVec2, sprite::Sprite,
 };
 
 pub fn spawn_animated_sprite(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
-    mut spawn_animated_sprite_events: EventReader<SpawnAnimatedSpriteEvent>,
+    mut spawn_animated_sprite_events: MessageReader<SpawnAnimatedSpriteEvent>,
 ) {
     for spawn_animated_sprite_event in spawn_animated_sprite_events.read() {
         let layout = TextureAtlasLayout::from_grid(
