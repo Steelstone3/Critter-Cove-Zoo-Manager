@@ -1,4 +1,4 @@
-use rand::{rngs::StdRng, Rng, RngCore, SeedableRng};
+use rand::{Rng, RngExt, SeedableRng, rngs::StdRng};
 use std::ops::Range;
 
 pub fn random_value_f32(seed: u64, range: Range<f32>) -> f32 {

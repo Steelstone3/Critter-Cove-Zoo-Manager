@@ -1,4 +1,4 @@
-use rand::Rng;
+use rand::{Rng, RngExt};
 use rand_distr::{Distribution, StandardUniform};
 use std::fmt::Display;
 

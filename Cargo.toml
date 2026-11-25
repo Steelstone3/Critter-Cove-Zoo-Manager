@@ -3,7 +3,6 @@ name = "critter-cove-zoo-manager"
 version = "0.8.5"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
-homepage = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
 repository = "https://github.com/Steelstone3/Critter-Cove-Zoo-Manager"
 license = "GPLv3"
 readme = "README.md"
@@ -21,11 +20,11 @@ bevy = "0.16"
 bevy_egui = "0.36"
 
 # Up To Date Dependencies
-rayon = "1"
-rstest = "0"
+#rayon = "1"
 rand = "0"
 rand_distr = "0"
 float-lerp = "0"
+rstest = "0"
 
 [workspace]
 resolver = "2"
